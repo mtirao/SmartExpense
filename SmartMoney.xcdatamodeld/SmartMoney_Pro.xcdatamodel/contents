@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Accounts" representedClassName="Accounts" syncable="YES">
+        <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" defaultValueString="ACCOUNT NUMBER" syncable="YES"/>
+        <attribute name="routing" optional="YES" attributeType="String" defaultValueString="ROUTING NUMBER" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Banks" inverseName="accounts" inverseEntity="Banks" syncable="YES"/>
+        <relationship name="currency" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Currencies" inverseName="accounts" inverseEntity="Currencies" syncable="YES"/>
+        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Expenses" inverseName="account" inverseEntity="Expenses" syncable="YES"/>
+    </entity>
+    <entity name="Banks" representedClassName="Banks" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" defaultValueString="NO ADDRESS" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" defaultValueString="NO CITY" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" defaultValueString="NO COUNTRY" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="NO NAME" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" defaultValueString="NO STATE" syncable="YES"/>
+        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Accounts" inverseName="bank" inverseEntity="Accounts" syncable="YES"/>
+    </entity>
+    <entity name="Checks" representedClassName="Checks" syncable="YES">
+        <attribute name="bank" optional="YES" attributeType="String" defaultValueString="BANK NAME" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" defaultValueString="CHECK NUMBER" syncable="YES"/>
+        <attribute name="ownername" optional="YES" attributeType="String" defaultValueString="NO NAME" syncable="YES"/>
+        <relationship name="expenses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expenses" inverseName="check" inverseEntity="Expenses" syncable="YES"/>
+    </entity>
+    <entity name="Currencies" representedClassName="Currencies" syncable="YES">
+        <attribute name="exchangeratio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="NO NAME" syncable="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String" defaultValueString="$" syncable="YES"/>
+        <relationship name="accounts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="currency" inverseEntity="Accounts" syncable="YES"/>
+    </entity>
+    <entity name="Expenses" representedClassName="Expenses" syncable="YES">
+        <attribute name="due" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="storename" optional="YES" attributeType="String" defaultValueString="STORE NAME" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="SOME TYPE" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="expenses" inverseEntity="Accounts" syncable="YES"/>
+        <relationship name="check" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Checks" inverseName="expenses" inverseEntity="Checks" syncable="YES"/>
+        <relationship name="transfer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Transfer" inverseName="expenses" inverseEntity="Transfer" syncable="YES"/>
+    </entity>
+    <entity name="Transfer" representedClassName="Transfer" syncable="YES">
+        <attribute name="bank" optional="YES" attributeType="String" defaultValueString="NO BANK" syncable="YES"/>
+        <attribute name="owername" optional="YES" attributeType="String" defaultValueString="NO NAME" syncable="YES"/>
+        <attribute name="ownerid" optional="YES" attributeType="String" defaultValueString="NO ID" syncable="YES"/>
+        <attribute name="ownermail" optional="YES" attributeType="String" defaultValueString="SOMEBODY@SOMEDOMAIN" syncable="YES"/>
+        <attribute name="ownerphone" optional="YES" attributeType="String" defaultValueString="NO PHONE" syncable="YES"/>
+        <attribute name="rountingnumber" optional="YES" attributeType="String" defaultValueString="NO ROUTING NUMBER" syncable="YES"/>
+        <relationship name="expenses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expenses" inverseName="transfer" inverseEntity="Expenses" syncable="YES"/>
+    </entity>
+    <configuration name="CloudConfig">
+        <memberEntity name="Accounts"/>
+        <memberEntity name="Banks"/>
+        <memberEntity name="Checks"/>
+        <memberEntity name="Currencies"/>
+        <memberEntity name="Expenses"/>
+        <memberEntity name="Transfer"/>
+    </configuration>
+    <configuration name="LocalConfig">
+        <memberEntity name="Accounts"/>
+        <memberEntity name="Banks"/>
+        <memberEntity name="Checks"/>
+        <memberEntity name="Currencies"/>
+        <memberEntity name="Expenses"/>
+        <memberEntity name="Transfer"/>
+    </configuration>
+    <elements>
+        <element name="Accounts" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Banks" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Checks" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Currencies" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Expenses" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Transfer" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

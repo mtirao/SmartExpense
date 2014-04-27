@@ -13,6 +13,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize  smartFuelDelegate;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -121,8 +122,10 @@
 }
 
 // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
+//Also performs the save action for the others application.
 - (IBAction)saveAction:(id)sender
 {
+    
     NSError *error = nil;
     
     if (![[self managedObjectContext] commitEditing]) {
@@ -132,7 +135,15 @@
     if (![[self managedObjectContext] save:&error]) {
         [[NSApplication sharedApplication] presentError:error];
     }
+    
+    [self.smartFuelDelegate saveAction:sender];
+    [self.smartListDelegate saveAction:sender];
 }
+
+-(IBAction)showWindow:(id)sender {
+    
+}
+
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
