@@ -27,6 +27,6 @@
 
 - (IBAction)showWindow:(id)sender;
 - (IBAction)dispersionGraph:(id)sender;
--(IBAction)modelSelection:(id)sender;
+- (IBAction)modelSelection:(id)sender;
 
 @end

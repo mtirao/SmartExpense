@@ -7,11 +7,20 @@
 //
 
 #import "SMSmartMoneyDelegate.h"
+#import "List.h"
+#import "Store.h"
+#import "Expenses.h"
+#import "Model.h"
+#import "Fuel.h"
 
 @implementation SMSmartMoneyDelegate
 
 
 @synthesize mainWindow;
+@synthesize listPanel;
+@synthesize fuelPanel;
+@synthesize expenseType;
+@synthesize listEntity, modelEntity, selectedExpense;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
@@ -167,7 +176,11 @@
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+    return [appSupportURL URLByAppendingPathComponent:@"ar.com.argsoftsolutions.SmartExpense"];
+    
+    //return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 #pragma mark - Application's Action
@@ -188,6 +201,75 @@
 
 -(IBAction)showWindow:(id)sender {
     [mainWindow makeKeyAndOrderFront:sender];
+}
+
+- (IBAction)showListInfo:(id)sender {
+    
+    NSString * value = expenseType.titleOfSelectedItem;
+    
+    if([value isEqualToString:@"Fuel"]) {
+        [NSApp beginSheet:fuelPanel modalForWindow:mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }else {
+    
+        [NSApp beginSheet:listPanel modalForWindow:mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }
+    
+}
+
+
+- (IBAction)okListInfo:(id)sender {
+    
+    NSString * value = expenseType.titleOfSelectedItem;
+    NSArray* destination = [selectedExpense selectedObjects];
+    
+    if([value isEqualToString:@"Fuel"]) {
+        NSArray* source = [modelEntity selectedObjects];
+        
+        if(source != nil && [source count] > 0 && destination !=nil && [destination count] > 0) {
+            Model *model = [source objectAtIndex:0];
+            
+            float total = 0;
+            for(Fuel *f in model.fuel) {
+                total += f.amount.floatValue * f.price.floatValue;
+            }
+            
+            Expenses *expense = [destination objectAtIndex:0];
+            expense.type = @"Fuel";
+            expense.storename = model.name;
+            expense.total = [NSNumber numberWithFloat:total];
+            
+        }
+        
+        [NSApp endSheet:fuelPanel];
+        [fuelPanel orderOut:sender];
+    }else {
+        NSArray* source = [listEntity selectedObjects];
+    
+        if(source != nil && [source count] > 0 && destination !=nil && [destination count] > 0) {
+            List *list = [source objectAtIndex:0];
+            NSString *storeName = [NSString stringWithFormat:@"%@ - %@", list.name, list.store.name];
+        
+            Expenses *expense = [destination objectAtIndex:0];
+        
+            expense.storename = storeName;
+        }
+    
+        [NSApp endSheet:listPanel];
+        [listPanel orderOut:sender];
+    }
+    
+}
+
+- (IBAction)cancelListInfo:(id)sender {
+    NSString * value = expenseType.titleOfSelectedItem;
+    
+    if([value isEqualToString:@"Fuel"]) {
+        [NSApp endSheet:fuelPanel];
+        [fuelPanel orderOut:sender];
+    }else {
+        [NSApp endSheet:listPanel];
+        [listPanel orderOut:sender];
+    }
 }
 
 @end

@@ -1,20 +1,21 @@
 //
-//  SMItemController.m
+//  SMExpenseController.m
 //  SmartExpense
 //
-//  Created by Marcos Tirao on 4/27/14.
+//  Created by Marcos Tirao on 5/1/14.
 //  Copyright (c) 2014 Marcos Tirao. All rights reserved.
 //
 
-#import "SMItemController.h"
-#import "Items.h"
-#import "List.h"
+#import "SMExpenseController.h"
+#import "Expenses.h"
+#import "Accounts.h"
 
-@implementation SMItemController
+@implementation SMExpenseController
 
 @synthesize appDelegate;
 @synthesize dataSource;
 @synthesize dataDestination;
+
 
 - (IBAction)addAction:(id)sender {
     
@@ -24,20 +25,21 @@
         NSUInteger count = source.count;
         
         if(count > 0) {
-            List* selectedList = [source objectAtIndex:0];
+            Accounts* selectedAccount = [source objectAtIndex:0];
             NSManagedObjectContext *context = [appDelegate managedObjectContext];
-            Items* item = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+            Expenses* expense = [NSEntityDescription insertNewObjectForEntityForName:@"Expenses" inManagedObjectContext:context];
         
-            [selectedList addItemsObject:item];
-            item.list = selectedList;
+            [selectedAccount addExpensesObject:expense];
+            expense.account = selectedAccount;
         }else {
             NSAlert *alert = [[NSAlert alloc]init];
-            [alert setInformativeText:@"You should first add a Car Model"];
+            [alert setInformativeText:@"You should first add a bank Account"];
             [alert addButtonWithTitle:@"Ok"];
             void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
             [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
         }
     }
+    
 }
 
 - (IBAction)removeAction:sender {

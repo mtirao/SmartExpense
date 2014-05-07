@@ -19,6 +19,7 @@
 		B66BF3C9190DB34F00905F01 /* Accounts.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3C8190DB34E00905F01 /* Accounts.m */; };
 		B66BF3CC190DB34F00905F01 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3CB190DB34F00905F01 /* Transfer.m */; };
 		B66BF3CF190DB34F00905F01 /* Expenses.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3CE190DB34F00905F01 /* Expenses.m */; };
+		B66BF3D2190DD90C00905F01 /* SMAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3D1190DD90C00905F01 /* SMAccountController.m */; };
 		B68A44DB18E6035D00804DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A44DA18E6035D00804DFC /* Cocoa.framework */; };
 		B68A44E518E6035D00804DFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A44E318E6035D00804DFC /* InfoPlist.strings */; };
 		B68A44E718E6035D00804DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A44E618E6035D00804DFC /* main.m */; };
@@ -31,6 +32,7 @@
 		B68A44FE18E6035D00804DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A44DA18E6035D00804DFC /* Cocoa.framework */; };
 		B68A450618E6035D00804DFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A450418E6035D00804DFC /* InfoPlist.strings */; };
 		B68A450818E6035D00804DFC /* SmartExpenseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A450718E6035D00804DFC /* SmartExpenseTests.m */; };
+		B6A4B47C191706AF003EFB12 /* SMExpenseSchedController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A4B47B191706AF003EFB12 /* SMExpenseSchedController.m */; };
 		B6A8D33E190D5E7000F03AD1 /* SMItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A8D33D190D5E7000F03AD1 /* SMItemController.m */; };
 		B6B9A2531901ADB7000FD70E /* SMFuelGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2521901ADB7000FD70E /* SMFuelGraphView.m */; };
 		B6B9A25B1901ADF6000FD70E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2571901ADF6000FD70E /* Model.m */; };
@@ -39,11 +41,14 @@
 		B6B9A2621901BE62000FD70E /* SMNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2611901BE62000FD70E /* SMNumberFormatter.m */; };
 		B6B9A2651901D25D000FD70E /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2641901D25D000FD70E /* Fuel.m */; };
 		B6C21A3C1900998600736BA1 /* SMPriceCellValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */; };
+		B6E87401191AA71D0078DA2A /* SMStaticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E87400191AA71D0078DA2A /* SMStaticsController.m */; };
 		B6F8925D190C7A110014F52A /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F8925C190C7A110014F52A /* Categories.m */; };
 		B6F89260190C7A120014F52A /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F8925F190C7A120014F52A /* List.m */; };
 		B6F89263190C7A120014F52A /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F89262190C7A120014F52A /* Items.m */; };
 		B6F89266190C7A120014F52A /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F89265190C7A120014F52A /* Store.m */; };
 		B6F89269190D4C170014F52A /* SMListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F89268190D4C170014F52A /* SMListController.m */; };
+		B6FC3DCC191308D2000E7AE6 /* SMExpenseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FC3DCB191308D2000E7AE6 /* SMExpenseController.m */; };
+		B6FD0CEF190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FD0CEE190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,8 @@
 		B66BF3CB190DB34F00905F01 /* Transfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transfer.m; path = SmartExpense/Transfer.m; sourceTree = "<group>"; };
 		B66BF3CD190DB34F00905F01 /* Expenses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Expenses.h; path = SmartExpense/Expenses.h; sourceTree = "<group>"; };
 		B66BF3CE190DB34F00905F01 /* Expenses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Expenses.m; path = SmartExpense/Expenses.m; sourceTree = "<group>"; };
+		B66BF3D0190DD90C00905F01 /* SMAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAccountController.h; path = SmartExpense/SMAccountController.h; sourceTree = "<group>"; };
+		B66BF3D1190DD90C00905F01 /* SMAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAccountController.m; path = SmartExpense/SMAccountController.m; sourceTree = "<group>"; };
 		B68A44D718E6035D00804DFC /* SmartExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68A44DA18E6035D00804DFC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B68A44DD18E6035D00804DFC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -99,6 +106,8 @@
 		B68A450318E6035D00804DFC /* SmartExpenseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartExpenseTests-Info.plist"; sourceTree = "<group>"; };
 		B68A450518E6035D00804DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B68A450718E6035D00804DFC /* SmartExpenseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartExpenseTests.m; sourceTree = "<group>"; };
+		B6A4B47A191706AF003EFB12 /* SMExpenseSchedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMExpenseSchedController.h; path = SmartExpense/SMExpenseSchedController.h; sourceTree = "<group>"; };
+		B6A4B47B191706AF003EFB12 /* SMExpenseSchedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMExpenseSchedController.m; path = SmartExpense/SMExpenseSchedController.m; sourceTree = "<group>"; };
 		B6A8D33C190D5E7000F03AD1 /* SMItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMItemController.h; path = SmartExpense/SMItemController.h; sourceTree = "<group>"; };
 		B6A8D33D190D5E7000F03AD1 /* SMItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMItemController.m; path = SmartExpense/SMItemController.m; sourceTree = "<group>"; };
 		B6B9A2511901ADB7000FD70E /* SMFuelGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFuelGraphView.h; path = SmartExpense/SMFuelGraphView.h; sourceTree = "<group>"; };
@@ -113,8 +122,10 @@
 		B6B9A2611901BE62000FD70E /* SMNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNumberFormatter.m; sourceTree = "<group>"; };
 		B6B9A2631901D25D000FD70E /* Fuel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fuel.h; path = SmartExpense/Fuel.h; sourceTree = "<group>"; };
 		B6B9A2641901D25D000FD70E /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fuel.m; path = SmartExpense/Fuel.m; sourceTree = "<group>"; };
-		B6C21A3A1900998600736BA1 /* SMPriceCellValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPriceCellValueTransformer.h; path = SmartExpense/SMPriceCellValueTransformer.h; sourceTree = "<group>"; };
-		B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPriceCellValueTransformer.m; path = SmartExpense/SMPriceCellValueTransformer.m; sourceTree = "<group>"; };
+		B6C21A3A1900998600736BA1 /* SMPriceCellValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPriceCellValueTransformer.h; sourceTree = "<group>"; };
+		B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPriceCellValueTransformer.m; sourceTree = "<group>"; };
+		B6E873FF191AA71D0078DA2A /* SMStaticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMStaticsController.h; path = SmartExpense/SMStaticsController.h; sourceTree = "<group>"; };
+		B6E87400191AA71D0078DA2A /* SMStaticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMStaticsController.m; path = SmartExpense/SMStaticsController.m; sourceTree = "<group>"; };
 		B6F8925B190C7A110014F52A /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categories.h; path = SmartExpense/Categories.h; sourceTree = "<group>"; };
 		B6F8925C190C7A110014F52A /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categories.m; path = SmartExpense/Categories.m; sourceTree = "<group>"; };
 		B6F8925E190C7A120014F52A /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = SmartExpense/List.h; sourceTree = "<group>"; };
@@ -125,6 +136,10 @@
 		B6F89265190C7A120014F52A /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Store.m; path = SmartExpense/Store.m; sourceTree = "<group>"; };
 		B6F89267190D4C170014F52A /* SMListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListController.h; path = SmartExpense/SMListController.h; sourceTree = "<group>"; };
 		B6F89268190D4C170014F52A /* SMListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListController.m; path = SmartExpense/SMListController.m; sourceTree = "<group>"; };
+		B6FC3DCA191308D2000E7AE6 /* SMExpenseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMExpenseController.h; path = SmartExpense/SMExpenseController.h; sourceTree = "<group>"; };
+		B6FC3DCB191308D2000E7AE6 /* SMExpenseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMExpenseController.m; path = SmartExpense/SMExpenseController.m; sourceTree = "<group>"; };
+		B6FD0CED190FF4A4006FCE63 /* SMAccountTypeValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAccountTypeValueTransformer.h; sourceTree = "<group>"; };
+		B6FD0CEE190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAccountTypeValueTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +203,14 @@
 				B66BF3BF190DB34E00905F01 /* Banks.m */,
 				B63F543418E7949800CDB6CA /* SMSmartMoneyDelegate.h */,
 				B63F543518E7949800CDB6CA /* SMSmartMoneyDelegate.m */,
+				B66BF3D0190DD90C00905F01 /* SMAccountController.h */,
+				B66BF3D1190DD90C00905F01 /* SMAccountController.m */,
+				B6FC3DCA191308D2000E7AE6 /* SMExpenseController.h */,
+				B6FC3DCB191308D2000E7AE6 /* SMExpenseController.m */,
+				B6A4B47A191706AF003EFB12 /* SMExpenseSchedController.h */,
+				B6A4B47B191706AF003EFB12 /* SMExpenseSchedController.m */,
+				B6E873FF191AA71D0078DA2A /* SMStaticsController.h */,
+				B6E87400191AA71D0078DA2A /* SMStaticsController.m */,
 			);
 			name = SmartMoney;
 			sourceTree = "<group>";
@@ -204,8 +227,6 @@
 				B6B9A2641901D25D000FD70E /* Fuel.m */,
 				B63F543D18E796C700CDB6CA /* SMSmartFuelDelegate.h */,
 				B63F543E18E796C700CDB6CA /* SMSmartFuelDelegate.m */,
-				B6C21A3A1900998600736BA1 /* SMPriceCellValueTransformer.h */,
-				B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */,
 				B6B9A2511901ADB7000FD70E /* SMFuelGraphView.h */,
 				B6B9A2521901ADB7000FD70E /* SMFuelGraphView.m */,
 			);
@@ -257,6 +278,8 @@
 		B68A44E018E6035D00804DFC /* SmartExpense */ = {
 			isa = PBXGroup;
 			children = (
+				B6C21A3A1900998600736BA1 /* SMPriceCellValueTransformer.h */,
+				B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */,
 				B63F544318E8D93D00CDB6CA /* SmartExpense.entitlements */,
 				B68A44EC18E6035D00804DFC /* SMAppDelegate.h */,
 				B68A44ED18E6035D00804DFC /* SMAppDelegate.m */,
@@ -268,6 +291,8 @@
 				B6B9A25E1901BC7E000FD70E /* SMDateFormatter.m */,
 				B6B9A2601901BE62000FD70E /* SMNumberFormatter.h */,
 				B6B9A2611901BE62000FD70E /* SMNumberFormatter.m */,
+				B6FD0CED190FF4A4006FCE63 /* SMAccountTypeValueTransformer.h */,
+				B6FD0CEE190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m */,
 			);
 			path = SmartExpense;
 			sourceTree = "<group>";
@@ -419,6 +444,7 @@
 				B6F89266190C7A120014F52A /* Store.m in Sources */,
 				B66BF3CF190DB34F00905F01 /* Expenses.m in Sources */,
 				B638A440190AD25D00431D34 /* SmartList.xcdatamodeld in Sources */,
+				B6FC3DCC191308D2000E7AE6 /* SMExpenseController.m in Sources */,
 				B6C21A3C1900998600736BA1 /* SMPriceCellValueTransformer.m in Sources */,
 				B66BF3BD190DB10C00905F01 /* SmartMoney.xcdatamodeld in Sources */,
 				B6B9A2621901BE62000FD70E /* SMNumberFormatter.m in Sources */,
@@ -428,13 +454,17 @@
 				B6B9A25C1901ADF6000FD70E /* SMFuelController.m in Sources */,
 				B68A44E718E6035D00804DFC /* main.m in Sources */,
 				B6B9A25F1901BC7E000FD70E /* SMDateFormatter.m in Sources */,
+				B6E87401191AA71D0078DA2A /* SMStaticsController.m in Sources */,
 				B6A8D33E190D5E7000F03AD1 /* SMItemController.m in Sources */,
 				B6F89263190C7A120014F52A /* Items.m in Sources */,
+				B66BF3D2190DD90C00905F01 /* SMAccountController.m in Sources */,
 				B6B9A25B1901ADF6000FD70E /* Model.m in Sources */,
+				B6A4B47C191706AF003EFB12 /* SMExpenseSchedController.m in Sources */,
 				B6B9A2651901D25D000FD70E /* Fuel.m in Sources */,
 				B66BF3C9190DB34F00905F01 /* Accounts.m in Sources */,
 				B6F8925D190C7A110014F52A /* Categories.m in Sources */,
 				B68A44F418E6035D00804DFC /* SmartExpense.xcdatamodeld in Sources */,
+				B6FD0CEF190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m in Sources */,
 				B66BF3C6190DB34E00905F01 /* Currencies.m in Sources */,
 				B63F543618E7949800CDB6CA /* SMSmartMoneyDelegate.m in Sources */,
 			);

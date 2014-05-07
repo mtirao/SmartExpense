@@ -15,9 +15,19 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
+@property (weak, nonatomic) IBOutlet NSPanel* listPanel;
+@property (weak, nonatomic) IBOutlet NSPanel* fuelPanel;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* expenseType;
+@property (assign) IBOutlet NSArrayController *listEntity;
+@property (assign) IBOutlet NSArrayController *modelEntity;
+@property (assign) IBOutlet NSArrayController *selectedExpense;
 
 
--(IBAction)showWindow:(id)sender;
 
+- (void)saveAction:(id)sender;
+- (IBAction)showWindow:(id)sender;
+- (IBAction)showListInfo:(id)sender;
+- (IBAction)okListInfo:(id)sender;
+- (IBAction)cancelListInfo:(id)sender;
 
 @end

@@ -9,12 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import "SMSmartFuelDelegate.h"
 #import "SMSmartListDelegate.h"
+#import "SMSmartMoneyDelegate.h"
 
 @interface SMAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet SMSmartFuelDelegate *smartFuelDelegate;
 @property (assign) IBOutlet SMSmartListDelegate *smartListDelegate;
+@property (assign) IBOutlet SMSmartMoneyDelegate *smartMoneyDelegate;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -24,6 +25,5 @@
 
 - (IBAction)saveAction:(id)sender;
 
-- (IBAction)showWindow:(id)sender;
 
 @end

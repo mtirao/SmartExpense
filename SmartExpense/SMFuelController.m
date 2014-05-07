@@ -22,12 +22,21 @@
     NSArray* source = [dataSource selectedObjects];
     
     if(source != nil)  {
-        Model* selectedModel = [source objectAtIndex:0];
-        NSManagedObjectContext *context = [appDelegate managedObjectContext];
-        Fuel* fuel = [NSEntityDescription insertNewObjectForEntityForName:@"Fuel" inManagedObjectContext:context];
+        NSUInteger count = source.count;
+        if (count > 0) {
+            Model* selectedModel = [source objectAtIndex:0];
+            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            Fuel* fuel = [NSEntityDescription insertNewObjectForEntityForName:@"Fuel" inManagedObjectContext:context];
         
-        [selectedModel addFuelObject:fuel];
-        fuel.model = selectedModel;
+            [selectedModel addFuelObject:fuel];
+            fuel.model = selectedModel;
+        }else {
+            NSAlert *alert = [[NSAlert alloc]init];
+            [alert setInformativeText:@"You should first add a Car Model"];
+            [alert addButtonWithTitle:@"Ok"];
+            void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
+            [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
+        }
     }
 }
 

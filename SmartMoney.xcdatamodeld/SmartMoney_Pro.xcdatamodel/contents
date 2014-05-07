@@ -2,11 +2,13 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Accounts" representedClassName="Accounts" syncable="YES">
         <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currencyname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currencysymbol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exchangeratio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" defaultValueString="ACCOUNT NUMBER" syncable="YES"/>
         <attribute name="routing" optional="YES" attributeType="String" defaultValueString="ROUTING NUMBER" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="bank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Banks" inverseName="accounts" inverseEntity="Banks" syncable="YES"/>
-        <relationship name="currency" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Currencies" inverseName="accounts" inverseEntity="Currencies" syncable="YES"/>
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Expenses" inverseName="account" inverseEntity="Expenses" syncable="YES"/>
     </entity>
     <entity name="Banks" representedClassName="Banks" syncable="YES">
@@ -24,13 +26,11 @@
         <attribute name="ownername" optional="YES" attributeType="String" defaultValueString="NO NAME" syncable="YES"/>
         <relationship name="expenses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expenses" inverseName="check" inverseEntity="Expenses" syncable="YES"/>
     </entity>
-    <entity name="Currencies" representedClassName="Currencies" syncable="YES">
-        <attribute name="exchangeratio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" defaultValueString="NO NAME" syncable="YES"/>
-        <attribute name="symbol" optional="YES" attributeType="String" defaultValueString="$" syncable="YES"/>
-        <relationship name="accounts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="currency" inverseEntity="Accounts" syncable="YES"/>
-    </entity>
     <entity name="Expenses" representedClassName="Expenses" syncable="YES">
+        <attribute name="checkbank" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="checkdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="checknumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="checkownername" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="due" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="storename" optional="YES" attributeType="String" defaultValueString="STORE NAME" syncable="YES"/>
         <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -52,7 +52,6 @@
         <memberEntity name="Accounts"/>
         <memberEntity name="Banks"/>
         <memberEntity name="Checks"/>
-        <memberEntity name="Currencies"/>
         <memberEntity name="Expenses"/>
         <memberEntity name="Transfer"/>
     </configuration>
@@ -60,7 +59,6 @@
         <memberEntity name="Accounts"/>
         <memberEntity name="Banks"/>
         <memberEntity name="Checks"/>
-        <memberEntity name="Currencies"/>
         <memberEntity name="Expenses"/>
         <memberEntity name="Transfer"/>
     </configuration>
@@ -68,7 +66,6 @@
         <element name="Accounts" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Banks" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Checks" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Currencies" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Expenses" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Transfer" positionX="0" positionY="0" width="0" height="0"/>
     </elements>

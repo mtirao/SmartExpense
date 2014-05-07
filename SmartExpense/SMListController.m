@@ -22,12 +22,22 @@
     NSArray* source = [dataSource selectedObjects];
     
     if(source != nil)  {
-        Store* selectedStore = [source objectAtIndex:0];
-        NSManagedObjectContext *context = [appDelegate managedObjectContext];
-        List* list = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
+        NSUInteger count = source.count;
         
-        [selectedStore addListsObject:list];
-        list.store = selectedStore;
+        if(count > 0) {
+            Store* selectedStore = [source objectAtIndex:0];
+            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            List* list = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
+        
+            [selectedStore addListsObject:list];
+            list.store = selectedStore;
+        }else {
+            NSAlert *alert = [[NSAlert alloc]init];
+            [alert setInformativeText:@"You should first add an Store"];
+            [alert addButtonWithTitle:@"Ok"];
+            void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
+            [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
+        }
     }
 }
 

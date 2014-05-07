@@ -13,7 +13,9 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize  smartFuelDelegate;
+@synthesize smartFuelDelegate;
+@synthesize smartListDelegate;
+@synthesize smartMoneyDelegate;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -138,10 +140,7 @@
     
     [self.smartFuelDelegate saveAction:sender];
     [self.smartListDelegate saveAction:sender];
-}
-
--(IBAction)showWindow:(id)sender {
-    
+    [self.smartMoneyDelegate saveAction:sender];
 }
 
 
