@@ -25,14 +25,14 @@
         
         if(count > 0) {
             List* selectedList = [source objectAtIndex:0];
-            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            NSManagedObjectContext *context = [appDelegate.delegate managedObjectContext];
             Items* item = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
         
             [selectedList addItemsObject:item];
             item.list = selectedList;
         }else {
             NSAlert *alert = [[NSAlert alloc]init];
-            [alert setInformativeText:@"You should first add a Car Model"];
+            [alert setInformativeText:@"You should first add a shopping List"];
             [alert addButtonWithTitle:@"Ok"];
             void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
             [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];

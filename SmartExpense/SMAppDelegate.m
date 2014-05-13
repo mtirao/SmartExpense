@@ -13,13 +13,11 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize smartFuelDelegate;
-@synthesize smartListDelegate;
-@synthesize smartMoneyDelegate;
+@synthesize datePicker;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    [datePicker setDateValue:[NSDate date]];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "ar.com.argsoftsolutions.SmartExpense" in the user's Application Support directory.
@@ -30,91 +28,159 @@
     return [appSupportURL URLByAppendingPathComponent:@"ar.com.argsoftsolutions.SmartExpense"];
 }
 
-// Creates if necessary and returns the managed object model for the application.
+#pragma mark - Core Data stack
+
+// Returns the managed object context for the application.
+// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    
+    if (coordinator != nil) {
+        NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        
+        [moc performBlockAndWait:^{
+            [moc setPersistentStoreCoordinator: coordinator];
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(mergeChangesFrom_iCloud:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:coordinator];
+        }];
+        _managedObjectContext = moc;
+    }
+    
+    return _managedObjectContext;
+}
+
+// Returns the managed object model for the application.
+// If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel
 {
-    if (_managedObjectModel) {
+    if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-	
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SmartExpense" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
 
-// Returns the persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.)
+
+// Returns the persistent store coordinator for the application.
+// If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (_persistentStoreCoordinator) {
+    if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
     
-    NSManagedObjectModel *mom = [self managedObjectModel];
-    if (!mom) {
-        NSLog(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
-        return nil;
-    }
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
+    
+    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    
+    
     NSError *error = nil;
     
-    NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:@[NSURLIsDirectoryKey] error:&error];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *iCloud = [fileManager URLForUbiquityContainerIdentifier:@"E5YV4NK229.ar.com.argsoftsolutions.SmartExpense"];
     
-    if (!properties) {
-        BOOL ok = NO;
-        if ([error code] == NSFileReadNoSuchFileError) {
-            ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES attributes:nil error:&error];
+    if (iCloud != nil) {
+        
+        NSString *iCloudDataDirectoryName = @"Data.nosync";
+        
+        NSURL *localStoreURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SmartExpense.sqlite"];
+        
+        if([fileManager fileExistsAtPath:[[iCloud path] stringByAppendingPathComponent:iCloudDataDirectoryName]] == NO) {
+            NSError *fileSystemError;
+            [fileManager createDirectoryAtPath:[[iCloud path] stringByAppendingPathComponent:iCloudDataDirectoryName]
+                   withIntermediateDirectories:YES
+                                    attributes:nil
+                                         error:&fileSystemError];
+            if(fileSystemError != nil) {
+                NSLog(@"Error creating database directory %@", fileSystemError);
+            }
         }
-        if (!ok) {
-            [[NSApplication sharedApplication] presentError:error];
-            return nil;
+        
+        NSString *iCloudData = [[[iCloud path]
+                                 stringByAppendingPathComponent:iCloudDataDirectoryName]
+                                stringByAppendingPathComponent:@"SmartExpense.sqlite"];
+        
+        
+        NSDictionary *options = @{NSPersistentStoreUbiquitousContentNameKey: @"iCloudStore",
+                                  NSPersistentStoreUbiquitousContentURLKey: [iCloud URLByAppendingPathComponent:@"iCloudData"],
+                                  NSMigratePersistentStoresAutomaticallyOption:@YES,
+                                  NSInferMappingModelAutomaticallyOption:@YES};
+        
+        
+        [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                  configuration:@"CloudConfig"
+                                                            URL:[NSURL fileURLWithPath:iCloudData]
+                                                        options: options error:&error];
+        //NSDictionary *localOptions = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+        //                               NSInferMappingModelAutomaticallyOption:@YES};
+        
+        [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                  configuration:@"LocalConfig"
+                                                            URL:localStoreURL
+                                                        options:nil error:&error];
+        
+        if(error != nil) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
+        
     } else {
-        if (![properties[NSURLIsDirectoryKey] boolValue]) {
-            // Customize and localize this error.
-            NSString *failureDescription = [NSString stringWithFormat:@"Expected a folder to store application data, found a file (%@).", [applicationFilesDirectory path]];
-            
-            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-            [dict setValue:failureDescription forKey:NSLocalizedDescriptionKey];
-            error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:101 userInfo:dict];
-            
-            [[NSApplication sharedApplication] presentError:error];
-            return nil;
+        
+        NSDictionary *localOptions = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                                       NSInferMappingModelAutomaticallyOption:@YES};
+        
+        NSURL *localStoreURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SmartList.sqlite"];
+        
+        [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                  configuration:nil
+                                                            URL:localStoreURL
+                                                        options:localOptions error:&error];
+        if(error != nil) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
     }
     
-    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"SmartExpense.storedata"];
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-        return nil;
-    }
-    _persistentStoreCoordinator = coordinator;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:self userInfo:nil];
+    });
+    
+    // });
+    
     
     return _persistentStoreCoordinator;
 }
 
-// Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) 
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext) {
-        return _managedObjectContext;
-    }
+- (void)mergeChangesFrom_iCloud:(NSNotification *)notification {
     
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (!coordinator) {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        [dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
-        [dict setValue:@"There was an error building up the data file." forKey:NSLocalizedFailureReasonErrorKey];
-        NSError *error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
-        [[NSApplication sharedApplication] presentError:error];
-        return nil;
-    }
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
-    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+	NSLog(@"Merging in changes from iCloud...");
+    
+    NSManagedObjectContext* moc = [self managedObjectContext];
+    
+    [moc performBlock:^{
+        
+        [moc mergeChangesFromContextDidSaveNotification:notification];
+        
+        NSNotification* refreshNotification = [NSNotification notificationWithName:@"SomethingChanged"
+                                                                            object:self
+                                                                          userInfo:[notification userInfo]];
+        
+        [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
+    }];
+}
 
-    return _managedObjectContext;
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+    return [appSupportURL URLByAppendingPathComponent:@"ar.com.argsoftsolutions.SmartExpense"];
+    //return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
@@ -138,9 +204,6 @@
         [[NSApplication sharedApplication] presentError:error];
     }
     
-    [self.smartFuelDelegate saveAction:sender];
-    [self.smartListDelegate saveAction:sender];
-    [self.smartMoneyDelegate saveAction:sender];
 }
 
 

@@ -5,9 +5,6 @@
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
 		<string>$(TeamIdentifierPrefix)ar.com.argsoftsolutions.SmartExpense</string>
-		<string>$(TeamIdentifierPrefix)ar.com.argsoftsolutions.SmartListPro</string>
-		<string>$(TeamIdentifierPrefix)ar.com.argsoftsolutions.SmartFuel</string>
-		<string>$(TeamIdentifierPrefix)ar.com.argsoftsolutions.SmartMoneyPro</string>
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
 	<string>$(TeamIdentifierPrefix)$(CFBundleIdentifier)</string>

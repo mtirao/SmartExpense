@@ -13,6 +13,7 @@
 @implementation SMListController
 
 @synthesize appDelegate;
+@synthesize delegate;
 @synthesize dataSource;
 @synthesize dataDestination;
 
@@ -36,7 +37,7 @@
             [alert setInformativeText:@"You should first add an Store"];
             [alert addButtonWithTitle:@"Ok"];
             void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-            [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
+            [alert beginSheetModalForWindow:delegate.mainWindow completionHandler:returnCode];
         }
     }
 }

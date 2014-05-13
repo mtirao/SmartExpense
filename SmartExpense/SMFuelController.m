@@ -25,7 +25,7 @@
         NSUInteger count = source.count;
         if (count > 0) {
             Model* selectedModel = [source objectAtIndex:0];
-            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            NSManagedObjectContext *context = [appDelegate.delegate managedObjectContext];
             Fuel* fuel = [NSEntityDescription insertNewObjectForEntityForName:@"Fuel" inManagedObjectContext:context];
         
             [selectedModel addFuelObject:fuel];

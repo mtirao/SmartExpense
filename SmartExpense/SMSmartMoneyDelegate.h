@@ -7,24 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SMAppDelegate.h"
 
 @interface SMSmartMoneyDelegate : NSObject
 
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
 @property (weak, nonatomic) IBOutlet NSPanel* listPanel;
 @property (weak, nonatomic) IBOutlet NSPanel* fuelPanel;
 @property (weak, nonatomic) IBOutlet NSPopUpButton* expenseType;
+@property (weak, nonatomic) IBOutlet NSTabView *mainTabs;
+
 @property (assign) IBOutlet NSArrayController *listEntity;
 @property (assign) IBOutlet NSArrayController *modelEntity;
 @property (assign) IBOutlet NSArrayController *selectedExpense;
+@property (assign) IBOutlet SMAppDelegate *delegate;
 
-
-
-- (void)saveAction:(id)sender;
 - (IBAction)showWindow:(id)sender;
 - (IBAction)showListInfo:(id)sender;
 - (IBAction)okListInfo:(id)sender;

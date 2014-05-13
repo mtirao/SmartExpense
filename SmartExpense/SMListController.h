@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SMAppDelegate.h"
+#import "SMSmartListDelegate.h"
 
 @interface SMListController : NSObject
 
-@property (assign) IBOutlet SMSmartListDelegate *appDelegate;
+@property (assign) IBOutlet SMAppDelegate *appDelegate;
+@property (assign) IBOutlet SMSmartListDelegate *delegate;
 @property (assign) IBOutlet NSArrayController* dataSource;
 @property (assign) IBOutlet NSArrayController* dataDestination;
 

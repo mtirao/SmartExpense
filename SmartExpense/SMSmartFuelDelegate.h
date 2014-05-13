@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SMFuelGraphView.h"
+#import "SMAppDelegate.h"
 
 @interface SMSmartFuelDelegate : NSObject<NSControlTextEditingDelegate>
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet NSTextField* money;
 @property (weak, nonatomic) IBOutlet NSArrayController* selectedModel;
 @property (weak, nonatomic) IBOutlet SMFuelGraphView* graphView;
-
+@property (assign) IBOutlet SMAppDelegate* delegate;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

@@ -17,12 +17,22 @@
 @property (assign) IBOutlet SMSmartListDelegate *listDelegate;
 @property (assign) IBOutlet SMSmartFuelDelegate *fuelDelegate;
 
+@property (weak, nonatomic) IBOutlet NSWindow *staticsWindow;
+@property (weak, nonatomic) IBOutlet NSView *staticsView;
 
+@property (weak, nonatomic) IBOutlet NSPanel *itemPanel;
+@property (weak, nonatomic) IBOutlet NSButton *withIntervalRadio;
+@property (weak, nonatomic) IBOutlet NSButton *allItemRadio;
 
 -(IBAction)itemPrice:(id)sender;
 -(IBAction)totalItem:(id)sender;
 -(IBAction)totalExpense:(id)sender;
 -(IBAction)futureTotalExpense:(id)sender;
 -(IBAction)fuelConsumption:(id)sender;
+
+
+-(IBAction)graphItem:(id)sender;
+
+-(IBAction)radioSelected:(id)sender;
 
 @end

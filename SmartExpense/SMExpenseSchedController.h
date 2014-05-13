@@ -12,8 +12,17 @@
 @interface SMExpenseSchedController : NSObject
 
 @property (weak, nonatomic) IBOutlet NSPanel * mainWindow;
-@property (assign) IBOutlet SMSmartMoneyDelegate *delegate;
+@property (weak, nonatomic) IBOutlet NSPopUpButton *expensesType;
+@property (weak, nonatomic) IBOutlet NSPopUpButton *frequency;
+@property (weak, nonatomic) IBOutlet NSPopUpButton *selectedAccount;
+@property (weak, nonatomic) IBOutlet NSDatePicker *from;
+@property (weak, nonatomic) IBOutlet NSDatePicker *to;
+@property (weak, nonatomic) IBOutlet NSTextField *every;
+@property (weak, nonatomic) IBOutlet NSTextField *total;
+@property (weak, nonatomic) IBOutlet NSTextField *storename;
 
+@property (assign) IBOutlet SMSmartMoneyDelegate *appDelegate;
+@property (assign) IBOutlet NSArrayController* accounts;
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem;
 

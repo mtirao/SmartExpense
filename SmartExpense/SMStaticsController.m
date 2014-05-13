@@ -11,6 +11,9 @@
 @implementation SMStaticsController
 
 @synthesize moneyDelegate, listDelegate, fuelDelegate;
+@synthesize staticsView, staticsWindow;
+@synthesize itemPanel;
+@synthesize withIntervalRadio, allItemRadio;
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     
@@ -25,7 +28,7 @@
 #pragma mark ****** Action Method *******
 
 -(IBAction)itemPrice:(id)sender {
-    
+    [itemPanel makeKeyAndOrderFront:sender];
 }
 
 -(IBAction)totalItem:(id)sender {
@@ -43,6 +46,21 @@
 -(IBAction)fuelConsumption:(id)sender {
     
 }
+
+-(IBAction)graphItem:(id)sender {
+    
+}
+
+-(IBAction)radioSelected:(id)sender {
+    
+    [withIntervalRadio setState:NSOffState];
+    [allItemRadio setState:NSOffState];
+    
+    NSButton *radio = (NSButton*)sender;
+    [radio setState:NSOnState];
+    
+}
+
 
 
 @end

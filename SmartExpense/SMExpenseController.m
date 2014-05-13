@@ -26,7 +26,7 @@
         
         if(count > 0) {
             Accounts* selectedAccount = [source objectAtIndex:0];
-            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            NSManagedObjectContext *context = [appDelegate.delegate managedObjectContext];
             Expenses* expense = [NSEntityDescription insertNewObjectForEntityForName:@"Expenses" inManagedObjectContext:context];
         
             [selectedAccount addExpensesObject:expense];

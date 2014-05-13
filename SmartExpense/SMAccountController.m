@@ -27,7 +27,7 @@
         
         if(count > 0) {
             Banks* selectedBank = [source objectAtIndex:0];
-            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            NSManagedObjectContext *context = [appDelegate.delegate managedObjectContext];
             Accounts* account = [NSEntityDescription insertNewObjectForEntityForName:@"Accounts" inManagedObjectContext:context];
         
             [selectedBank addAccountsObject:account];
