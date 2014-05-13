@@ -11,8 +11,7 @@
 
 @interface SMListController : NSObject
 
-@property (assign) IBOutlet SMAppDelegate *appDelegate;
-@property (assign) IBOutlet SMSmartListDelegate *delegate;
+@property (assign) IBOutlet SMSmartListDelegate *appDelegate;
 @property (assign) IBOutlet NSArrayController* dataSource;
 @property (assign) IBOutlet NSArrayController* dataDestination;
 

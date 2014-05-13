@@ -13,7 +13,6 @@
 @implementation SMListController
 
 @synthesize appDelegate;
-@synthesize delegate;
 @synthesize dataSource;
 @synthesize dataDestination;
 
@@ -27,7 +26,7 @@
         
         if(count > 0) {
             Store* selectedStore = [source objectAtIndex:0];
-            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            NSManagedObjectContext *context = [appDelegate.delegate managedObjectContext];
             List* list = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
         
             [selectedStore addListsObject:list];
@@ -37,7 +36,7 @@
             [alert setInformativeText:@"You should first add an Store"];
             [alert addButtonWithTitle:@"Ok"];
             void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-            [alert beginSheetModalForWindow:delegate.mainWindow completionHandler:returnCode];
+            [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
         }
     }
 }
