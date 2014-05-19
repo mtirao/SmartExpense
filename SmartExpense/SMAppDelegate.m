@@ -7,6 +7,9 @@
 //
 
 #import "SMAppDelegate.h"
+#import "Expenses.h"
+#import "List.h"
+#import "Store.h"
 
 @implementation SMAppDelegate
 
@@ -14,11 +17,16 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize datePicker;
+@synthesize dataByDate;
+@synthesize infoTable;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [datePicker setDateValue:[NSDate date]];
+    
+    [self loadInfoTable];
 }
+
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "ar.com.argsoftsolutions.SmartExpense" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
@@ -123,7 +131,7 @@
         [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:@"LocalConfig"
                                                             URL:localStoreURL
-                                                        options:nil error:&error];
+                                                        options:options error:&error];
         
         if(error != nil) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -189,24 +197,6 @@
     return [[self managedObjectContext] undoManager];
 }
 
-// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-//Also performs the save action for the others application.
-- (IBAction)saveAction:(id)sender
-{
-    
-    NSError *error = nil;
-    
-    if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
-    }
-    
-    if (![[self managedObjectContext] save:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-    }
-    
-}
-
-
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
     // Save changes in the application's managed object context before the application terminates.
@@ -251,6 +241,122 @@
     }
 
     return NSTerminateNow;
+}
+
+#pragma mark ***** Application Action Method *****
+
+// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
+//Also performs the save action for the others application.
+- (IBAction)saveAction:(id)sender
+{
+    
+    NSError *error = nil;
+    
+    if (![[self managedObjectContext] commitEditing]) {
+        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
+    }
+    
+    if (![[self managedObjectContext] save:&error]) {
+        [[NSApplication sharedApplication] presentError:error];
+    }
+    
+}
+
+
+
+- (IBAction)datePicker:(id)sender {
+    
+    [self loadInfoTable];
+}
+
+
+
+#pragma mark ***** Table View DataSoruce Protocol Methods *****
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+    return dataByDate != nil? dataByDate.count : 0;
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+    
+    return [dataByDate objectAtIndex:rowIndex];
+}
+
+
+#pragma mark ***** Aux Methods *****
+
+-(NSArray*) expensesByDate:(NSDate*)date {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Expenses" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(due >= %@) AND (due <= %@)", [date dateByAddingTimeInterval:-43200], [date dateByAddingTimeInterval:43200]];
+    
+    [fetchRequest setPredicate:predicate];
+    
+    NSError* error;
+    NSArray* d = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if(d == nil) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
+    return d;
+}
+
+-(NSArray*) listsByDate:(NSDate*)date {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(purchased >= %@)", date ];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError* error;
+    NSArray* d = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if(d == nil) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
+    return d;
+}
+
+-(void)loadInfoTable {
+    
+    NSArray* expenses = [self expensesByDate:datePicker.dateValue];
+    NSArray* lists = [self listsByDate:datePicker.dateValue];
+    
+    NSDateFormatter *f = [[NSDateFormatter alloc]init];
+    [f setDateStyle:NSDateFormatterLongStyle];
+    
+    NSLog(@"%@", [f stringFromDate:datePicker.dateValue]);
+    
+    
+    NSMutableArray *aux = [[NSMutableArray alloc]init];
+    
+    for (Expenses * e in expenses) {
+        NSString *s = [NSString stringWithFormat:@"%@ - %@", e.storename, e.type];
+        NSLog(@"%@", [f stringFromDate:e.due]);
+        [aux addObject:s];
+    }
+    
+    for (List * l in lists) {
+        NSString *s = [NSString stringWithFormat:@"%@ - %@", l.store.name , l.name];
+        [aux addObject:s];
+    }
+    
+    dataByDate = [NSArray arrayWithArray:aux];
+    
+    [infoTable reloadData];
+    
 }
 
 @end

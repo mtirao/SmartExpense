@@ -2,7 +2,7 @@
 //  Fuel.h
 //  SmartExpense
 //
-//  Created by Marcos Tirao on 4/18/14.
+//  Created by Marcos Tirao on 5/15/14.
 //  Copyright (c) 2014 Marcos Tirao. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * odometer;
 @property (nonatomic, retain) NSNumber * price;
+@property (nonatomic, retain) NSNumber * consolidated;
 @property (nonatomic, retain) Model *model;
 
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Statics.h"
+#import "DotLine.h"
 
 @interface SMStaticView : NSView
+
+@property Statics* itemVariation;
+
+-(void)setItemVariationData:(NSDictionary*)data;
 
 @end

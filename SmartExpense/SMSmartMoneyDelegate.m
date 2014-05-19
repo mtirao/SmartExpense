@@ -12,6 +12,7 @@
 #import "Expenses.h"
 #import "Model.h"
 #import "Fuel.h"
+#import "Items.h"
 
 @implementation SMSmartMoneyDelegate
 
@@ -57,7 +58,10 @@
             
             float total = 0;
             for(Fuel *f in model.fuel) {
-                total += f.amount.floatValue * f.price.floatValue;
+                if(!f.consolidated.boolValue) {
+                    total += f.amount.floatValue * f.price.floatValue;
+                    f.consolidated = [NSNumber numberWithBool:YES];
+                }
             }
             
             Expenses *expense = [destination objectAtIndex:0];
@@ -79,6 +83,14 @@
             Expenses *expense = [destination objectAtIndex:0];
         
             expense.storename = storeName;
+            
+            float amt = 0;
+            
+            for (Items * i in list.items) {
+                amt += (i.price.floatValue * i.quantity.floatValue);
+            }
+            
+            expense.total = [NSNumber numberWithFloat:amt];
         }
     
         [NSApp endSheet:listPanel];

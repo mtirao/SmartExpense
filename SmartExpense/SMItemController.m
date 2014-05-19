@@ -43,6 +43,12 @@
 - (IBAction)removeAction:sender {
     NSArray* array = [dataDestination selectedObjects];
     [dataDestination removeObjects:array];
+    
+    NSManagedObjectContext *context = [appDelegate.delegate managedObjectContext];
+    
+    for (Items* itm in array) {
+        [context deleteObject:itm];
+    }
 }
 
 

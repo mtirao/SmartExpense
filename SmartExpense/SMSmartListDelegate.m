@@ -14,8 +14,8 @@
 @implementation SMSmartListDelegate
 
 @synthesize delegate;
-@synthesize dataSource, mergeSelectedList;
-@synthesize mainWindow, mergePanel;
+@synthesize dataSource;
+@synthesize mainWindow;
 
 
 -(void)awakeFromNib {
@@ -28,7 +28,7 @@
     
     NSArray* source = [dataSource selectedObjects];
     
-    if(mainWindow.isVisible && source != nil &&source.count > 0) {
+    if(mainWindow.isKeyWindow && source != nil &&source.count > 0) {
         return YES;
     }
     
@@ -121,54 +121,6 @@
     
 }
 
--(IBAction)showMergePanel:(id)sender {
-    [mergePanel makeKeyAndOrderFront:sender];
-}
-
--(IBAction)okMergePanel:(id)sender {
-    
-    NSArray *source = [dataSource selectedObjects];
-    NSArray *mergeLists = [mergeSelectedList selectedObjects];
-    
-    NSInteger count = 0;
-    if(source != nil && source.count > 0) {
-        if(mergeLists != nil && mergeLists.count > 0) {
-            List *currentList = [source objectAtIndex:0];
-            for(List *l in mergeLists) {
-                if(![l.name isEqualToString:currentList.name]) {
-                    for(Items *itm in l.items){
-                        Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
-                    
-                        item.category = [NSString stringWithString:itm.category];
-                        item.date = [itm copy];
-                        item.name = [NSString stringWithString:itm.name];
-                        item.price = [NSNumber numberWithFloat:itm.price.floatValue];
-                        item.quantity = [NSNumber numberWithFloat:itm.quantity.floatValue];
-                        item.weight = [NSNumber numberWithBool:itm.weight.boolValue];
-                        item.list = currentList;
-                        [currentList addItemsObject:item];
-                    }
-                    count++;
-                }
-            }
-            if (count == 0) {
-                [self showAlertWithInformativeMessage:@"None of the selected list were merged" message:@"Maybe the selected list is the same as the current list."];
-            }else {
-                NSString *msg = [NSString stringWithFormat:@"%ld of %ld list were merge.", count, mergeLists.count];
-                [self showAlertWithInformativeMessage:@"Selected List were merged succesfully" message:msg];
-            }
-        }else {
-            [self showAlertWithInformativeMessage:@"Merge selection list empty" message:@""];
-        }
-    }
-    
-    
-    [mergePanel orderOut:sender];
-}
-
--(IBAction)cancelMergePanel:(id)sender {
-    [mergePanel orderOut:sender];
-}
 
 #pragma mark ****** Application Aux Method ******
 
