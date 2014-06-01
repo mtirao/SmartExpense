@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Accounts" representedClassName="Accounts" syncable="YES">
         <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="currencyname" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,7 +53,6 @@
     </entity>
     <entity name="Items" representedClassName="Items" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" defaultValueString="NO CATEGORY" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="NO NAME" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
@@ -129,7 +128,7 @@
         <element name="Checks" positionX="-18" positionY="63" width="128" height="120"/>
         <element name="Expenses" positionX="9" positionY="108" width="128" height="208"/>
         <element name="Fuel" positionX="9" positionY="162" width="128" height="150"/>
-        <element name="Items" positionX="-18" positionY="27" width="128" height="150"/>
+        <element name="Items" positionX="-18" positionY="27" width="128" height="135"/>
         <element name="List" positionX="-54" positionY="-9" width="128" height="163"/>
         <element name="Model" positionX="18" positionY="171" width="128" height="105"/>
         <element name="Store" positionX="-36" positionY="9" width="128" height="164"/>

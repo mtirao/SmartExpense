@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SMAppDelegate.h"
 
-@interface SMSmartMoneyDelegate : NSObject
+@interface SMSmartMoneyDelegate : NSObject<NSTabViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
@@ -21,6 +21,7 @@
 @property (assign) IBOutlet NSArrayController *listEntity;
 @property (assign) IBOutlet NSArrayController *modelEntity;
 @property (assign) IBOutlet NSArrayController *selectedExpense;
+@property (assign) IBOutlet NSArrayController *selectedAccount;
 @property (assign) IBOutlet SMAppDelegate *delegate;
 
 - (IBAction)showWindow:(id)sender;

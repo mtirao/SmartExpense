@@ -13,6 +13,7 @@
 #import "Model.h"
 #import "Fuel.h"
 #import "Items.h"
+#import "Accounts.h"
 
 @implementation SMSmartMoneyDelegate
 
@@ -22,10 +23,10 @@
 @synthesize fuelPanel;
 @synthesize expenseType;
 @synthesize mainTabs;
-@synthesize listEntity, modelEntity, selectedExpense;
+@synthesize listEntity, modelEntity, selectedExpense, selectedAccount;
 @synthesize delegate;
 
-
+#pragma mark ***** Action Methods *****
 
 -(IBAction)showWindow:(id)sender {
     [mainWindow makeKeyAndOrderFront:sender];
@@ -111,4 +112,31 @@
     }
 }
 
+#pragma mark ***** Tab View Delegate Methods *****
+
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+    NSString *identifier = tabViewItem.identifier;
+    
+    if(identifier.intValue == 2) {
+        [self calculateAccountBalance];
+    }
+}
+
+#pragma mark ***** Tab View Delegate Methods *****
+
+- (void)calculateAccountBalance {
+    
+    NSArray* accounts = selectedAccount.selectedObjects;
+    
+    if(accounts != nil && accounts.count > 0) {
+        float balance = 0;
+        Accounts *currentAccount = [accounts objectAtIndex:0];
+        for(Expenses *expense in currentAccount.expenses) {
+            balance += expense.total.floatValue;
+        }
+        
+        currentAccount.balance = [NSNumber numberWithFloat:balance];
+    }
+    
+}
 @end

@@ -12,10 +12,13 @@
 
 @property (weak, nonatomic) IBOutlet NSDatePicker * datePicker;
 @property (weak, nonatomic) IBOutlet NSTableView * infoTable;
+@property (weak, nonatomic) IBOutlet NSArrayController* currentAccount;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+
 
 @property NSArray* dataByDate;
 

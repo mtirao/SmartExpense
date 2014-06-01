@@ -126,1113 +126,216 @@
 
 - (void)addDefaultVegetables:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Fruit & Vegetables";
     
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Celery";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Celery"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Potato"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Eggplant"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Broccoli"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Pumpkin"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Onion"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cauliflower"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Lettuce"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Beet"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cabbage"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Tomato"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Carrot"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Zucchini"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Banana"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Beet"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cabbage"];
     
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Strawberry"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Lemon"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Tangerine"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Apple"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cabbage"];
     
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Potato";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Eggplant";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Broccoli";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Pumpkin";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Onion";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Cauliflower";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Spinach";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Lettuce";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Beet";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Cabbage";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Tomato";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Carrot";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Zucchini";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Banana";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Strawberry";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Lemon";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Tangerine";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Apple";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Melon";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Orange";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Pear";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Grapefruit";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Watermelon";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Fruit & Vegetables";
-    item.date = [NSDate date];
-    item.name = @"Grape";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Melon"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Orange"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Pear"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Grapefruit"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Watermelon"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Grape"];
+
     
  }
 
 
 - (void) addDefaultMeat:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Meat";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Meats";
-    item.date = [NSDate date];
-    item.name = @"Ham";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Meats";
-    item.date = [NSDate date];
-    item.name = @"Salami";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Meats";
-    item.date = [NSDate date];
-    item.name = @"Sausages";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Meats";
-    item.date = [NSDate date];
-    item.name = @"Pork";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Meats";
-    item.date = [NSDate date];
-    item.name = @"Fish";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Meats";
-    item.date = [NSDate date];
-    item.name = @"Chicken";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Ham"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Salami"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Sausages"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Pork"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Fish"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Chicken"];
  
 }
 
 
 - (void) addDefaultDairy:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Dairy";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Dairy";
-    item.date = [NSDate date];
-    item.name = @"Milk";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Dairy";
-    item.date = [NSDate date];
-    item.name = @"Cream";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Dairy";
-    item.date = [NSDate date];
-    item.name = @"Butter";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Dairy";
-    item.date = [NSDate date];
-    item.name = @"Yogurt";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Dairy";
-    item.date = [NSDate date];
-    item.name = @"Cream Cheese";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Dairy";
-    item.date = [NSDate date];
-    item.name = @"Grated Cheese";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
- 
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Milk"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cream"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Butter"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Yogurt"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cream Cheese"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Grated Cheese"];
 }
 
 
 - (void) addDefaultBreakast:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Breakfast";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Sugar";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Sweetener";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Cocoa";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Coffee";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Milk Powder";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.name = @"Tea";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Jam";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Honey";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Cookies";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Cereals";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Sugar"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Sweetener"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cocoa"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Coffee"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Milk Powder"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Tea"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Jam"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Honey"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cookies"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cereals"];
+ 
 }
 
 
 - (void) addDefaultFrozen:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Frozen Foods";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Peas";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Broccholi";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Onion";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Corn";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Spinach";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Burger";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Ice Cream";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"French Fries";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Breakast";
-    item.date = [NSDate date];
-    item.name = @"Cookies";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Frozen Foods";
-    item.date = [NSDate date];
-    item.name = @"Pizza";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Peas"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Broccholi"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Onion"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Corn"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Spinach"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Burger"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Ice Cream"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"French Fries"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Pizza"];
 }
 
 - (void) addDefaultPastaBread:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Baguette";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    NSString *category = @"Pasta & Bread";
     
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Sliced Bread";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Baguette"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Sliced Bread"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Pizza"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Bread Burgers"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Ravioli"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Spaguetti"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Penne Rigatti"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Noodles"];
     
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Pizza";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Bread Burgers";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Ravioli";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Spaguetti";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Penne Rigatti";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Pasta & Bread";
-    item.date = [NSDate date];
-    item.name = @"Noodles";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
 
 }
 
 - (void) addDefaultSaucesSeasoning:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Sauces & Seasoning";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Corn Oil";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Olive Oil";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Pepper";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Salt";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Vinegar";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Ketchup";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Mayonnaise";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Mustard";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Soy Sauce";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Sauces & Seasoning";
-    item.date = [NSDate date];
-    item.name = @"Tomtato Sauce";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Corn Oil"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Olive Oil"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Salt"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Vinegar"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Ketchup"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Mayonnaise"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Mustard"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Soy Sauce"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Tomato Sauce"];
 }
 
 
 - (void) addDefaultCannedFood:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Canned Food";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Canned Food";
-    item.date = [NSDate date];
-    item.name = @"Peas";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Canned Food";
-    item.date = [NSDate date];
-    item.name = @"Tuna";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Canned Food";
-    item.date = [NSDate date];
-    item.name = @"Corn";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Canned Food";
-    item.date = [NSDate date];
-    item.name = @"Peach";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Canned Food";
-    item.date = [NSDate date];
-    item.name = @"Sardines";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Peas"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Tuna"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Corn"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Sardines"];
+
 }
 
 
 - (void) addDefaultMisc:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Misc";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Misc";
-    item.date = [NSDate date];
-    item.name = @"Rice";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Misc";
-    item.date = [NSDate date];
-    item.name = @"Flour";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Misc";
-    item.date = [NSDate date];
-    item.name = @"Eggs";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Misc";
-    item.date = [NSDate date];
-    item.name = @"Soup";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Rice"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"FLour"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Eggs"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Soup"];
 }
 
 - (void) addDefaultBeverage:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Beverages";
     
-    
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Beverages";
-    item.date = [NSDate date];
-    item.name = @"Beer";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Beverages";
-    item.date = [NSDate date];
-    item.name = @"Juice";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Beverages";
-    item.date = [NSDate date];
-    item.name = @"Wine";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Beverages";
-    item.date = [NSDate date];
-    item.name = @"Soda";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Beverages";
-    item.date = [NSDate date];
-    item.name = @"Sparkling Water";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Beer"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Juice"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Wine"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Soda"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Sparkling Water"];
 }
 
 - (void) addDefaultSnacks:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Snacks";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Snacks";
-    item.date = [NSDate date];
-    item.name = @"Peanut";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Snacks";
-    item.date = [NSDate date];
-    item.name = @"Potato Chips";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Snacks";
-    item.date = [NSDate date];
-    item.name = @"Pretzels";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Snacks";
-    item.date = [NSDate date];
-    item.name = @"Bagels";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Peanut"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Potato Chips"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Pretzels"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Bagels"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Napkins"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Wiper"];
+ 
 }
 
 - (void) addDefaultHousehold:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Household";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Household";
-    item.date = [NSDate date];
-    item.name = @"Litter Bags";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Litter Bags"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Degreaser"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Air Freshener"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Sponge"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Napkins"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Wiper"];
     
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Household";
-    item.date = [NSDate date];
-    item.name = @"Degreaser";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Household";
-    item.date = [NSDate date];
-    item.name = @"Air Freshener";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Household";
-    item.date = [NSDate date];
-    item.name = @"Sponge";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Household";
-    item.date = [NSDate date];
-    item.name = @"Napkins";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Household";
-    item.date = [NSDate date];
-    item.name = @"Wiper";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-
 }
 
 - (void) addDefaultPersonalCare:(List*)defaultList {
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    NSString *category = @"Personal Care";
     
-    //Vegetables
-    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Personal Care";
-    item.date = [NSDate date];
-    item.name = @"Cotton";
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Cotton"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Tooth Paste"];
+    [self addDefaultItemToList:defaultList withCategory:category name:@"Soap"];
+
+}
+
+-(void) addDefaultItemToList:(List*)defaultList withCategory:(NSString*)cat name:(NSString*)n  {
+    
+    Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:delegate.managedObjectContext];
+    
+    item.category = cat;
+    item.name = n;
     item.price = [NSNumber numberWithFloat:0.0];
     item.quantity = [NSNumber numberWithInt:0];
     item.weight = [NSNumber numberWithFloat:0.0];
     item.list = defaultList;
     [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Personal Care";
-    item.date = [NSDate date];
-    item.name = @"Tooth Paste";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
-    
-    item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:delegate.managedObjectContext];
-    item.category = @"Personal Care";
-    item.date = [NSDate date];
-    item.name = @"Soap";
-    item.price = [NSNumber numberWithFloat:0.0];
-    item.quantity = [NSNumber numberWithInt:0];
-    item.weight = [NSNumber numberWithFloat:0.0];
-    item.list = defaultList;
-    [defaultList addItemsObject:item];
+
 }
 
 -(void)showAlertWithInformativeMessage:(NSString*)info message:(NSString*)msg {

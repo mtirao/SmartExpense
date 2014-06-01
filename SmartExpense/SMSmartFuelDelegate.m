@@ -73,9 +73,6 @@
     [self calculateInfo];
 }
 
-- (IBAction)dispersionGraph:(id)sender {
-    
-}
 
 -(IBAction)modelSelection:(id)sender {
     [self calculateInfo];

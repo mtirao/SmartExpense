@@ -2,7 +2,7 @@
 //  Items.h
 //  SmartExpense
 //
-//  Created by Marcos Tirao on 4/26/14.
+//  Created by Marcos Tirao on 5/30/14.
 //  Copyright (c) 2014 Marcos Tirao. All rights reserved.
 //
 
@@ -14,7 +14,6 @@
 @interface Items : NSManagedObject
 
 @property (nonatomic, retain) NSString * category;
-@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSNumber * quantity;

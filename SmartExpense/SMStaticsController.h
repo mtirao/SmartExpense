@@ -11,20 +11,40 @@
 #import "SMSmartListDelegate.h"
 #import "SMSmartFuelDelegate.h"
 
-@interface SMStaticsController : NSObject
+@interface SMStaticsController : NSObject <NSTableViewDataSource>
 
 @property (assign) IBOutlet SMSmartMoneyDelegate *moneyDelegate;
 @property (assign) IBOutlet SMSmartListDelegate *listDelegate;
 @property (assign) IBOutlet SMSmartFuelDelegate *fuelDelegate;
 
 @property (weak, nonatomic) IBOutlet NSWindow *itemPricestaticsWindow;
+@property (weak, nonatomic) IBOutlet NSDrawer *itemPricestaticDrawer;
+
+@property (weak, nonatomic) IBOutlet NSWindow *totalItemstaticsWindow;
+@property (weak, nonatomic) IBOutlet NSDrawer *totalItemstaticDrawer;
+
+@property (weak, nonatomic) IBOutlet NSWindow *totalExpensestaticsWindow;
+@property (weak, nonatomic) IBOutlet NSDrawer *totalExpensestaticDrawer;
+
+@property (weak, nonatomic) IBOutlet NSWindow *futureTotalExpensestaticsWindow;
+@property (weak, nonatomic) IBOutlet NSDrawer *futureTotalExpensestaticsDrawer;
+
+@property (weak, nonatomic) IBOutlet NSWindow *fuelConsumptionstaticsWindow;
+@property (weak, nonatomic) IBOutlet NSDrawer *fuelConsumptionstaticsDrawer;
+
 @property (weak, nonatomic) IBOutlet NSArrayController* selectedItems;
+@property (weak, nonatomic) IBOutlet NSArrayController* selectedModel;
 
-@property (weak, nonatomic) IBOutlet NSPanel *itemPanel;
-@property (weak, nonatomic) IBOutlet NSButton *withIntervalRadio;
-@property (weak, nonatomic) IBOutlet NSButton *allItemRadio;
+@property (weak, nonatomic) IBOutlet NSTableView* inflationRateTable;
+@property (weak, nonatomic) IBOutlet NSTableView* totalItemTable;
+@property (weak, nonatomic) IBOutlet NSTableView* totalExpenseTable;
 
-@property NSMutableDictionary* itemVariatonData;
+@property NSMutableDictionary* itemVariationData;
+@property NSMutableArray* itemVariationRate;
+@property NSDictionary* totalExpenseData;
+
+@property NSDictionary* totalItemData;
+
 
 -(IBAction)itemPrice:(id)sender;
 -(IBAction)totalItem:(id)sender;
@@ -35,6 +55,5 @@
 
 -(IBAction)graphItem:(id)sender;
 
--(IBAction)radioSelected:(id)sender;
 
 @end

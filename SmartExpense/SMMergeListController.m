@@ -65,7 +65,6 @@
             Items *item = (Items*)[NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:self.delegate.delegate.managedObjectContext];
      
             item.category = [NSString stringWithString:itm.category];
-            item.date = [itm.date copy];
             item.name = [NSString stringWithString:itm.name];
             item.price = [NSNumber numberWithFloat:itm.price.floatValue];
             item.quantity = [NSNumber numberWithFloat:itm.quantity.floatValue];

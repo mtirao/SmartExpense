@@ -19,6 +19,7 @@
 @synthesize datePicker;
 @synthesize dataByDate;
 @synthesize infoTable;
+@synthesize currentAccount;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

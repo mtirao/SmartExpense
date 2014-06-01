@@ -20,7 +20,8 @@
 
 - (id)transformedValue:(id)value {
 	
-	NSNumberFormatter *inputFormatter = [[NSNumberFormatter alloc] init];
+	
+    NSNumberFormatter *inputFormatter = [[NSNumberFormatter alloc] init];
     [inputFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     NSString *price = [inputFormatter stringFromNumber:value];
 	return price;
