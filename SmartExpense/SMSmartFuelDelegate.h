@@ -17,14 +17,8 @@
 @property (weak, nonatomic) IBOutlet NSTextField* amount;
 @property (weak, nonatomic) IBOutlet NSTextField* money;
 @property (weak, nonatomic) IBOutlet NSArrayController* selectedModel;
-@property (weak, nonatomic) IBOutlet SMFuelGraphView* graphView;
-@property (assign) IBOutlet SMAppDelegate* delegate;
+@property (weak, nonatomic) IBOutlet SMAppDelegate* delegate;
 
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-- (void)saveAction:(id)sender;
 
 - (IBAction)showWindow:(id)sender;
 - (IBAction)modelSelection:(id)sender;

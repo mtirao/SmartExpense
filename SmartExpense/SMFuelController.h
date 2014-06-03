@@ -12,9 +12,9 @@
 @interface SMFuelController : NSObject
 
 
-@property (assign) IBOutlet SMSmartFuelDelegate *appDelegate;
-@property (assign) IBOutlet NSArrayController* dataSource;
-@property (assign) IBOutlet NSArrayController* dataDestination;
+@property (weak, nonatomic) IBOutlet SMSmartFuelDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet NSArrayController* dataSource;
+@property (weak, nonatomic) IBOutlet NSArrayController* dataDestination;
 
 - (IBAction)addAction:sender;
 - (IBAction)removeAction:sender;

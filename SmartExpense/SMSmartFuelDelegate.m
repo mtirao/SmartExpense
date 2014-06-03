@@ -13,26 +13,12 @@
 @implementation SMSmartFuelDelegate
 
 @synthesize mainWindow;
-@synthesize graphView;
 @synthesize selectedModel;
 @synthesize delegate;
 
 
 #pragma mark - Application's Action
 
-
-- (void)saveAction:(id)sender
-{
-    NSError *error = nil;
-    
-    if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
-    }
-    
-    if (![[self managedObjectContext] save:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-    }
-}
 
 -(void)calculateInfo {
     NSArray* data = [selectedModel arrangedObjects];

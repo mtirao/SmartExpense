@@ -39,6 +39,9 @@
 		B6CFE7401939194300C94D0D /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE73F1939194300C94D0D /* Items.m */; };
 		B6CFE7BE1939321100C94D0D /* SMCurrencyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7BD1939321100C94D0D /* SMCurrencyValueTransformer.m */; };
 		B6CFE7C119393A1F00C94D0D /* Accounts.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7C019393A1F00C94D0D /* Accounts.m */; };
+		B6CFE7C6193CE67D00C94D0D /* SMTile.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7C5193CE67D00C94D0D /* SMTile.m */; };
+		B6CFE7C9193CF5E900C94D0D /* SMCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7C8193CF5E900C94D0D /* SMCalendarController.m */; };
+		B6CFE7CC193D088000C94D0D /* SMCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7CB193D088000C94D0D /* SMCalendarView.m */; };
 		B6E87401191AA71D0078DA2A /* SMStaticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E87400191AA71D0078DA2A /* SMStaticsController.m */; };
 		B6E87404191AD32E0078DA2A /* SMStaticView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E87403191AD32E0078DA2A /* SMStaticView.m */; };
 		B6E91E4019265A09007BF100 /* SMMergeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E91E3F19265A09007BF100 /* SMMergeListController.m */; };
@@ -129,6 +132,12 @@
 		B6CFE7BD1939321100C94D0D /* SMCurrencyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCurrencyValueTransformer.m; path = SmartExpense/SMCurrencyValueTransformer.m; sourceTree = "<group>"; };
 		B6CFE7BF19393A1F00C94D0D /* Accounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Accounts.h; path = SmartExpense/Accounts.h; sourceTree = "<group>"; };
 		B6CFE7C019393A1F00C94D0D /* Accounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Accounts.m; path = SmartExpense/Accounts.m; sourceTree = "<group>"; };
+		B6CFE7C4193CE67D00C94D0D /* SMTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTile.h; sourceTree = "<group>"; };
+		B6CFE7C5193CE67D00C94D0D /* SMTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTile.m; sourceTree = "<group>"; };
+		B6CFE7C7193CF5E800C94D0D /* SMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalendarController.h; sourceTree = "<group>"; };
+		B6CFE7C8193CF5E900C94D0D /* SMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalendarController.m; sourceTree = "<group>"; };
+		B6CFE7CA193D088000C94D0D /* SMCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalendarView.h; sourceTree = "<group>"; };
+		B6CFE7CB193D088000C94D0D /* SMCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalendarView.m; sourceTree = "<group>"; };
 		B6D0E8091922A8D8004AE862 /* SmartExpense 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartExpense 2.xcdatamodel"; sourceTree = "<group>"; };
 		B6E873FF191AA71D0078DA2A /* SMStaticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMStaticsController.h; path = SmartExpense/SMStaticsController.h; sourceTree = "<group>"; };
 		B6E87400191AA71D0078DA2A /* SMStaticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMStaticsController.m; path = SmartExpense/SMStaticsController.m; sourceTree = "<group>"; };
@@ -279,6 +288,12 @@
 		B68A44E018E6035D00804DFC /* SmartExpense */ = {
 			isa = PBXGroup;
 			children = (
+				B6CFE7C4193CE67D00C94D0D /* SMTile.h */,
+				B6CFE7C5193CE67D00C94D0D /* SMTile.m */,
+				B6CFE7C7193CF5E800C94D0D /* SMCalendarController.h */,
+				B6CFE7C8193CF5E900C94D0D /* SMCalendarController.m */,
+				B6CFE7CA193D088000C94D0D /* SMCalendarView.h */,
+				B6CFE7CB193D088000C94D0D /* SMCalendarView.m */,
 				B63F544318E8D93D00CDB6CA /* SmartExpense.entitlements */,
 				B68A44EC18E6035D00804DFC /* SMAppDelegate.h */,
 				B68A44ED18E6035D00804DFC /* SMAppDelegate.m */,
@@ -502,13 +517,16 @@
 				B6E91E431926CE7E007BF100 /* SMItemsArrayController.m in Sources */,
 				B63F543F18E796C700CDB6CA /* SMSmartFuelDelegate.m in Sources */,
 				B6F89269190D4C170014F52A /* SMListController.m in Sources */,
+				B6CFE7C6193CE67D00C94D0D /* SMTile.m in Sources */,
 				B6E91E4019265A09007BF100 /* SMMergeListController.m in Sources */,
 				B68A44EE18E6035D00804DFC /* SMAppDelegate.m in Sources */,
 				B6F89260190C7A120014F52A /* List.m in Sources */,
+				B6CFE7C9193CF5E900C94D0D /* SMCalendarController.m in Sources */,
 				B66BF3C0190DB34E00905F01 /* Banks.m in Sources */,
 				B66BF3CC190DB34F00905F01 /* Transfer.m in Sources */,
 				B6CFE7C119393A1F00C94D0D /* Accounts.m in Sources */,
 				B6EB513919295A4E007EB84E /* SMTuple.m in Sources */,
+				B6CFE7CC193D088000C94D0D /* SMCalendarView.m in Sources */,
 				B6F89266190C7A120014F52A /* Store.m in Sources */,
 				B6EB513C19296956007EB84E /* DispersionChart.m in Sources */,
 				B6CFE7BE1939321100C94D0D /* SMCurrencyValueTransformer.m in Sources */,

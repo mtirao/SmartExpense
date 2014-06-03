@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet NSDatePicker * datePicker;
 @property (weak, nonatomic) IBOutlet NSTableView * infoTable;
 @property (weak, nonatomic) IBOutlet NSArrayController* currentAccount;
+@property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -24,5 +25,7 @@
 
 - (IBAction)saveAction:(id)sender;
 - (IBAction)datePicker:(id)sender;
+
+-(void)loadInfoTable:(NSDate*)date;
 
 @end

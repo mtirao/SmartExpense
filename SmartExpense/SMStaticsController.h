@@ -13,9 +13,9 @@
 
 @interface SMStaticsController : NSObject <NSTableViewDataSource>
 
-@property (assign) IBOutlet SMSmartMoneyDelegate *moneyDelegate;
-@property (assign) IBOutlet SMSmartListDelegate *listDelegate;
-@property (assign) IBOutlet SMSmartFuelDelegate *fuelDelegate;
+@property (weak, nonatomic) IBOutlet SMSmartMoneyDelegate *moneyDelegate;
+@property (weak, nonatomic) IBOutlet SMSmartListDelegate *listDelegate;
+@property (weak, nonatomic) IBOutlet SMSmartFuelDelegate *fuelDelegate;
 
 @property (weak, nonatomic) IBOutlet NSWindow *itemPricestaticsWindow;
 @property (weak, nonatomic) IBOutlet NSDrawer *itemPricestaticDrawer;

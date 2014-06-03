@@ -21,11 +21,18 @@
 @synthesize infoTable;
 @synthesize currentAccount;
 
+@synthesize mainWindow;
+
+-(void)awakeFromNib {
+    mainWindow.backgroundColor = [NSColor whiteColor];
+    [mainWindow setAcceptsMouseMovedEvents:YES];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [datePicker setDateValue:[NSDate date]];
     
-    [self loadInfoTable];
+    [self loadInfoTable:[NSDate date]];
 }
 
 
@@ -267,7 +274,7 @@
 
 - (IBAction)datePicker:(id)sender {
     
-    [self loadInfoTable];
+    //[self loadInfoTable];
 }
 
 
@@ -330,15 +337,15 @@
     return d;
 }
 
--(void)loadInfoTable {
+-(void)loadInfoTable:(NSDate*)date {
     
-    NSArray* expenses = [self expensesByDate:datePicker.dateValue];
-    NSArray* lists = [self listsByDate:datePicker.dateValue];
+    NSArray* expenses = [self expensesByDate:date];
+    NSArray* lists = [self listsByDate:date];
     
     NSDateFormatter *f = [[NSDateFormatter alloc]init];
     [f setDateStyle:NSDateFormatterLongStyle];
     
-    NSLog(@"%@", [f stringFromDate:datePicker.dateValue]);
+    NSLog(@"%@", [f stringFromDate:date]);
     
     
     NSMutableArray *aux = [[NSMutableArray alloc]init];
