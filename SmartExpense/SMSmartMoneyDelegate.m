@@ -17,19 +17,57 @@
 
 @implementation SMSmartMoneyDelegate
 
+@synthesize bankWindow, accountWindow, expenseWindow;
 
-@synthesize mainWindow;
 @synthesize listPanel;
 @synthesize fuelPanel;
 @synthesize expenseType;
-@synthesize mainTabs;
 @synthesize listEntity, modelEntity, selectedExpense, selectedAccount;
 @synthesize delegate;
 
+
+#pragma mark ***** Delegate Methods *****
+
+-(void)awakeFromNib {
+    bankWindow.backgroundColor = [NSColor whiteColor];
+    accountWindow.backgroundColor = [NSColor whiteColor];
+    expenseWindow.backgroundColor = [NSColor whiteColor];
+    listPanel.backgroundColor = [NSColor whiteColor];
+    fuelPanel.backgroundColor = [NSColor whiteColor];
+}
+
+-(BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    
+    if (menuItem.tag == 3 || menuItem.tag == 4 || menuItem.tag == 5) {
+        return YES;
+    }
+    
+    
+    if (menuItem.tag == 20) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
+    [self checkTotalSign];
+    return YES;
+}
+
 #pragma mark ***** Action Methods *****
 
--(IBAction)showWindow:(id)sender {
-    [mainWindow makeKeyAndOrderFront:sender];
+-(IBAction)showBankWindow:(id)sender {
+    [bankWindow makeKeyAndOrderFront:sender];
+}
+
+-(IBAction)showAccountWindow:(id)sender {
+    [self calculateAccountBalance];
+    [accountWindow makeKeyAndOrderFront:sender];
+}
+
+- (IBAction)showExpenseWindow:(id)sender {
+    [expenseWindow makeKeyAndOrderFront:sender];
 }
 
 - (IBAction)showListInfo:(id)sender {
@@ -37,14 +75,13 @@
     NSString * value = expenseType.titleOfSelectedItem;
     
     if([value isEqualToString:@"Fuel"]) {
-        [NSApp beginSheet:fuelPanel modalForWindow:mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
+        [NSApp beginSheet:fuelPanel modalForWindow:expenseWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
     }else {
-    
-        [NSApp beginSheet:listPanel modalForWindow:mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
+        
+        [NSApp beginSheet:listPanel modalForWindow:expenseWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
     }
     
 }
-
 
 - (IBAction)okListInfo:(id)sender {
     
@@ -112,17 +149,13 @@
     }
 }
 
-#pragma mark ***** Tab View Delegate Methods *****
-
-- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
-    NSString *identifier = tabViewItem.identifier;
-    
-    if(identifier.intValue == 2) {
-        [self calculateAccountBalance];
-    }
+- (IBAction)selectType:(id)sender {
+    [self checkTotalSign];
 }
 
+
 #pragma mark ***** Tab View Delegate Methods *****
+
 
 - (void)calculateAccountBalance {
     
@@ -137,6 +170,26 @@
         
         currentAccount.balance = [NSNumber numberWithFloat:balance];
     }
+}
+
+-(void) checkTotalSign {
+    NSArray *expenses = selectedExpense.selectedObjects;
+    
+    if (expenses != nil && expenses.count > 0) {
+        Expenses *expense = [expenses objectAtIndex:0];
+        if ([expense.type isEqualToString:@"Income"]) {
+            float amt = expense.total.floatValue;
+            if (amt < 0) {
+                expense.total = [NSNumber numberWithFloat:-amt];
+            }
+        }else {
+            float amt = expense.total.floatValue;
+            if (amt > 0) {
+                expense.total = [NSNumber numberWithFloat:-amt];
+            }
+        }
+    }
     
 }
+
 @end

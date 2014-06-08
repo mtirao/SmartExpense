@@ -10,13 +10,13 @@
 #import "Expenses.h"
 #import "List.h"
 #import "Store.h"
+#import "SMCurrencyValueTransformer.h"
 
 @implementation SMAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize datePicker;
 @synthesize dataByDate;
 @synthesize infoTable;
 @synthesize currentAccount;
@@ -25,13 +25,12 @@
 
 -(void)awakeFromNib {
     mainWindow.backgroundColor = [NSColor whiteColor];
+    
     [mainWindow setAcceptsMouseMovedEvents:YES];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    [datePicker setDateValue:[NSDate date]];
-    
+{    
     [self loadInfoTable:[NSDate date]];
 }
 
@@ -271,14 +270,6 @@
 }
 
 
-
-- (IBAction)datePicker:(id)sender {
-    
-    //[self loadInfoTable];
-}
-
-
-
 #pragma mark ***** Table View DataSoruce Protocol Methods *****
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
@@ -287,7 +278,32 @@
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
     
-    return [dataByDate objectAtIndex:rowIndex];
+    NSManagedObject *obj = [dataByDate objectAtIndex:rowIndex];
+    
+    NSString *ret = nil;
+    NSString *header = [aTableColumn.headerCell stringValue];
+    
+    if ([header isEqualToString:@"Description"]) {
+        if ([obj isKindOfClass:Expenses.class]) {
+            Expenses *exp = (Expenses*)obj;
+            ret = [NSString stringWithFormat:@"%@ - %@", exp.type, exp.storename];
+        }else if ([obj isKindOfClass:List.class]) {
+            List *lst = (List*)obj;
+            ret = [NSString stringWithFormat:@"%@ - %@", lst.name, lst.store.name];
+        }
+    }else {
+        if ([obj isKindOfClass:Expenses.class]) {
+            Expenses *exp = (Expenses*)obj;
+            SMCurrencyValueTransformer *formatter = [[SMCurrencyValueTransformer alloc]init];
+            ret = [formatter transformedValue:exp.total];
+        }else if ([obj isKindOfClass:List.class]) {
+            List *lst = (List*)obj;
+            SMCurrencyValueTransformer *formatter = [[SMCurrencyValueTransformer alloc]init];
+            ret = [formatter transformedValue:lst.total];
+        }
+    }
+
+    return ret;
 }
 
 
@@ -295,14 +311,31 @@
 
 -(NSArray*) expensesByDate:(NSDate*)date {
     
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents *comp = [currentCalendar components: ( NSHourCalendarUnit | NSMinuteCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
+    [comp setHour:0];
+    [comp setMinute:0];
+    NSDate* from = [currentCalendar dateFromComponents:comp];
+    
+    [comp setHour:23];
+    [comp setMinute:59];
+    NSDate* to = [currentCalendar dateFromComponents:comp];
+    
+    NSDateFormatter *f = [[NSDateFormatter alloc]init];
+    [f setDateStyle:NSDateFormatterFullStyle];
+    NSLog(@"%@", [f stringFromDate:from]);
+    NSLog(@"%@", [f stringFromDate:to]);
+    
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Expenses" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(due >= %@) AND (due <= %@)", [date dateByAddingTimeInterval:-43200], [date dateByAddingTimeInterval:43200]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(due >= %@) AND (due <= %@)", from, to];
     
     [fetchRequest setPredicate:predicate];
     
@@ -351,14 +384,11 @@
     NSMutableArray *aux = [[NSMutableArray alloc]init];
     
     for (Expenses * e in expenses) {
-        NSString *s = [NSString stringWithFormat:@"%@ - %@", e.storename, e.type];
-        NSLog(@"%@", [f stringFromDate:e.due]);
-        [aux addObject:s];
+        [aux addObject:e];
     }
     
     for (List * l in lists) {
-        NSString *s = [NSString stringWithFormat:@"%@ - %@", l.store.name , l.name];
-        [aux addObject:s];
+        [aux addObject:l];
     }
     
     dataByDate = [NSArray arrayWithArray:aux];

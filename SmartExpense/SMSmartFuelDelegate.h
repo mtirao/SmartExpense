@@ -12,7 +12,9 @@
 
 @interface SMSmartFuelDelegate : NSObject<NSControlTextEditingDelegate>
 
-@property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
+@property (weak, nonatomic) IBOutlet NSWindow* carModelWindow;
+@property (weak, nonatomic) IBOutlet NSWindow* fuelingWindow;
+
 @property (weak, nonatomic) IBOutlet NSTextField* distance;
 @property (weak, nonatomic) IBOutlet NSTextField* amount;
 @property (weak, nonatomic) IBOutlet NSTextField* money;
@@ -20,7 +22,8 @@
 @property (weak, nonatomic) IBOutlet SMAppDelegate* delegate;
 
 
-- (IBAction)showWindow:(id)sender;
+- (IBAction)showCarModelWindow:(id)sender;
+- (IBAction)showFuelingWindow:(id)sender;
 - (IBAction)modelSelection:(id)sender;
 
 @end

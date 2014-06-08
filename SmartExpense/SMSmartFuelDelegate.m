@@ -12,12 +12,40 @@
 
 @implementation SMSmartFuelDelegate
 
-@synthesize mainWindow;
+@synthesize carModelWindow;
+@synthesize fuelingWindow;
 @synthesize selectedModel;
 @synthesize delegate;
 
+#pragma  ***** Delegate Methods *****
 
-#pragma mark - Application's Action
+-(BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    return YES;
+}
+
+-(void)awakeFromNib {
+    self.carModelWindow.backgroundColor = [NSColor whiteColor];
+    self.fuelingWindow.backgroundColor = [NSColor whiteColor];
+}
+
+#pragma mark ***** Action Methods *****
+
+- (IBAction)showCarModelWindow:(id)sender {
+    [self.carModelWindow makeKeyAndOrderFront:sender];
+    
+    [self calculateInfo];
+}
+
+- (IBAction)showFuelingWindow:(id)sender {
+    [self.fuelingWindow makeKeyAndOrderFront:sender];
+    [self calculateInfo];
+}
+
+-(IBAction)modelSelection:(id)sender {
+    [self calculateInfo];
+}
+
+#pragma mark **** Aux Methods ****
 
 
 -(void)calculateInfo {
@@ -46,22 +74,11 @@
     
     NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
     [number setNumberStyle:NSNumberFormatterDecimalStyle];
-
+    
     self.amount.stringValue = [number stringFromNumber:[NSNumber numberWithFloat:amount]];
     self.distance.stringValue = [number stringFromNumber:[NSNumber numberWithFloat:distance]];
     
 }
 
-
--(IBAction)showWindow:(id)sender {
-    [mainWindow makeKeyAndOrderFront:sender];
-    
-    [self calculateInfo];
-}
-
-
--(IBAction)modelSelection:(id)sender {
-    [self calculateInfo];
-}
 
 @end

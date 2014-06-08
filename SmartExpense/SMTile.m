@@ -31,20 +31,24 @@
         
         NSColor *background;
         if (isCurrent) {
-            background = [NSColor colorWithRed:0.058 green:0.447 blue:0.749 alpha:isSelected?0.5:0.1];
+            background = [NSColor colorWithRed:0.058 green:0.447 blue:1.0 alpha:0.9];
         }else {
-            background = [NSColor colorWithRed:0.058 green:0.831 blue:0.749 alpha:isSelected?0.5:0.1];
+            if(isSelected) {
+                background = [NSColor colorWithRed:0.058 green:0.831 blue:0.749 alpha:0.5];
+            }else {
+                background = [NSColor whiteColor];
+            }
+            
         }
+        NSColor *foreground = [NSColor colorWithRed:0.058 green:0.831 blue:0.749 alpha:1.0];
         
+        [background setFill];
+        [foreground setStroke];
         
-        [background set];
         NSBezierPath *tile = [NSBezierPath bezierPathWithRect:self.frame];
         [tile fill];
-    
-        NSColor *foreground = [NSColor colorWithRed:0.058 green:0.831 blue:0.749 alpha:1.0];
-        [foreground set];
-        NSBezierPath *tileBorder = [NSBezierPath bezierPathWithRect:self.frame];
-        [tileBorder stroke];
+        [tile stroke];
+        
     
         NSSize reference = [self.text sizeWithAttributes:fontAttrs];
     

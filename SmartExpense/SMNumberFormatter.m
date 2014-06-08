@@ -22,9 +22,13 @@
 
     NSNumberFormatter *number = [[NSNumberFormatter alloc]init];
     [number setNumberStyle:NSNumberFormatterDecimalStyle];
+    number.roundingMode = NSRoundUp;
+    number.maximumFractionDigits = 2;
     
     if ([value isKindOfClass:[NSString class]]) {
         return [number numberFromString:value];
+    }else if ([value isKindOfClass:[NSNumber class]]) {
+        return [number stringFromNumber:value];
     }
     
     return value;

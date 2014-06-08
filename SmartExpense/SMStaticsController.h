@@ -38,6 +38,10 @@
 @property (weak, nonatomic) IBOutlet NSTableView* inflationRateTable;
 @property (weak, nonatomic) IBOutlet NSTableView* totalItemTable;
 @property (weak, nonatomic) IBOutlet NSTableView* totalExpenseTable;
+@property (weak, nonatomic) IBOutlet NSMatrix* groupByMatrix;
+@property (weak, nonatomic) IBOutlet NSDatePicker* fromTotalItem;
+@property (weak, nonatomic) IBOutlet NSDatePicker* toTotalItem;
+
 
 @property NSMutableDictionary* itemVariationData;
 @property NSMutableArray* itemVariationRate;

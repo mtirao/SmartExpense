@@ -15,10 +15,14 @@
 
 @synthesize delegate;
 @synthesize dataSource;
-@synthesize mainWindow;
+@synthesize storeWindow, listWindow, atTheStoreWindow;
 
 
 -(void)awakeFromNib {
+    
+    self.storeWindow.backgroundColor = [NSColor whiteColor];
+    self.listWindow.backgroundColor = [NSColor whiteColor];
+    self.atTheStoreWindow.backgroundColor = [NSColor whiteColor];
     
     [self populateCategoryEntity];
     
@@ -26,9 +30,11 @@
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     
-    NSArray* source = [dataSource selectedObjects];
+    //NSArray* source = [dataSource selectedObjects];
     
-    if(mainWindow.isKeyWindow && source != nil &&source.count > 0) {
+    if(menuItem.tag == 6 || menuItem.tag == 7 || menuItem.tag == 8 ) {
+        return YES;
+    }else if(menuItem.tag == 1 && self.listWindow.isKeyWindow) {
         return YES;
     }
     
@@ -94,8 +100,16 @@
 
 #pragma mark ****** Application Action Method ******
 
--(IBAction)showWindow:(id)sender {
-    [mainWindow makeKeyAndOrderFront:sender];
+-(IBAction)showListWindow:(id)sender {
+    [self.listWindow makeKeyAndOrderFront:sender];
+}
+
+-(IBAction)showStoreWindow:(id)sender {
+    [self.storeWindow makeKeyAndOrderFront:sender];
+}
+
+-(IBAction)showAtTheStoreWindow:(id)sender {
+    [self.atTheStoreWindow makeKeyAndOrderFront:sender];
 }
 
 -(IBAction)addDefaultList:(id)sender {
@@ -344,8 +358,14 @@
     [alert setMessageText:msg];
     [alert addButtonWithTitle:@"Ok"];
     void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-    [alert beginSheetModalForWindow:mainWindow completionHandler:returnCode];
-
+    
+    if(self.listWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.listWindow completionHandler:returnCode];
+    }else if(self.storeWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.storeWindow completionHandler:returnCode];
+    }else if(self.atTheStoreWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.atTheStoreWindow completionHandler:returnCode];
+    }
 }
 
 @end

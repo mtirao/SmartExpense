@@ -15,13 +15,16 @@
 @property (assign) IBOutlet NSArrayController* dataSource;
 
 
-@property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
+@property (weak, nonatomic) IBOutlet NSWindow* storeWindow;
+@property (weak, nonatomic) IBOutlet NSWindow* listWindow;
+@property (weak, nonatomic) IBOutlet NSWindow* atTheStoreWindow;
 
 
 
--(IBAction)showWindow:(id)sender;
 -(IBAction)addDefaultList:(id)sender;
 
-
+-(IBAction)showListWindow:(id)sender;
+-(IBAction)showStoreWindow:(id)sender;
+-(IBAction)showAtTheStoreWindow:(id)sender;
 
 @end

@@ -35,7 +35,7 @@
             [alert setInformativeText:@"You should first add a shopping List"];
             [alert addButtonWithTitle:@"Ok"];
             void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-            [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
+            [alert beginSheetModalForWindow:appDelegate.listWindow completionHandler:returnCode];
         }
     }
 }

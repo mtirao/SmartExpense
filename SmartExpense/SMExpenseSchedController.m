@@ -48,7 +48,6 @@
             
         }
         
-        
     }else {
         [self showAlertWithMessage:@"No Account Selected. Please, choose an acount first."];
     }
@@ -69,14 +68,12 @@
     [from setDateValue:today];
     [to setDateValue:today];
     
-    [NSApp beginSheet:mainWindow modalForWindow:appDelegate.mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
+    //[NSApp beginSheet:mainWindow modalForWindow:appDelegate.mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     
-    NSString *label = [appDelegate.mainTabs.selectedTabViewItem label];
-    
-    if(appDelegate.mainWindow.isVisible && [label compare:@"Expense"] == NSOrderedSame) {
+    if(appDelegate.expenseWindow.isKeyWindow) {
         return YES;
     }
     
@@ -148,7 +145,7 @@
     [alert setInformativeText:message];
     [alert addButtonWithTitle:@"Ok"];
     void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-    [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
+   [alert beginSheetModalForWindow:appDelegate.expenseWindow completionHandler:returnCode];
 }
 
 @end

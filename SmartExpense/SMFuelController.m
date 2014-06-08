@@ -35,7 +35,8 @@
             [alert setInformativeText:@"You should first add a Car Model"];
             [alert addButtonWithTitle:@"Ok"];
             void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-            [alert beginSheetModalForWindow:appDelegate.mainWindow completionHandler:returnCode];
+            
+            [alert beginSheetModalForWindow:appDelegate.fuelingWindow completionHandler:returnCode];
         }
     }
 }

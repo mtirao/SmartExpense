@@ -11,6 +11,7 @@
 #import "SMStaticView.h"
 #import "Items.h"
 #import "List.h"
+#import "Store.h"
 #import "Expenses.h"
 #import "Model.h"
 #import "Fuel.h"
@@ -38,26 +39,15 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     
-    if(menuItem.tag == 6 && fuelDelegate.mainWindow.isKeyWindow) {
-        return YES;
-    }
-    
-    if( (menuItem.tag == 4 || menuItem.tag == 5) && moneyDelegate.mainWindow.isKeyWindow) {
-        return YES;
-    }
-    
-    if( (menuItem.tag == 2 || menuItem.tag == 3) && listDelegate.mainWindow.isKeyWindow) {
-        return YES;
-    }
-    
     if(menuItem.tag == 1 && itemPricestaticsWindow.isKeyWindow) {
         menuItem.title = @"Toggle Item Price Drawer";
         return YES;
     }else if(menuItem.tag == 1) {
         menuItem.title = @"Toggle Drawer";
     }
+
     
-    return NO;
+    return YES;
 }
 
 - (void)awakeFromNib {
@@ -66,6 +56,19 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     
     [self.totalItemstaticDrawer setMinContentSize:NSMakeSize(236, 142)];
     [self.totalItemstaticDrawer setMaxContentSize:NSMakeSize(236, 142)];
+    
+    NSDate *currentDate = [NSDate date];
+    self.fromTotalItem.dateValue = currentDate;
+    
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents *components = [currentCalendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:currentDate];
+    
+    [components setMonth:components.month + 1];
+    
+    
+    self.toTotalItem.dateValue = [currentCalendar dateFromComponents:components];
+    
     
 }
 
@@ -472,7 +475,11 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor* date = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(list.purchased >= %@) AND (list.purchased <=)", self.fromTotalItem.dateValue, self.toTotalItem.dateValue ];
+    [fetchRequest setPredicate:predicate];
+
+    
+    NSSortDescriptor* date = [[NSSortDescriptor alloc] initWithKey:@"list.purchased" ascending:YES];
     [fetchRequest setSortDescriptors:@[date]];
     
     NSError* error;
@@ -484,14 +491,50 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     }else {
         data = [[NSMutableDictionary alloc]init];
         for(Items *itm in d) {
-            NSNumber *value = [data objectForKey:itm.name];
-            if (value != nil) {
-                [data setObject:[NSNumber numberWithFloat:value.floatValue + (itm.price.floatValue * itm.quantity.floatValue)]
-                         forKey:itm.name];
-            }else {
-                if((itm.price.floatValue * itm.quantity.floatValue) > 0 )
-                    [data setObject:[NSNumber numberWithFloat:itm.price.floatValue * itm.quantity.floatValue]
-                         forKey:itm.name];
+            
+            NSButtonCell *cell = [self.groupByMatrix selectedCell];
+            
+            if (cell.tag == 0) {
+                NSNumber *value = [data objectForKey:itm.list.store.name];
+                if (value != nil) {
+                    [data setObject:[NSNumber numberWithFloat:value.floatValue + itm.price.floatValue]
+                             forKey:itm.list.store.name];
+                }else {
+                    if((itm.price.floatValue * itm.quantity.floatValue) > 0 )
+                        [data setObject:[NSNumber numberWithFloat:itm.price.floatValue]
+                                 forKey:itm.list.store.name];
+                }
+
+            }else if (cell.tag == 1) {
+                NSNumber *value = [data objectForKey:itm.list.name];
+                if (value != nil) {
+                    [data setObject:[NSNumber numberWithFloat:value.floatValue + itm.price.floatValue]
+                             forKey:itm.list.name];
+                }else {
+                    if((itm.price.floatValue * itm.quantity.floatValue) > 0 )
+                        [data setObject:[NSNumber numberWithFloat:itm.price.floatValue]
+                                 forKey:itm.list.name];
+                }
+            }else if (cell.tag == 2) {
+                NSNumber *value = [data objectForKey:itm.category];
+                if (value != nil) {
+                    [data setObject:[NSNumber numberWithFloat:value.floatValue + itm.price.floatValue]
+                             forKey:itm.category];
+                }else {
+                    if((itm.price.floatValue * itm.quantity.floatValue) > 0 )
+                        [data setObject:[NSNumber numberWithFloat:itm.price.floatValue]
+                                 forKey:itm.category];
+                }
+            }else if (cell.tag == 3) {
+                NSNumber *value = [data objectForKey:itm.name];
+                if (value != nil) {
+                    [data setObject:[NSNumber numberWithFloat:value.floatValue + itm.price.floatValue]
+                             forKey:itm.name];
+                }else {
+                    if((itm.price.floatValue * itm.quantity.floatValue) > 0 )
+                        [data setObject:[NSNumber numberWithFloat:itm.price.floatValue]
+                                 forKey:itm.name];
+                }
             }
         }
     }

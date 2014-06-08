@@ -42,7 +42,7 @@
 #pragma mark ***** Action Methods *****
 
 -(BOOL) validateMenuItem:(NSMenuItem *)menuItem {
-    return delegate.mainWindow.isKeyWindow;
+    return delegate.listWindow.isKeyWindow;
 }
 
 -(IBAction)showMergePanel:(id)sender {
@@ -104,7 +104,7 @@
     [alert setMessageText:msg];
     [alert addButtonWithTitle:@"Ok"];
     void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-    [alert beginSheetModalForWindow:delegate.mainWindow completionHandler:returnCode];
+    [alert beginSheetModalForWindow:delegate.listWindow completionHandler:returnCode];
     
 }
 

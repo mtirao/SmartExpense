@@ -10,7 +10,6 @@
 
 @interface SMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet NSDatePicker * datePicker;
 @property (weak, nonatomic) IBOutlet NSTableView * infoTable;
 @property (weak, nonatomic) IBOutlet NSArrayController* currentAccount;
 @property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
@@ -24,7 +23,6 @@
 @property NSArray* dataByDate;
 
 - (IBAction)saveAction:(id)sender;
-- (IBAction)datePicker:(id)sender;
 
 -(void)loadInfoTable:(NSDate*)date;
 
