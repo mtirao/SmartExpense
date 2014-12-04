@@ -25,9 +25,13 @@
 
 @property (weak, nonatomic) IBOutlet NSWindow *totalExpensestaticsWindow;
 @property (weak, nonatomic) IBOutlet NSDrawer *totalExpensestaticDrawer;
+@property (weak, nonatomic) IBOutlet NSDatePicker* fromTotalExpense;
+@property (weak, nonatomic) IBOutlet NSDatePicker* toTotalExpense;
 
 @property (weak, nonatomic) IBOutlet NSWindow *futureTotalExpensestaticsWindow;
 @property (weak, nonatomic) IBOutlet NSDrawer *futureTotalExpensestaticsDrawer;
+@property (weak, nonatomic) IBOutlet NSDatePicker* fromFutureTotalExpense;
+@property (weak, nonatomic) IBOutlet NSDatePicker* toFutureTotalExpense;
 
 @property (weak, nonatomic) IBOutlet NSWindow *fuelConsumptionstaticsWindow;
 @property (weak, nonatomic) IBOutlet NSDrawer *fuelConsumptionstaticsDrawer;

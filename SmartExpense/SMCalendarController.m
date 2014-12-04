@@ -16,13 +16,13 @@
     
     frame = r;
     
-    calendar = [[NSMutableArray alloc]initWithCapacity:5];
+    calendar = [[NSMutableArray alloc]initWithCapacity:6];
     
     NSArray* dayOfWeek = @[@"Sun", @"Mon", @"Tue", @"Wed", @"Thu", @"Fri", @"Sat"];
     
-    nameOfMonth = @[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"];
+    nameOfMonth = @[@"JANUARY", @"FEBRUARY", @"MARCH", @"APRIL", @"MAY", @"JUNE", @"JULY", @"AUGUST", @"SEPTEMBER", @"OCTOBER", @"NOVEMBER", @"DECEMBER"];
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 6; i++) {
         NSMutableArray *week = [[NSMutableArray alloc]initWithCapacity:7];
         for (int j = 0; j < 7; j++) {
             NSRect tileRect = NSMakeRect(90 * j, r.size.height - ((i+1)*100), 90, 100);
@@ -76,7 +76,7 @@
     BOOL isFirstRow = YES;
     NSInteger day = 1;
     
-    for (NSInteger i=0;  i< 5; i++) {
+    for (NSInteger i=0;  i< 6; i++) {
         NSInteger init = 0;
         if(isFirstRow) {
             init = weekday - 1;
@@ -121,7 +121,7 @@
 
 -(NSDate*)dateFromPoint:(NSPoint)point {
     
-    for (NSInteger i=0;  i< 5; i++) {
+    for (NSInteger i=0;  i< 6; i++) {
         NSMutableArray *week = [calendar objectAtIndex:i];
         for(NSInteger j=0; j < 7; j++ ) {
             SMTile* day = [week objectAtIndex:j];
@@ -148,7 +148,7 @@
 
 
 -(void)unselectAll {
-    for (NSInteger i=0;  i< 5; i++) {
+    for (NSInteger i=0;  i< 6; i++) {
         NSMutableArray *week = [calendar objectAtIndex:i];
         for(NSInteger j=0; j < 7; j++ ) {
              SMTile* day = [week objectAtIndex:j];

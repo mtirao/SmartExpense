@@ -21,7 +21,7 @@
     
     for (Items* itm in objects){
         Items* i = [obj objectForKey:itm.name];
-        if (i == nil) {
+        if (i == nil && itm.price.floatValue != 0) {
             [obj setObject:itm forKey:itm.name];
         }
     }

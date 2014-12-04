@@ -98,13 +98,26 @@
     NSError *error = nil;
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *iCloud = [fileManager URLForUbiquityContainerIdentifier:@"E5YV4NK229.ar.com.argsoftsolutions.SmartExpense"];
+    NSURL *iCloud = [fileManager URLForUbiquityContainerIdentifier:nil];
+    
+    NSURL *localStoreURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SmartExpense.sqlite"];
+    
+    if([fileManager fileExistsAtPath:[localStoreURL path]] == NO) {
+        
+        NSError *fileSystemError;
+        [fileManager createDirectoryAtURL:[self applicationDocumentsDirectory]
+              withIntermediateDirectories:YES
+                               attributes:nil
+                                    error:&fileSystemError];
+        if(fileSystemError != nil) {
+            NSLog(@"Error creating database directory %@", fileSystemError);
+        }
+    }
     
     if (iCloud != nil) {
         
         NSString *iCloudDataDirectoryName = @"Data.nosync";
         
-        NSURL *localStoreURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SmartExpense.sqlite"];
         
         if([fileManager fileExistsAtPath:[[iCloud path] stringByAppendingPathComponent:iCloudDataDirectoryName]] == NO) {
             NSError *fileSystemError;
@@ -127,18 +140,20 @@
                                   NSMigratePersistentStoresAutomaticallyOption:@YES,
                                   NSInferMappingModelAutomaticallyOption:@YES};
         
+        NSDictionary *localOptions = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                                  NSInferMappingModelAutomaticallyOption:@YES};
+
+        
         
         [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:@"CloudConfig"
                                                             URL:[NSURL fileURLWithPath:iCloudData]
                                                         options: options error:&error];
-        //NSDictionary *localOptions = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
-        //                               NSInferMappingModelAutomaticallyOption:@YES};
-        
+                
         [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:@"LocalConfig"
                                                             URL:localStoreURL
-                                                        options:options error:&error];
+                                                        options:localOptions error:&error];
         
         if(error != nil) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -149,7 +164,7 @@
         NSDictionary *localOptions = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
                                        NSInferMappingModelAutomaticallyOption:@YES};
         
-        NSURL *localStoreURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SmartList.sqlite"];
+        
         
         [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:nil
@@ -272,16 +287,62 @@
 
 #pragma mark ***** Table View DataSoruce Protocol Methods *****
 
+- (void)tableView:(NSTableView *)aTableView willDisplayCell:(id)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
+{
+    // check if it is a textfield cell
+    if ([aCell isKindOfClass:[NSTextFieldCell class]])
+    {
+        NSTextFieldCell* tCell = (NSTextFieldCell*)aCell;
+        // check if it is selected
+        if ([[aTableView selectedRowIndexes] containsIndex:rowIndex])
+        {
+            tCell.textColor = [NSColor whiteColor];
+        }
+        else
+        {
+            tCell.textColor = [NSColor blackColor];
+        }
+    }
+}
+
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
-    return dataByDate != nil? dataByDate.count : 0;
+    
+    if( dataByDate != nil ) {
+        
+        if (dataByDate.count == 0 ) {
+            return 1;
+        }else {
+            return dataByDate.count;
+        }
+        
+    }
+    
+    return 1;
+
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
     
+    NSString *header = [aTableColumn.headerCell stringValue];
+    
+    if (dataByDate == nil) {
+        if([header isEqualToString:@"Description"])
+            return @"No expense for the selected date";
+        else
+            return @"";
+    }else if(dataByDate.count == 0) {
+        if([header isEqualToString:@"Description"])
+            return @"No expense for the selected date";
+        else
+            return @"";
+    }
+    
+    
     NSManagedObject *obj = [dataByDate objectAtIndex:rowIndex];
     
     NSString *ret = nil;
-    NSString *header = [aTableColumn.headerCell stringValue];
+    
     
     if ([header isEqualToString:@"Description"]) {
         if ([obj isKindOfClass:Expenses.class]) {

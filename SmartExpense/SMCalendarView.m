@@ -37,12 +37,14 @@
     
     NSDate* selectedDate = [calendar dateFromPoint:p];
     
-    NSApplication *app = [NSApplication sharedApplication];
-    SMAppDelegate* delegate = (SMAppDelegate*)[app delegate];
+    if(selectedDate != nil) {
+        NSApplication *app = [NSApplication sharedApplication];
+        SMAppDelegate* delegate = (SMAppDelegate*)[app delegate];
     
-    [delegate loadInfoTable:selectedDate];
+        [delegate loadInfoTable:selectedDate];
     
-    [self setNeedsDisplay:YES];
+        [self setNeedsDisplay:YES];
+    }
 }
 
 -(IBAction)nextMonth:(id)sender {

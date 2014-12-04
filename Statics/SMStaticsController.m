@@ -34,6 +34,7 @@
 @synthesize totalItemTable;
 @synthesize inflationRateTable;
 @synthesize totalExpenseData;
+@synthesize fromTotalItem, fromTotalExpense, toTotalItem, totalExpenseTable, fromFutureTotalExpense, toFutureTotalExpense;
 
 enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTAL_EXPENSE_BUTTON, FUEL_CONSUMPTION_BUTTON};
 
@@ -69,6 +70,14 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     
     self.toTotalItem.dateValue = [currentCalendar dateFromComponents:components];
     
+    self.fromTotalExpense.dateValue = currentDate;
+    self.toTotalExpense.dateValue = [currentCalendar dateFromComponents:components];
+    
+    self.fromFutureTotalExpense.dateValue = [currentCalendar dateFromComponents:components];
+    
+    [components setMonth:components.month + 1];
+    
+    self.toFutureTotalExpense.dateValue = [currentCalendar dateFromComponents:components];
     
 }
 
@@ -300,6 +309,9 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Expenses" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(due >= %@) AND (due <= %@)", self.fromTotalExpense.dateValue, self.toTotalExpense.dateValue];
+    [fetchRequest setPredicate:predicate];
+    
     NSSortDescriptor* date = [[NSSortDescriptor alloc] initWithKey:@"due" ascending:YES];
     [fetchRequest setSortDescriptors:@[date]];
     
@@ -429,6 +441,9 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     NSSortDescriptor* date = [[NSSortDescriptor alloc] initWithKey:@"due" ascending:YES];
     [fetchRequest setSortDescriptors:@[date]];
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(due >= %@) AND (due <= %@)", self.fromTotalExpense.dateValue, self.toTotalExpense.dateValue];
+    [fetchRequest setPredicate:predicate];
+    
     NSError* error;
     NSArray* d = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
@@ -467,6 +482,13 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
 
 -(NSDictionary*)totalItem {
     
+    NSButtonCell *cell = [self.groupByMatrix selectedCell];
+    
+    if(selectedItems.selectedObjects.count <= 0 && (cell.tag < 2)) {
+        [self showAlertWithInformativeMessage:@"No item selection" message:@"For this kind of report an item should be selected from table"];
+        return nil;
+    }
+    
     NSManagedObjectContext* managedObjectContext = self.moneyDelegate.delegate.managedObjectContext;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
@@ -475,9 +497,17 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(list.purchased >= %@) AND (list.purchased <=)", self.fromTotalItem.dateValue, self.toTotalItem.dateValue ];
+    NSPredicate *predicate;
+    
+    if((cell.tag == 0) || (cell.tag == 1)) {
+        Items * itm = [selectedItems.selectedObjects objectAtIndex:0];
+        predicate = [NSPredicate predicateWithFormat:@"(list.purchased >= %@) AND (list.purchased <= %@) AND (item.name == %@)", self.fromTotalItem.dateValue, self.toTotalItem.dateValue, itm.name ];
+    }else {
+        predicate = [NSPredicate predicateWithFormat:@"(list.purchased >= %@) AND (list.purchased <= %@)", self.fromTotalItem.dateValue, self.toTotalItem.dateValue];
+    }
+    
     [fetchRequest setPredicate:predicate];
-
+        
     
     NSSortDescriptor* date = [[NSSortDescriptor alloc] initWithKey:@"list.purchased" ascending:YES];
     [fetchRequest setSortDescriptors:@[date]];
@@ -492,9 +522,10 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
         data = [[NSMutableDictionary alloc]init];
         for(Items *itm in d) {
             
-            NSButtonCell *cell = [self.groupByMatrix selectedCell];
+           
             
             if (cell.tag == 0) {
+                
                 NSNumber *value = [data objectForKey:itm.list.store.name];
                 if (value != nil) {
                     [data setObject:[NSNumber numberWithFloat:value.floatValue + itm.price.floatValue]
@@ -583,6 +614,27 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     }
     
     return [filteredItems allValues];
+}
+
+
+-(void)showAlertWithInformativeMessage:(NSString*)info message:(NSString*)msg {
+    NSAlert *alert = [[NSAlert alloc]init];
+    [alert setInformativeText:info];
+    [alert setMessageText:msg];
+    [alert addButtonWithTitle:@"Ok"];
+    void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
+    
+    if(self.totalItemstaticsWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.totalItemstaticsWindow completionHandler:returnCode];
+    }else if(self.itemPricestaticsWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.itemPricestaticsWindow completionHandler:returnCode];
+    }else if(self.totalExpensestaticsWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.totalExpensestaticsWindow completionHandler:returnCode];
+    }else if(self.futureTotalExpensestaticsWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.futureTotalExpensestaticsWindow completionHandler:returnCode];
+    }else if(self.fuelConsumptionstaticsWindow.isKeyWindow) {
+        [alert beginSheetModalForWindow:self.fuelConsumptionstaticsWindow completionHandler:returnCode];
+    }
 }
 
 @end

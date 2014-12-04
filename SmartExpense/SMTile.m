@@ -7,8 +7,10 @@
 //
 
 #import "SMTile.h"
+#import "Utils.h"
 
 @implementation SMTile
+
 
 @synthesize frame, data, text, header, isSelected, isCurrent;
 
@@ -29,25 +31,33 @@
                                [NSColor blackColor], NSForegroundColorAttributeName,
                                referenceFont, NSFontAttributeName, nil];
         
-        NSColor *background;
-        if (isCurrent) {
-            background = [NSColor colorWithRed:0.058 green:0.447 blue:1.0 alpha:0.9];
-        }else {
-            if(isSelected) {
-                background = [NSColor colorWithRed:0.058 green:0.831 blue:0.749 alpha:0.5];
-            }else {
-                background = [NSColor whiteColor];
-            }
-            
-        }
-        NSColor *foreground = [NSColor colorWithRed:0.058 green:0.831 blue:0.749 alpha:1.0];
+        NSColor *foreground = [Utils controlColor];
+        NSColor *background = [NSColor whiteColor];
         
         [background setFill];
         [foreground setStroke];
         
         NSBezierPath *tile = [NSBezierPath bezierPathWithRect:self.frame];
+        tile.lineWidth = 1.5;
         [tile fill];
         [tile stroke];
+        
+        NSRect mark = NSMakeRect(self.frame.origin.x, self.frame.origin.y,
+                                 5, self.frame.size.height);
+        NSBezierPath *currentMark = [NSBezierPath bezierPathWithRect:mark];
+        
+        if (isCurrent) {
+            
+            [[Utils foregroundColor:0.5]set];
+            [currentMark fill];
+        }else {
+            if(isSelected) {
+                [[Utils foregroundColor2:0.5]set];
+                [currentMark fill];
+
+            }
+        }
+        
         
     
         NSSize reference = [self.text sizeWithAttributes:fontAttrs];

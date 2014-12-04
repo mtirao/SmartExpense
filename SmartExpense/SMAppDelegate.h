@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource>
+@interface SMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet NSTableView * infoTable;
 @property (weak, nonatomic) IBOutlet NSArrayController* currentAccount;

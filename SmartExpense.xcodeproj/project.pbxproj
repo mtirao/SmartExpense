@@ -8,17 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B608BA33193F67AA00CB9C33 /* SMTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B608BA32193F67AA00CB9C33 /* SMTableRowView.m */; };
-		B608BA36193FCE5900CB9C33 /* SMFinancialStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = B608BA35193FCE5900CB9C33 /* SMFinancialStatusController.m */; };
-		B608BA411940999400CB9C33 /* SMNodeData.m in Sources */ = {isa = PBXBuildFile; fileRef = B608BA3E1940999400CB9C33 /* SMNodeData.m */; };
 		B608BA421940999400CB9C33 /* SMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B608BA401940999400CB9C33 /* SMTableView.m */; };
 		B63F543618E7949800CDB6CA /* SMSmartMoneyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63F543518E7949800CDB6CA /* SMSmartMoneyDelegate.m */; };
 		B63F543918E794D200CDB6CA /* SMSmartListDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63F543818E794D200CDB6CA /* SMSmartListDelegate.m */; };
 		B63F543F18E796C700CDB6CA /* SMSmartFuelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63F543E18E796C700CDB6CA /* SMSmartFuelDelegate.m */; };
-		B651B54A1925052400F0B8CF /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = B651B5491925052300F0B8CF /* Fuel.m */; };
-		B66BF3C0190DB34E00905F01 /* Banks.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3BF190DB34E00905F01 /* Banks.m */; };
-		B66BF3C3190DB34E00905F01 /* Checks.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3C2190DB34E00905F01 /* Checks.m */; };
-		B66BF3CC190DB34F00905F01 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3CB190DB34F00905F01 /* Transfer.m */; };
-		B66BF3CF190DB34F00905F01 /* Expenses.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3CE190DB34F00905F01 /* Expenses.m */; };
 		B66BF3D2190DD90C00905F01 /* SMAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66BF3D1190DD90C00905F01 /* SMAccountController.m */; };
 		B68A44DB18E6035D00804DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A44DA18E6035D00804DFC /* Cocoa.framework */; };
 		B68A44E518E6035D00804DFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A44E318E6035D00804DFC /* InfoPlist.strings */; };
@@ -26,60 +19,53 @@
 		B68A44EB18E6035D00804DFC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B68A44E918E6035D00804DFC /* Credits.rtf */; };
 		B68A44EE18E6035D00804DFC /* SMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A44ED18E6035D00804DFC /* SMAppDelegate.m */; };
 		B68A44F118E6035D00804DFC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68A44EF18E6035D00804DFC /* MainMenu.xib */; };
-		B68A44F418E6035D00804DFC /* SmartExpense.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B68A44F218E6035D00804DFC /* SmartExpense.xcdatamodeld */; };
 		B68A44F618E6035D00804DFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68A44F518E6035D00804DFC /* Images.xcassets */; };
-		B68A44FD18E6035D00804DFC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A44FC18E6035D00804DFC /* XCTest.framework */; };
-		B68A44FE18E6035D00804DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A44DA18E6035D00804DFC /* Cocoa.framework */; };
-		B68A450618E6035D00804DFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A450418E6035D00804DFC /* InfoPlist.strings */; };
-		B68A450818E6035D00804DFC /* SmartExpenseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A450718E6035D00804DFC /* SmartExpenseTests.m */; };
 		B6A4B47C191706AF003EFB12 /* SMExpenseSchedController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A4B47B191706AF003EFB12 /* SMExpenseSchedController.m */; };
 		B6A8D33E190D5E7000F03AD1 /* SMItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A8D33D190D5E7000F03AD1 /* SMItemController.m */; };
 		B6B9A2531901ADB7000FD70E /* SMFuelGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2521901ADB7000FD70E /* SMFuelGraphView.m */; };
-		B6B9A25B1901ADF6000FD70E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2571901ADF6000FD70E /* Model.m */; };
 		B6B9A25C1901ADF6000FD70E /* SMFuelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2591901ADF6000FD70E /* SMFuelController.m */; };
-		B6B9A25F1901BC7E000FD70E /* SMDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A25E1901BC7E000FD70E /* SMDateFormatter.m */; };
-		B6B9A2621901BE62000FD70E /* SMNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B9A2611901BE62000FD70E /* SMNumberFormatter.m */; };
-		B6C21A3C1900998600736BA1 /* SMPriceCellValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */; };
-		B6CFE7401939194300C94D0D /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE73F1939194300C94D0D /* Items.m */; };
-		B6CFE7BE1939321100C94D0D /* SMCurrencyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7BD1939321100C94D0D /* SMCurrencyValueTransformer.m */; };
-		B6CFE7C119393A1F00C94D0D /* Accounts.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7C019393A1F00C94D0D /* Accounts.m */; };
 		B6CFE7C6193CE67D00C94D0D /* SMTile.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7C5193CE67D00C94D0D /* SMTile.m */; };
 		B6CFE7C9193CF5E900C94D0D /* SMCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7C8193CF5E900C94D0D /* SMCalendarController.m */; };
 		B6CFE7CC193D088000C94D0D /* SMCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE7CB193D088000C94D0D /* SMCalendarView.m */; };
-		B6E87401191AA71D0078DA2A /* SMStaticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E87400191AA71D0078DA2A /* SMStaticsController.m */; };
-		B6E87404191AD32E0078DA2A /* SMStaticView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E87403191AD32E0078DA2A /* SMStaticView.m */; };
+		B6E025341A2D21A7002DD633 /* Accounts.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0251A1A2D21A6002DD633 /* Accounts.m */; };
+		B6E025351A2D21A7002DD633 /* Banks.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0251C1A2D21A6002DD633 /* Banks.m */; };
+		B6E025361A2D21A7002DD633 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0251E1A2D21A6002DD633 /* Categories.m */; };
+		B6E025371A2D21A7002DD633 /* Checks.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025201A2D21A6002DD633 /* Checks.m */; };
+		B6E025381A2D21A7002DD633 /* Expenses.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025221A2D21A6002DD633 /* Expenses.m */; };
+		B6E025391A2D21A7002DD633 /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025241A2D21A6002DD633 /* Fuel.m */; };
+		B6E0253A1A2D21A7002DD633 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025261A2D21A6002DD633 /* Items.m */; };
+		B6E0253B1A2D21A7002DD633 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025281A2D21A6002DD633 /* List.m */; };
+		B6E0253D1A2D21A7002DD633 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0252B1A2D21A6002DD633 /* Model.m */; };
+		B6E0253E1A2D21A7002DD633 /* SmartExpense.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6E0252C1A2D21A6002DD633 /* SmartExpense.xcdatamodeld */; };
+		B6E0253F1A2D21A7002DD633 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025311A2D21A7002DD633 /* Store.m */; };
+		B6E025401A2D21A7002DD633 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025331A2D21A7002DD633 /* Transfer.m */; };
+		B6E0254F1A2D2266002DD633 /* DispersionChart.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025421A2D2266002DD633 /* DispersionChart.m */; };
+		B6E025501A2D2266002DD633 /* DotLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025441A2D2266002DD633 /* DotLine.m */; };
+		B6E025511A2D2266002DD633 /* PieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025461A2D2266002DD633 /* PieChart.m */; };
+		B6E025521A2D2266002DD633 /* SMFinancialStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025481A2D2266002DD633 /* SMFinancialStatusController.m */; };
+		B6E025531A2D2266002DD633 /* SMStaticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0254A1A2D2266002DD633 /* SMStaticsController.m */; };
+		B6E025541A2D2266002DD633 /* SMStaticView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0254C1A2D2266002DD633 /* SMStaticView.m */; };
+		B6E025551A2D2266002DD633 /* Statics.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0254E1A2D2266002DD633 /* Statics.m */; };
+		B6E025601A2D22BC002DD633 /* SMAccountTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025571A2D22BC002DD633 /* SMAccountTypeValueTransformer.m */; };
+		B6E025611A2D22BC002DD633 /* SMCurrencyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025591A2D22BC002DD633 /* SMCurrencyValueTransformer.m */; };
+		B6E025621A2D22BC002DD633 /* SMDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0255B1A2D22BC002DD633 /* SMDateFormatter.m */; };
+		B6E025631A2D22BC002DD633 /* SMNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0255D1A2D22BC002DD633 /* SMNumberFormatter.m */; };
+		B6E025641A2D22BC002DD633 /* SMPriceCellValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0255F1A2D22BC002DD633 /* SMPriceCellValueTransformer.m */; };
+		B6E025671A2DF44A002DD633 /* SMNodeData.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025661A2DF44A002DD633 /* SMNodeData.m */; };
+		B6E025711A2E3F99002DD633 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025701A2E3F99002DD633 /* Utils.m */; };
+		B6E025741A2E3FB3002DD633 /* CustomizedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025731A2E3FB3002DD633 /* CustomizedTableView.m */; };
+		B6E025771A2E3FBE002DD633 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E025751A2E3FBE002DD633 /* check.png */; };
+		B6E025781A2E3FBE002DD633 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E025761A2E3FBE002DD633 /* delete.png */; };
 		B6E91E4019265A09007BF100 /* SMMergeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E91E3F19265A09007BF100 /* SMMergeListController.m */; };
 		B6E91E431926CE7E007BF100 /* SMItemsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E91E421926CE7E007BF100 /* SMItemsArrayController.m */; };
-		B6EB5136192948B9007EB84E /* Statics.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB5135192948B9007EB84E /* Statics.m */; };
 		B6EB513919295A4E007EB84E /* SMTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB513819295A4E007EB84E /* SMTuple.m */; };
-		B6EB513C19296956007EB84E /* DispersionChart.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB513B19296956007EB84E /* DispersionChart.m */; };
-		B6EB513F1929792D007EB84E /* PieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB513E1929792D007EB84E /* PieChart.m */; };
-		B6EB514219297A85007EB84E /* DotLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB514119297A85007EB84E /* DotLine.m */; };
-		B6F8925D190C7A110014F52A /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F8925C190C7A110014F52A /* Categories.m */; };
-		B6F89260190C7A120014F52A /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F8925F190C7A120014F52A /* List.m */; };
-		B6F89266190C7A120014F52A /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F89265190C7A120014F52A /* Store.m */; };
 		B6F89269190D4C170014F52A /* SMListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F89268190D4C170014F52A /* SMListController.m */; };
 		B6FC3DCC191308D2000E7AE6 /* SMExpenseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FC3DCB191308D2000E7AE6 /* SMExpenseController.m */; };
-		B6FD0CEF190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FD0CEE190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B68A44FF18E6035D00804DFC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B68A44CF18E6035D00804DFC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B68A44D618E6035D00804DFC;
-			remoteInfo = SmartExpense;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B608BA31193F67AA00CB9C33 /* SMTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTableRowView.h; path = SmartExpense/SMTableRowView.h; sourceTree = "<group>"; };
 		B608BA32193F67AA00CB9C33 /* SMTableRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTableRowView.m; path = SmartExpense/SMTableRowView.m; sourceTree = "<group>"; };
-		B608BA34193FCE5900CB9C33 /* SMFinancialStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFinancialStatusController.h; path = SmartExpense/SMFinancialStatusController.h; sourceTree = "<group>"; };
-		B608BA35193FCE5900CB9C33 /* SMFinancialStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFinancialStatusController.m; path = SmartExpense/SMFinancialStatusController.m; sourceTree = "<group>"; };
-		B608BA3D1940999400CB9C33 /* SMNodeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNodeData.h; path = SmartExpense/SMNodeData.h; sourceTree = "<group>"; };
-		B608BA3E1940999400CB9C33 /* SMNodeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNodeData.m; path = SmartExpense/SMNodeData.m; sourceTree = "<group>"; };
 		B608BA3F1940999400CB9C33 /* SMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTableView.h; path = SmartExpense/SMTableView.h; sourceTree = "<group>"; };
 		B608BA401940999400CB9C33 /* SMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTableView.m; path = SmartExpense/SMTableView.m; sourceTree = "<group>"; };
 		B63F543418E7949800CDB6CA /* SMSmartMoneyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSmartMoneyDelegate.h; path = SmartExpense/SMSmartMoneyDelegate.h; sourceTree = "<group>"; };
@@ -89,17 +75,6 @@
 		B63F543D18E796C700CDB6CA /* SMSmartFuelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSmartFuelDelegate.h; path = SmartExpense/SMSmartFuelDelegate.h; sourceTree = "<group>"; };
 		B63F543E18E796C700CDB6CA /* SMSmartFuelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSmartFuelDelegate.m; path = SmartExpense/SMSmartFuelDelegate.m; sourceTree = "<group>"; };
 		B63F544318E8D93D00CDB6CA /* SmartExpense.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SmartExpense.entitlements; sourceTree = "<group>"; };
-		B651B547192504BE00F0B8CF /* SmartExpense 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartExpense 3.xcdatamodel"; sourceTree = "<group>"; };
-		B651B5481925052300F0B8CF /* Fuel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fuel.h; path = SmartExpense/Fuel.h; sourceTree = "<group>"; };
-		B651B5491925052300F0B8CF /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fuel.m; path = SmartExpense/Fuel.m; sourceTree = "<group>"; };
-		B66BF3BE190DB34E00905F01 /* Banks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banks.h; path = SmartExpense/Banks.h; sourceTree = "<group>"; };
-		B66BF3BF190DB34E00905F01 /* Banks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Banks.m; path = SmartExpense/Banks.m; sourceTree = "<group>"; };
-		B66BF3C1190DB34E00905F01 /* Checks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Checks.h; path = SmartExpense/Checks.h; sourceTree = "<group>"; };
-		B66BF3C2190DB34E00905F01 /* Checks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Checks.m; path = SmartExpense/Checks.m; sourceTree = "<group>"; };
-		B66BF3CA190DB34F00905F01 /* Transfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transfer.h; path = SmartExpense/Transfer.h; sourceTree = "<group>"; };
-		B66BF3CB190DB34F00905F01 /* Transfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transfer.m; path = SmartExpense/Transfer.m; sourceTree = "<group>"; };
-		B66BF3CD190DB34F00905F01 /* Expenses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Expenses.h; path = SmartExpense/Expenses.h; sourceTree = "<group>"; };
-		B66BF3CE190DB34F00905F01 /* Expenses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Expenses.m; path = SmartExpense/Expenses.m; sourceTree = "<group>"; };
 		B66BF3D0190DD90C00905F01 /* SMAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAccountController.h; path = SmartExpense/SMAccountController.h; sourceTree = "<group>"; };
 		B66BF3D1190DD90C00905F01 /* SMAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAccountController.m; path = SmartExpense/SMAccountController.m; sourceTree = "<group>"; };
 		B68A44D718E6035D00804DFC /* SmartExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,72 +90,88 @@
 		B68A44EC18E6035D00804DFC /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMAppDelegate.h; sourceTree = "<group>"; };
 		B68A44ED18E6035D00804DFC /* SMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMAppDelegate.m; sourceTree = "<group>"; };
 		B68A44F018E6035D00804DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		B68A44F318E6035D00804DFC /* SmartExpense.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartExpense.xcdatamodel; sourceTree = "<group>"; };
 		B68A44F518E6035D00804DFC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B68A44FB18E6035D00804DFC /* SmartExpenseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartExpenseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B68A44FC18E6035D00804DFC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B68A450318E6035D00804DFC /* SmartExpenseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartExpenseTests-Info.plist"; sourceTree = "<group>"; };
-		B68A450518E6035D00804DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B68A450718E6035D00804DFC /* SmartExpenseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartExpenseTests.m; sourceTree = "<group>"; };
 		B6A4B47A191706AF003EFB12 /* SMExpenseSchedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMExpenseSchedController.h; path = SmartExpense/SMExpenseSchedController.h; sourceTree = "<group>"; };
 		B6A4B47B191706AF003EFB12 /* SMExpenseSchedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMExpenseSchedController.m; path = SmartExpense/SMExpenseSchedController.m; sourceTree = "<group>"; };
 		B6A8D33C190D5E7000F03AD1 /* SMItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMItemController.h; path = SmartExpense/SMItemController.h; sourceTree = "<group>"; };
 		B6A8D33D190D5E7000F03AD1 /* SMItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMItemController.m; path = SmartExpense/SMItemController.m; sourceTree = "<group>"; };
 		B6B9A2511901ADB7000FD70E /* SMFuelGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFuelGraphView.h; path = SmartExpense/SMFuelGraphView.h; sourceTree = "<group>"; };
 		B6B9A2521901ADB7000FD70E /* SMFuelGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFuelGraphView.m; path = SmartExpense/SMFuelGraphView.m; sourceTree = "<group>"; };
-		B6B9A2561901ADF6000FD70E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = SmartExpense/Model.h; sourceTree = "<group>"; };
-		B6B9A2571901ADF6000FD70E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = SmartExpense/Model.m; sourceTree = "<group>"; };
 		B6B9A2581901ADF6000FD70E /* SMFuelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFuelController.h; path = SmartExpense/SMFuelController.h; sourceTree = "<group>"; };
 		B6B9A2591901ADF6000FD70E /* SMFuelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFuelController.m; path = SmartExpense/SMFuelController.m; sourceTree = "<group>"; };
-		B6B9A25D1901BC7E000FD70E /* SMDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDateFormatter.h; path = SmartExpense/SMDateFormatter.h; sourceTree = "<group>"; };
-		B6B9A25E1901BC7E000FD70E /* SMDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDateFormatter.m; path = SmartExpense/SMDateFormatter.m; sourceTree = "<group>"; };
-		B6B9A2601901BE62000FD70E /* SMNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNumberFormatter.h; path = SmartExpense/SMNumberFormatter.h; sourceTree = "<group>"; };
-		B6B9A2611901BE62000FD70E /* SMNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNumberFormatter.m; path = SmartExpense/SMNumberFormatter.m; sourceTree = "<group>"; };
-		B6C21A3A1900998600736BA1 /* SMPriceCellValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPriceCellValueTransformer.h; path = SmartExpense/SMPriceCellValueTransformer.h; sourceTree = "<group>"; };
-		B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPriceCellValueTransformer.m; path = SmartExpense/SMPriceCellValueTransformer.m; sourceTree = "<group>"; };
-		B6CFE73E1939194300C94D0D /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Items.h; path = SmartExpense/Items.h; sourceTree = "<group>"; };
-		B6CFE73F1939194300C94D0D /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Items.m; path = SmartExpense/Items.m; sourceTree = "<group>"; };
-		B6CFE7BC1939321100C94D0D /* SMCurrencyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCurrencyValueTransformer.h; path = SmartExpense/SMCurrencyValueTransformer.h; sourceTree = "<group>"; };
-		B6CFE7BD1939321100C94D0D /* SMCurrencyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCurrencyValueTransformer.m; path = SmartExpense/SMCurrencyValueTransformer.m; sourceTree = "<group>"; };
-		B6CFE7BF19393A1F00C94D0D /* Accounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Accounts.h; path = SmartExpense/Accounts.h; sourceTree = "<group>"; };
-		B6CFE7C019393A1F00C94D0D /* Accounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Accounts.m; path = SmartExpense/Accounts.m; sourceTree = "<group>"; };
 		B6CFE7C4193CE67D00C94D0D /* SMTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTile.h; sourceTree = "<group>"; };
 		B6CFE7C5193CE67D00C94D0D /* SMTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTile.m; sourceTree = "<group>"; };
 		B6CFE7C7193CF5E800C94D0D /* SMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalendarController.h; sourceTree = "<group>"; };
 		B6CFE7C8193CF5E900C94D0D /* SMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalendarController.m; sourceTree = "<group>"; };
 		B6CFE7CA193D088000C94D0D /* SMCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalendarView.h; sourceTree = "<group>"; };
 		B6CFE7CB193D088000C94D0D /* SMCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalendarView.m; sourceTree = "<group>"; };
-		B6D0E8091922A8D8004AE862 /* SmartExpense 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartExpense 2.xcdatamodel"; sourceTree = "<group>"; };
-		B6E873FF191AA71D0078DA2A /* SMStaticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMStaticsController.h; path = SmartExpense/SMStaticsController.h; sourceTree = "<group>"; };
-		B6E87400191AA71D0078DA2A /* SMStaticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMStaticsController.m; path = SmartExpense/SMStaticsController.m; sourceTree = "<group>"; };
-		B6E87402191AD32E0078DA2A /* SMStaticView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMStaticView.h; path = SmartExpense/SMStaticView.h; sourceTree = "<group>"; };
-		B6E87403191AD32E0078DA2A /* SMStaticView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMStaticView.m; path = SmartExpense/SMStaticView.m; sourceTree = "<group>"; };
+		B6E025191A2D21A6002DD633 /* Accounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Accounts.h; path = "Core Data/Accounts.h"; sourceTree = "<group>"; };
+		B6E0251A1A2D21A6002DD633 /* Accounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Accounts.m; path = "Core Data/Accounts.m"; sourceTree = "<group>"; };
+		B6E0251B1A2D21A6002DD633 /* Banks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banks.h; path = "Core Data/Banks.h"; sourceTree = "<group>"; };
+		B6E0251C1A2D21A6002DD633 /* Banks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Banks.m; path = "Core Data/Banks.m"; sourceTree = "<group>"; };
+		B6E0251D1A2D21A6002DD633 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categories.h; path = "Core Data/Categories.h"; sourceTree = "<group>"; };
+		B6E0251E1A2D21A6002DD633 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categories.m; path = "Core Data/Categories.m"; sourceTree = "<group>"; };
+		B6E0251F1A2D21A6002DD633 /* Checks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Checks.h; path = "Core Data/Checks.h"; sourceTree = "<group>"; };
+		B6E025201A2D21A6002DD633 /* Checks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Checks.m; path = "Core Data/Checks.m"; sourceTree = "<group>"; };
+		B6E025211A2D21A6002DD633 /* Expenses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Expenses.h; path = "Core Data/Expenses.h"; sourceTree = "<group>"; };
+		B6E025221A2D21A6002DD633 /* Expenses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Expenses.m; path = "Core Data/Expenses.m"; sourceTree = "<group>"; };
+		B6E025231A2D21A6002DD633 /* Fuel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fuel.h; path = "Core Data/Fuel.h"; sourceTree = "<group>"; };
+		B6E025241A2D21A6002DD633 /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fuel.m; path = "Core Data/Fuel.m"; sourceTree = "<group>"; };
+		B6E025251A2D21A6002DD633 /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Items.h; path = "Core Data/Items.h"; sourceTree = "<group>"; };
+		B6E025261A2D21A6002DD633 /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Items.m; path = "Core Data/Items.m"; sourceTree = "<group>"; };
+		B6E025271A2D21A6002DD633 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = "Core Data/List.h"; sourceTree = "<group>"; };
+		B6E025281A2D21A6002DD633 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = "Core Data/List.m"; sourceTree = "<group>"; };
+		B6E0252A1A2D21A6002DD633 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = "Core Data/Model.h"; sourceTree = "<group>"; };
+		B6E0252B1A2D21A6002DD633 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = "Core Data/Model.m"; sourceTree = "<group>"; };
+		B6E0252D1A2D21A6002DD633 /* SmartExpense 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartExpense 2.xcdatamodel"; sourceTree = "<group>"; };
+		B6E0252E1A2D21A7002DD633 /* SmartExpense 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartExpense 3.xcdatamodel"; sourceTree = "<group>"; };
+		B6E0252F1A2D21A7002DD633 /* SmartExpense.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartExpense.xcdatamodel; sourceTree = "<group>"; };
+		B6E025301A2D21A7002DD633 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = "Core Data/Store.h"; sourceTree = "<group>"; };
+		B6E025311A2D21A7002DD633 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Store.m; path = "Core Data/Store.m"; sourceTree = "<group>"; };
+		B6E025321A2D21A7002DD633 /* Transfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transfer.h; path = "Core Data/Transfer.h"; sourceTree = "<group>"; };
+		B6E025331A2D21A7002DD633 /* Transfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transfer.m; path = "Core Data/Transfer.m"; sourceTree = "<group>"; };
+		B6E025411A2D2266002DD633 /* DispersionChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DispersionChart.h; path = Statics/DispersionChart.h; sourceTree = "<group>"; };
+		B6E025421A2D2266002DD633 /* DispersionChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispersionChart.m; path = Statics/DispersionChart.m; sourceTree = "<group>"; };
+		B6E025431A2D2266002DD633 /* DotLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DotLine.h; path = Statics/DotLine.h; sourceTree = "<group>"; };
+		B6E025441A2D2266002DD633 /* DotLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DotLine.m; path = Statics/DotLine.m; sourceTree = "<group>"; };
+		B6E025451A2D2266002DD633 /* PieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChart.h; path = Statics/PieChart.h; sourceTree = "<group>"; };
+		B6E025461A2D2266002DD633 /* PieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChart.m; path = Statics/PieChart.m; sourceTree = "<group>"; };
+		B6E025471A2D2266002DD633 /* SMFinancialStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFinancialStatusController.h; path = Statics/SMFinancialStatusController.h; sourceTree = "<group>"; };
+		B6E025481A2D2266002DD633 /* SMFinancialStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFinancialStatusController.m; path = Statics/SMFinancialStatusController.m; sourceTree = "<group>"; };
+		B6E025491A2D2266002DD633 /* SMStaticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMStaticsController.h; path = Statics/SMStaticsController.h; sourceTree = "<group>"; };
+		B6E0254A1A2D2266002DD633 /* SMStaticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMStaticsController.m; path = Statics/SMStaticsController.m; sourceTree = "<group>"; };
+		B6E0254B1A2D2266002DD633 /* SMStaticView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMStaticView.h; path = Statics/SMStaticView.h; sourceTree = "<group>"; };
+		B6E0254C1A2D2266002DD633 /* SMStaticView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMStaticView.m; path = Statics/SMStaticView.m; sourceTree = "<group>"; };
+		B6E0254D1A2D2266002DD633 /* Statics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Statics.h; path = Statics/Statics.h; sourceTree = "<group>"; };
+		B6E0254E1A2D2266002DD633 /* Statics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Statics.m; path = Statics/Statics.m; sourceTree = "<group>"; };
+		B6E025561A2D22BC002DD633 /* SMAccountTypeValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAccountTypeValueTransformer.h; path = "Value Transformers/SMAccountTypeValueTransformer.h"; sourceTree = "<group>"; };
+		B6E025571A2D22BC002DD633 /* SMAccountTypeValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAccountTypeValueTransformer.m; path = "Value Transformers/SMAccountTypeValueTransformer.m"; sourceTree = "<group>"; };
+		B6E025581A2D22BC002DD633 /* SMCurrencyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCurrencyValueTransformer.h; path = "Value Transformers/SMCurrencyValueTransformer.h"; sourceTree = "<group>"; };
+		B6E025591A2D22BC002DD633 /* SMCurrencyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCurrencyValueTransformer.m; path = "Value Transformers/SMCurrencyValueTransformer.m"; sourceTree = "<group>"; };
+		B6E0255A1A2D22BC002DD633 /* SMDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDateFormatter.h; path = "Value Transformers/SMDateFormatter.h"; sourceTree = "<group>"; };
+		B6E0255B1A2D22BC002DD633 /* SMDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDateFormatter.m; path = "Value Transformers/SMDateFormatter.m"; sourceTree = "<group>"; };
+		B6E0255C1A2D22BC002DD633 /* SMNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNumberFormatter.h; path = "Value Transformers/SMNumberFormatter.h"; sourceTree = "<group>"; };
+		B6E0255D1A2D22BC002DD633 /* SMNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNumberFormatter.m; path = "Value Transformers/SMNumberFormatter.m"; sourceTree = "<group>"; };
+		B6E0255E1A2D22BC002DD633 /* SMPriceCellValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPriceCellValueTransformer.h; path = "Value Transformers/SMPriceCellValueTransformer.h"; sourceTree = "<group>"; };
+		B6E0255F1A2D22BC002DD633 /* SMPriceCellValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPriceCellValueTransformer.m; path = "Value Transformers/SMPriceCellValueTransformer.m"; sourceTree = "<group>"; };
+		B6E025651A2DF44A002DD633 /* SMNodeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNodeData.h; path = SmartExpense/SMNodeData.h; sourceTree = "<group>"; };
+		B6E025661A2DF44A002DD633 /* SMNodeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNodeData.m; path = SmartExpense/SMNodeData.m; sourceTree = "<group>"; };
+		B6E0256F1A2E3F99002DD633 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = SmartExpense/Utils.h; sourceTree = "<group>"; };
+		B6E025701A2E3F99002DD633 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = SmartExpense/Utils.m; sourceTree = "<group>"; };
+		B6E025721A2E3FB3002DD633 /* CustomizedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomizedTableView.h; path = SmartExpense/CustomizedTableView.h; sourceTree = "<group>"; };
+		B6E025731A2E3FB3002DD633 /* CustomizedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomizedTableView.m; path = SmartExpense/CustomizedTableView.m; sourceTree = "<group>"; };
+		B6E025751A2E3FBE002DD633 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.png; path = Images/check.png; sourceTree = "<group>"; };
+		B6E025761A2E3FBE002DD633 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = Images/delete.png; sourceTree = "<group>"; };
 		B6E91E3E19265A09007BF100 /* SMMergeListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMMergeListController.h; path = SmartExpense/SMMergeListController.h; sourceTree = "<group>"; };
 		B6E91E3F19265A09007BF100 /* SMMergeListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMMergeListController.m; path = SmartExpense/SMMergeListController.m; sourceTree = "<group>"; };
 		B6E91E411926CE7E007BF100 /* SMItemsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMItemsArrayController.h; path = SmartExpense/SMItemsArrayController.h; sourceTree = "<group>"; };
 		B6E91E421926CE7E007BF100 /* SMItemsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMItemsArrayController.m; path = SmartExpense/SMItemsArrayController.m; sourceTree = "<group>"; };
-		B6EB5134192948B9007EB84E /* Statics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Statics.h; path = ../Utils/MacOS/Statics/Statics.h; sourceTree = "<group>"; };
-		B6EB5135192948B9007EB84E /* Statics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Statics.m; path = ../Utils/MacOS/Statics/Statics.m; sourceTree = "<group>"; };
 		B6EB513719295A4E007EB84E /* SMTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTuple.h; sourceTree = "<group>"; };
 		B6EB513819295A4E007EB84E /* SMTuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTuple.m; sourceTree = "<group>"; };
-		B6EB513A19296956007EB84E /* DispersionChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DispersionChart.h; path = ../Utils/MacOS/Statics/DispersionChart.h; sourceTree = "<group>"; };
-		B6EB513B19296956007EB84E /* DispersionChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispersionChart.m; path = ../Utils/MacOS/Statics/DispersionChart.m; sourceTree = "<group>"; };
-		B6EB513D1929792D007EB84E /* PieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChart.h; path = ../Utils/MacOS/Statics/PieChart.h; sourceTree = "<group>"; };
-		B6EB513E1929792D007EB84E /* PieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChart.m; path = ../Utils/MacOS/Statics/PieChart.m; sourceTree = "<group>"; };
-		B6EB514019297A85007EB84E /* DotLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DotLine.h; path = ../Utils/MacOS/Statics/DotLine.h; sourceTree = "<group>"; };
-		B6EB514119297A85007EB84E /* DotLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DotLine.m; path = ../Utils/MacOS/Statics/DotLine.m; sourceTree = "<group>"; };
-		B6F8925B190C7A110014F52A /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categories.h; path = SmartExpense/Categories.h; sourceTree = "<group>"; };
-		B6F8925C190C7A110014F52A /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categories.m; path = SmartExpense/Categories.m; sourceTree = "<group>"; };
-		B6F8925E190C7A120014F52A /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = SmartExpense/List.h; sourceTree = "<group>"; };
-		B6F8925F190C7A120014F52A /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = SmartExpense/List.m; sourceTree = "<group>"; };
-		B6F89264190C7A120014F52A /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = SmartExpense/Store.h; sourceTree = "<group>"; };
-		B6F89265190C7A120014F52A /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Store.m; path = SmartExpense/Store.m; sourceTree = "<group>"; };
 		B6F89267190D4C170014F52A /* SMListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListController.h; path = SmartExpense/SMListController.h; sourceTree = "<group>"; };
 		B6F89268190D4C170014F52A /* SMListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListController.m; path = SmartExpense/SMListController.m; sourceTree = "<group>"; };
 		B6FC3DCA191308D2000E7AE6 /* SMExpenseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMExpenseController.h; path = SmartExpense/SMExpenseController.h; sourceTree = "<group>"; };
 		B6FC3DCB191308D2000E7AE6 /* SMExpenseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMExpenseController.m; path = SmartExpense/SMExpenseController.m; sourceTree = "<group>"; };
-		B6FD0CED190FF4A4006FCE63 /* SMAccountTypeValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAccountTypeValueTransformer.h; path = SmartExpense/SMAccountTypeValueTransformer.h; sourceTree = "<group>"; };
-		B6FD0CEE190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAccountTypeValueTransformer.m; path = SmartExpense/SMAccountTypeValueTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,15 +180,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B68A44DB18E6035D00804DFC /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B68A44F818E6035D00804DFC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B68A44FE18E6035D00804DFC /* Cocoa.framework in Frameworks */,
-				B68A44FD18E6035D00804DFC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,16 +234,15 @@
 		B68A44CE18E6035D00804DFC = {
 			isa = PBXGroup;
 			children = (
+				B6E0256E1A2E3F37002DD633 /* Image */,
 				B6BBBAA1193F5A1F007B0DD4 /* Custom */,
 				B6CFE7C3193BE78000C94D0D /* Value Transformer */,
 				B6CFE7C2193BDBCF00C94D0D /* Statics */,
-				B6EB51331929489F007EB84E /* Statics Framework */,
 				B6D0E80819225B8E004AE862 /* CoreData */,
 				B63F543218E7941800CDB6CA /* SmartFuel */,
 				B63F543118E7940D00CDB6CA /* SmartMoney */,
 				B63F543018E793FA00CDB6CA /* SmartList */,
 				B68A44E018E6035D00804DFC /* SmartExpense */,
-				B68A450118E6035D00804DFC /* SmartExpenseTests */,
 				B68A44D918E6035D00804DFC /* Frameworks */,
 				B68A44D818E6035D00804DFC /* Products */,
 			);
@@ -271,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				B68A44D718E6035D00804DFC /* SmartExpense.app */,
-				B68A44FB18E6035D00804DFC /* SmartExpenseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				B68A44DA18E6035D00804DFC /* Cocoa.framework */,
-				B68A44FC18E6035D00804DFC /* XCTest.framework */,
 				B68A44DC18E6035D00804DFC /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -329,31 +308,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B68A450118E6035D00804DFC /* SmartExpenseTests */ = {
-			isa = PBXGroup;
-			children = (
-				B68A450718E6035D00804DFC /* SmartExpenseTests.m */,
-				B68A450218E6035D00804DFC /* Supporting Files */,
-			);
-			path = SmartExpenseTests;
-			sourceTree = "<group>";
-		};
-		B68A450218E6035D00804DFC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B68A450318E6035D00804DFC /* SmartExpenseTests-Info.plist */,
-				B68A450418E6035D00804DFC /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		B6BBBAA1193F5A1F007B0DD4 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				B6E0256F1A2E3F99002DD633 /* Utils.h */,
+				B6E025701A2E3F99002DD633 /* Utils.m */,
 				B608BA3F1940999400CB9C33 /* SMTableView.h */,
 				B608BA401940999400CB9C33 /* SMTableView.m */,
 				B608BA31193F67AA00CB9C33 /* SMTableRowView.h */,
 				B608BA32193F67AA00CB9C33 /* SMTableRowView.m */,
+				B6E025651A2DF44A002DD633 /* SMNodeData.h */,
+				B6E025661A2DF44A002DD633 /* SMNodeData.m */,
+				B6E025721A2E3FB3002DD633 /* CustomizedTableView.h */,
+				B6E025731A2E3FB3002DD633 /* CustomizedTableView.m */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -361,14 +328,20 @@
 		B6CFE7C2193BDBCF00C94D0D /* Statics */ = {
 			isa = PBXGroup;
 			children = (
-				B608BA3D1940999400CB9C33 /* SMNodeData.h */,
-				B608BA3E1940999400CB9C33 /* SMNodeData.m */,
-				B6E873FF191AA71D0078DA2A /* SMStaticsController.h */,
-				B6E87400191AA71D0078DA2A /* SMStaticsController.m */,
-				B6E87402191AD32E0078DA2A /* SMStaticView.h */,
-				B6E87403191AD32E0078DA2A /* SMStaticView.m */,
-				B608BA34193FCE5900CB9C33 /* SMFinancialStatusController.h */,
-				B608BA35193FCE5900CB9C33 /* SMFinancialStatusController.m */,
+				B6E025411A2D2266002DD633 /* DispersionChart.h */,
+				B6E025421A2D2266002DD633 /* DispersionChart.m */,
+				B6E025431A2D2266002DD633 /* DotLine.h */,
+				B6E025441A2D2266002DD633 /* DotLine.m */,
+				B6E025451A2D2266002DD633 /* PieChart.h */,
+				B6E025461A2D2266002DD633 /* PieChart.m */,
+				B6E025471A2D2266002DD633 /* SMFinancialStatusController.h */,
+				B6E025481A2D2266002DD633 /* SMFinancialStatusController.m */,
+				B6E025491A2D2266002DD633 /* SMStaticsController.h */,
+				B6E0254A1A2D2266002DD633 /* SMStaticsController.m */,
+				B6E0254B1A2D2266002DD633 /* SMStaticView.h */,
+				B6E0254C1A2D2266002DD633 /* SMStaticView.m */,
+				B6E0254D1A2D2266002DD633 /* Statics.h */,
+				B6E0254E1A2D2266002DD633 /* Statics.m */,
 			);
 			name = Statics;
 			sourceTree = "<group>";
@@ -376,16 +349,16 @@
 		B6CFE7C3193BE78000C94D0D /* Value Transformer */ = {
 			isa = PBXGroup;
 			children = (
-				B6FD0CED190FF4A4006FCE63 /* SMAccountTypeValueTransformer.h */,
-				B6FD0CEE190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m */,
-				B6CFE7BC1939321100C94D0D /* SMCurrencyValueTransformer.h */,
-				B6CFE7BD1939321100C94D0D /* SMCurrencyValueTransformer.m */,
-				B6C21A3A1900998600736BA1 /* SMPriceCellValueTransformer.h */,
-				B6C21A3B1900998600736BA1 /* SMPriceCellValueTransformer.m */,
-				B6B9A25D1901BC7E000FD70E /* SMDateFormatter.h */,
-				B6B9A25E1901BC7E000FD70E /* SMDateFormatter.m */,
-				B6B9A2601901BE62000FD70E /* SMNumberFormatter.h */,
-				B6B9A2611901BE62000FD70E /* SMNumberFormatter.m */,
+				B6E025561A2D22BC002DD633 /* SMAccountTypeValueTransformer.h */,
+				B6E025571A2D22BC002DD633 /* SMAccountTypeValueTransformer.m */,
+				B6E025581A2D22BC002DD633 /* SMCurrencyValueTransformer.h */,
+				B6E025591A2D22BC002DD633 /* SMCurrencyValueTransformer.m */,
+				B6E0255A1A2D22BC002DD633 /* SMDateFormatter.h */,
+				B6E0255B1A2D22BC002DD633 /* SMDateFormatter.m */,
+				B6E0255C1A2D22BC002DD633 /* SMNumberFormatter.h */,
+				B6E0255D1A2D22BC002DD633 /* SMNumberFormatter.m */,
+				B6E0255E1A2D22BC002DD633 /* SMPriceCellValueTransformer.h */,
+				B6E0255F1A2D22BC002DD633 /* SMPriceCellValueTransformer.m */,
 			);
 			name = "Value Transformer";
 			sourceTree = "<group>";
@@ -393,46 +366,40 @@
 		B6D0E80819225B8E004AE862 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B6F89264190C7A120014F52A /* Store.h */,
-				B6F89265190C7A120014F52A /* Store.m */,
-				B6F8925E190C7A120014F52A /* List.h */,
-				B6F8925F190C7A120014F52A /* List.m */,
-				B6CFE73E1939194300C94D0D /* Items.h */,
-				B6CFE73F1939194300C94D0D /* Items.m */,
-				B6F8925B190C7A110014F52A /* Categories.h */,
-				B6F8925C190C7A110014F52A /* Categories.m */,
-				B6B9A2561901ADF6000FD70E /* Model.h */,
-				B6B9A2571901ADF6000FD70E /* Model.m */,
-				B651B5481925052300F0B8CF /* Fuel.h */,
-				B651B5491925052300F0B8CF /* Fuel.m */,
-				B66BF3CD190DB34F00905F01 /* Expenses.h */,
-				B66BF3CE190DB34F00905F01 /* Expenses.m */,
-				B66BF3CA190DB34F00905F01 /* Transfer.h */,
-				B66BF3CB190DB34F00905F01 /* Transfer.m */,
-				B66BF3C1190DB34E00905F01 /* Checks.h */,
-				B66BF3C2190DB34E00905F01 /* Checks.m */,
-				B66BF3BE190DB34E00905F01 /* Banks.h */,
-				B66BF3BF190DB34E00905F01 /* Banks.m */,
-				B68A44F218E6035D00804DFC /* SmartExpense.xcdatamodeld */,
-				B6CFE7BF19393A1F00C94D0D /* Accounts.h */,
-				B6CFE7C019393A1F00C94D0D /* Accounts.m */,
+				B6E025191A2D21A6002DD633 /* Accounts.h */,
+				B6E0251A1A2D21A6002DD633 /* Accounts.m */,
+				B6E0251B1A2D21A6002DD633 /* Banks.h */,
+				B6E0251C1A2D21A6002DD633 /* Banks.m */,
+				B6E0251D1A2D21A6002DD633 /* Categories.h */,
+				B6E0251E1A2D21A6002DD633 /* Categories.m */,
+				B6E0251F1A2D21A6002DD633 /* Checks.h */,
+				B6E025201A2D21A6002DD633 /* Checks.m */,
+				B6E025211A2D21A6002DD633 /* Expenses.h */,
+				B6E025221A2D21A6002DD633 /* Expenses.m */,
+				B6E025231A2D21A6002DD633 /* Fuel.h */,
+				B6E025241A2D21A6002DD633 /* Fuel.m */,
+				B6E025251A2D21A6002DD633 /* Items.h */,
+				B6E025261A2D21A6002DD633 /* Items.m */,
+				B6E025271A2D21A6002DD633 /* List.h */,
+				B6E025281A2D21A6002DD633 /* List.m */,
+				B6E0252A1A2D21A6002DD633 /* Model.h */,
+				B6E0252B1A2D21A6002DD633 /* Model.m */,
+				B6E0252C1A2D21A6002DD633 /* SmartExpense.xcdatamodeld */,
+				B6E025301A2D21A7002DD633 /* Store.h */,
+				B6E025311A2D21A7002DD633 /* Store.m */,
+				B6E025321A2D21A7002DD633 /* Transfer.h */,
+				B6E025331A2D21A7002DD633 /* Transfer.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
 		};
-		B6EB51331929489F007EB84E /* Statics Framework */ = {
+		B6E0256E1A2E3F37002DD633 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				B6EB5134192948B9007EB84E /* Statics.h */,
-				B6EB5135192948B9007EB84E /* Statics.m */,
-				B6EB513A19296956007EB84E /* DispersionChart.h */,
-				B6EB513B19296956007EB84E /* DispersionChart.m */,
-				B6EB513D1929792D007EB84E /* PieChart.h */,
-				B6EB513E1929792D007EB84E /* PieChart.m */,
-				B6EB514019297A85007EB84E /* DotLine.h */,
-				B6EB514119297A85007EB84E /* DotLine.m */,
+				B6E025751A2E3FBE002DD633 /* check.png */,
+				B6E025761A2E3FBE002DD633 /* delete.png */,
 			);
-			name = "Statics Framework";
+			name = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,24 +422,6 @@
 			productReference = B68A44D718E6035D00804DFC /* SmartExpense.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B68A44FA18E6035D00804DFC /* SmartExpenseTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B68A450E18E6035D00804DFC /* Build configuration list for PBXNativeTarget "SmartExpenseTests" */;
-			buildPhases = (
-				B68A44F718E6035D00804DFC /* Sources */,
-				B68A44F818E6035D00804DFC /* Frameworks */,
-				B68A44F918E6035D00804DFC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B68A450018E6035D00804DFC /* PBXTargetDependency */,
-			);
-			name = SmartExpenseTests;
-			productName = SmartExpenseTests;
-			productReference = B68A44FB18E6035D00804DFC /* SmartExpenseTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -491,9 +440,6 @@
 							};
 						};
 					};
-					B68A44FA18E6035D00804DFC = {
-						TestTargetID = B68A44D618E6035D00804DFC;
-					};
 				};
 			};
 			buildConfigurationList = B68A44D218E6035D00804DFC /* Build configuration list for PBXProject "SmartExpense" */;
@@ -510,7 +456,6 @@
 			projectRoot = "";
 			targets = (
 				B68A44D618E6035D00804DFC /* SmartExpense */,
-				B68A44FA18E6035D00804DFC /* SmartExpenseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -520,18 +465,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E025781A2E3FBE002DD633 /* delete.png in Resources */,
 				B68A44E518E6035D00804DFC /* InfoPlist.strings in Resources */,
+				B6E025771A2E3FBE002DD633 /* check.png in Resources */,
 				B68A44F618E6035D00804DFC /* Images.xcassets in Resources */,
 				B68A44EB18E6035D00804DFC /* Credits.rtf in Resources */,
 				B68A44F118E6035D00804DFC /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B68A44F918E6035D00804DFC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B68A450618E6035D00804DFC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,71 +481,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E025711A2E3F99002DD633 /* Utils.m in Sources */,
+				B6E0253D1A2D21A7002DD633 /* Model.m in Sources */,
+				B6E025391A2D21A7002DD633 /* Fuel.m in Sources */,
+				B6E025601A2D22BC002DD633 /* SMAccountTypeValueTransformer.m in Sources */,
 				B6E91E431926CE7E007BF100 /* SMItemsArrayController.m in Sources */,
 				B608BA421940999400CB9C33 /* SMTableView.m in Sources */,
 				B63F543F18E796C700CDB6CA /* SMSmartFuelDelegate.m in Sources */,
 				B6F89269190D4C170014F52A /* SMListController.m in Sources */,
 				B6CFE7C6193CE67D00C94D0D /* SMTile.m in Sources */,
 				B6E91E4019265A09007BF100 /* SMMergeListController.m in Sources */,
+				B6E025551A2D2266002DD633 /* Statics.m in Sources */,
+				B6E025621A2D22BC002DD633 /* SMDateFormatter.m in Sources */,
 				B68A44EE18E6035D00804DFC /* SMAppDelegate.m in Sources */,
-				B6F89260190C7A120014F52A /* List.m in Sources */,
+				B6E025521A2D2266002DD633 /* SMFinancialStatusController.m in Sources */,
 				B6CFE7C9193CF5E900C94D0D /* SMCalendarController.m in Sources */,
-				B66BF3C0190DB34E00905F01 /* Banks.m in Sources */,
-				B66BF3CC190DB34F00905F01 /* Transfer.m in Sources */,
 				B608BA33193F67AA00CB9C33 /* SMTableRowView.m in Sources */,
-				B6CFE7C119393A1F00C94D0D /* Accounts.m in Sources */,
+				B6E025631A2D22BC002DD633 /* SMNumberFormatter.m in Sources */,
+				B6E025531A2D2266002DD633 /* SMStaticsController.m in Sources */,
+				B6E025381A2D21A7002DD633 /* Expenses.m in Sources */,
+				B6E0253A1A2D21A7002DD633 /* Items.m in Sources */,
 				B6EB513919295A4E007EB84E /* SMTuple.m in Sources */,
+				B6E025541A2D2266002DD633 /* SMStaticView.m in Sources */,
+				B6E0253B1A2D21A7002DD633 /* List.m in Sources */,
 				B6CFE7CC193D088000C94D0D /* SMCalendarView.m in Sources */,
-				B6F89266190C7A120014F52A /* Store.m in Sources */,
-				B6EB513C19296956007EB84E /* DispersionChart.m in Sources */,
-				B6CFE7BE1939321100C94D0D /* SMCurrencyValueTransformer.m in Sources */,
-				B6EB513F1929792D007EB84E /* PieChart.m in Sources */,
-				B66BF3CF190DB34F00905F01 /* Expenses.m in Sources */,
+				B6E025361A2D21A7002DD633 /* Categories.m in Sources */,
 				B6FC3DCC191308D2000E7AE6 /* SMExpenseController.m in Sources */,
-				B6C21A3C1900998600736BA1 /* SMPriceCellValueTransformer.m in Sources */,
-				B6EB514219297A85007EB84E /* DotLine.m in Sources */,
-				B6B9A2621901BE62000FD70E /* SMNumberFormatter.m in Sources */,
+				B6E025671A2DF44A002DD633 /* SMNodeData.m in Sources */,
+				B6E025641A2D22BC002DD633 /* SMPriceCellValueTransformer.m in Sources */,
+				B6E025741A2E3FB3002DD633 /* CustomizedTableView.m in Sources */,
+				B6E0253E1A2D21A7002DD633 /* SmartExpense.xcdatamodeld in Sources */,
+				B6E0254F1A2D2266002DD633 /* DispersionChart.m in Sources */,
 				B6B9A2531901ADB7000FD70E /* SMFuelGraphView.m in Sources */,
-				B66BF3C3190DB34E00905F01 /* Checks.m in Sources */,
-				B651B54A1925052400F0B8CF /* Fuel.m in Sources */,
 				B63F543918E794D200CDB6CA /* SMSmartListDelegate.m in Sources */,
-				B608BA411940999400CB9C33 /* SMNodeData.m in Sources */,
+				B6E025401A2D21A7002DD633 /* Transfer.m in Sources */,
+				B6E025341A2D21A7002DD633 /* Accounts.m in Sources */,
+				B6E025501A2D2266002DD633 /* DotLine.m in Sources */,
+				B6E025351A2D21A7002DD633 /* Banks.m in Sources */,
+				B6E025511A2D2266002DD633 /* PieChart.m in Sources */,
 				B6B9A25C1901ADF6000FD70E /* SMFuelController.m in Sources */,
+				B6E025371A2D21A7002DD633 /* Checks.m in Sources */,
 				B68A44E718E6035D00804DFC /* main.m in Sources */,
-				B6EB5136192948B9007EB84E /* Statics.m in Sources */,
-				B6B9A25F1901BC7E000FD70E /* SMDateFormatter.m in Sources */,
-				B6E87401191AA71D0078DA2A /* SMStaticsController.m in Sources */,
+				B6E0253F1A2D21A7002DD633 /* Store.m in Sources */,
 				B6A8D33E190D5E7000F03AD1 /* SMItemController.m in Sources */,
 				B66BF3D2190DD90C00905F01 /* SMAccountController.m in Sources */,
-				B6B9A25B1901ADF6000FD70E /* Model.m in Sources */,
+				B6E025611A2D22BC002DD633 /* SMCurrencyValueTransformer.m in Sources */,
 				B6A4B47C191706AF003EFB12 /* SMExpenseSchedController.m in Sources */,
-				B608BA36193FCE5900CB9C33 /* SMFinancialStatusController.m in Sources */,
-				B6F8925D190C7A110014F52A /* Categories.m in Sources */,
-				B68A44F418E6035D00804DFC /* SmartExpense.xcdatamodeld in Sources */,
-				B6E87404191AD32E0078DA2A /* SMStaticView.m in Sources */,
-				B6FD0CEF190FF4A4006FCE63 /* SMAccountTypeValueTransformer.m in Sources */,
-				B6CFE7401939194300C94D0D /* Items.m in Sources */,
 				B63F543618E7949800CDB6CA /* SMSmartMoneyDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B68A44F718E6035D00804DFC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B68A450818E6035D00804DFC /* SmartExpenseTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B68A450018E6035D00804DFC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B68A44D618E6035D00804DFC /* SmartExpense */;
-			targetProxy = B68A44FF18E6035D00804DFC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B68A44E318E6035D00804DFC /* InfoPlist.strings */ = {
@@ -631,14 +556,6 @@
 				B68A44F018E6035D00804DFC /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		B68A450418E6035D00804DFC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B68A450518E6035D00804DFC /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -675,7 +592,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -707,7 +624,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -746,46 +663,6 @@
 			};
 			name = Release;
 		};
-		B68A450F18E6035D00804DFC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartExpense.app/Contents/MacOS/SmartExpense";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SmartExpense/SmartExpense-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SmartExpenseTests/SmartExpenseTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		B68A451018E6035D00804DFC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartExpense.app/Contents/MacOS/SmartExpense";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SmartExpense/SmartExpense-Prefix.pch";
-				INFOPLIST_FILE = "SmartExpenseTests/SmartExpenseTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -807,28 +684,19 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B68A450E18E6035D00804DFC /* Build configuration list for PBXNativeTarget "SmartExpenseTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B68A450F18E6035D00804DFC /* Debug */,
-				B68A451018E6035D00804DFC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B68A44F218E6035D00804DFC /* SmartExpense.xcdatamodeld */ = {
+		B6E0252C1A2D21A6002DD633 /* SmartExpense.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B651B547192504BE00F0B8CF /* SmartExpense 3.xcdatamodel */,
-				B6D0E8091922A8D8004AE862 /* SmartExpense 2.xcdatamodel */,
-				B68A44F318E6035D00804DFC /* SmartExpense.xcdatamodel */,
+				B6E0252D1A2D21A6002DD633 /* SmartExpense 2.xcdatamodel */,
+				B6E0252E1A2D21A7002DD633 /* SmartExpense 3.xcdatamodel */,
+				B6E0252F1A2D21A7002DD633 /* SmartExpense.xcdatamodel */,
 			);
-			currentVersion = B651B547192504BE00F0B8CF /* SmartExpense 3.xcdatamodel */;
+			currentVersion = B6E0252E1A2D21A7002DD633 /* SmartExpense 3.xcdatamodel */;
 			name = SmartExpense.xcdatamodeld;
-			path = SmartExpense/SmartExpense.xcdatamodeld;
+			path = "Core Data/SmartExpense.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
