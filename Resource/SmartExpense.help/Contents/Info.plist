@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en_us</string>
+	<key>CFBundleIdentifier</key>
+	<string>ar.com.argsoftsolutions.SmartExpense.help</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>SmartExpense</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>hbwr</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>HPDBookAccessPath</key>
+	<string>index.html</string>
+	<key>HPDBookIconPath</key>
+	<string>shrd/buy16.png</string>
+	<key>HPDBookIndexPath</key>
+	<string>SmartExpense.helpindex</string>
+	<key>HPDBookKBURL</key>
+	<string>http://www.argsoftsolutions.com.ar</string>
+	<key>HPDBookRemoteURL</key>
+	<string>http://www.argsoftsolutions.com.ar</string>
+	<key>HPDBookTitle</key>
+	<string>SmartExpense Help</string>
+	<key>HPDBookType</key>
+	<string>3</string>
+</dict>
+</plist>

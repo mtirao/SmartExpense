@@ -22,8 +22,7 @@
 
 - (IBAction)okAction:(id)sender {
     
-    [NSApp endSheet:mainWindow];
-    [mainWindow orderOut:sender];
+    [appDelegate.expenseWindow endSheet:mainWindow];
     
     NSArray *acc = [accounts arrangedObjects];
     NSInteger item = [selectedAccount indexOfSelectedItem];
@@ -57,8 +56,8 @@
 
 
 - (IBAction)cancelAction:(id)sender {
-    [NSApp endSheet:mainWindow];
-    [mainWindow orderOut:sender];
+    
+    [appDelegate.expenseWindow endSheet:mainWindow];
 }
 
 - (IBAction)showAction:(id)sender {
@@ -68,7 +67,8 @@
     [from setDateValue:today];
     [to setDateValue:today];
     
-    //[NSApp beginSheet:mainWindow modalForWindow:appDelegate.mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
+    [appDelegate.expenseWindow beginSheet:mainWindow completionHandler:nil];
+    
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
@@ -101,11 +101,11 @@
     }
     
     if([freq compare:@"Monthly"] == NSOrderedSame) {
-        begin = [calendar component:NSMonthCalendarUnit fromDate:fromDate];
-        end = [calendar component:NSMonthCalendarUnit fromDate:toDate];
+        begin = [calendar component:NSCalendarUnitMonth fromDate:fromDate];
+        end = [calendar component:NSCalendarUnitMonth fromDate:toDate];
     }else {
-        begin = [calendar component:NSYearCalendarUnit fromDate:fromDate];
-        end = [calendar component:NSYearCalendarUnit fromDate:toDate];
+        begin = [calendar component:NSCalendarUnitMonth fromDate:fromDate];
+        end = [calendar component:NSCalendarUnitMonth fromDate:toDate];
     }
     
     NSArray * result = nil;
@@ -114,9 +114,9 @@
         NSMutableArray *aux = [[NSMutableArray alloc]init];
         [aux addObject:fromDate];
         
-        NSInteger day = [calendar component:NSDayCalendarUnit fromDate:fromDate];
-        NSInteger month = [calendar component:NSMonthCalendarUnit fromDate:fromDate];
-        NSInteger year = [calendar component:NSYearCalendarUnit fromDate:fromDate];
+        NSInteger day = [calendar component:NSCalendarUnitDay fromDate:fromDate];
+        NSInteger month = [calendar component:NSCalendarUnitMonth fromDate:fromDate];
+        NSInteger year = [calendar component:NSCalendarUnitYear fromDate:fromDate];
         
         NSDateComponents *comps = [[NSDateComponents alloc]init];
         [comps setDay:day];

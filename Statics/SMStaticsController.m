@@ -45,6 +45,7 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
         return YES;
     }else if(menuItem.tag == 1) {
         menuItem.title = @"Toggle Drawer";
+        return NO;
     }
 
     
@@ -63,7 +64,7 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
     
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *components = [currentCalendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:currentDate];
+    NSDateComponents *components = [currentCalendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:currentDate];
     
     [components setMonth:components.month + 1];
     

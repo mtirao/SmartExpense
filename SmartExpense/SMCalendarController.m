@@ -47,7 +47,7 @@
     
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *comp = [currentCalendar components:(NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[self firstDateOfCurrentMonth]];
+    NSDateComponents *comp = [currentCalendar components:(NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:[self firstDateOfCurrentMonth]];
     
     month = [comp month];
     year = [comp year];
@@ -85,7 +85,7 @@
         for(NSInteger j=init; j < 7; j++ ) {
             [comp setDay:day];
             NSDate *date1 = [currentCalendar dateFromComponents:comp];
-            NSInteger month1 = [currentCalendar component:NSMonthCalendarUnit fromDate:date1];
+            NSInteger month1 = [currentCalendar component:NSCalendarUnitMonth fromDate:date1];
             
             if (month1 == month) {
                 NSMutableArray *week = [calendar objectAtIndex:i];
@@ -103,7 +103,7 @@
 
 -(BOOL)isCurrentDateForMonth:(NSInteger)aMonth forDay:(NSInteger)aDay forYear:(NSInteger)aYear {
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-    NSDateComponents *comp = [currentCalendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *comp = [currentCalendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:[NSDate date]];
     
     return (aDay == [comp day]) && (aMonth == [comp month]) && (aYear == [comp year]);
 }
@@ -112,7 +112,7 @@
     
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *comp = [currentCalendar components:(NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self.date];
+    NSDateComponents *comp = [currentCalendar components:(NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self.date];
     
     [comp setDay:1];
     
@@ -161,7 +161,7 @@
     
     NSCalendar* currentCalendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *comp = [currentCalendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self.date];
+    NSDateComponents *comp = [currentCalendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self.date];
     
     [comp setMonth:[comp month] + 1];
     
@@ -173,7 +173,7 @@
     
     NSCalendar* currentCalendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *comp = [currentCalendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self.date];
+    NSDateComponents *comp = [currentCalendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self.date];
     
     [comp setMonth:[comp month] - 1];
     

@@ -257,7 +257,7 @@
 
         NSInteger answer = [alert runModal];
         
-        if (answer == NSAlertAlternateReturn) {
+        if (answer == NSAlertFirstButtonReturn) {
             return NSTerminateCancel;
         }
     }
@@ -374,7 +374,7 @@
     
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *comp = [currentCalendar components: ( NSHourCalendarUnit | NSMinuteCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
+    NSDateComponents *comp = [currentCalendar components: ( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
     [comp setHour:0];
     [comp setMinute:0];
     NSDate* from = [currentCalendar dateFromComponents:comp];

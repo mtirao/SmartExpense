@@ -56,6 +56,7 @@
 		B6E025741A2E3FB3002DD633 /* CustomizedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E025731A2E3FB3002DD633 /* CustomizedTableView.m */; };
 		B6E025771A2E3FBE002DD633 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E025751A2E3FBE002DD633 /* check.png */; };
 		B6E025781A2E3FBE002DD633 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E025761A2E3FBE002DD633 /* delete.png */; };
+		B6E025A61A30F8C8002DD633 /* SmartExpense.help in Resources */ = {isa = PBXBuildFile; fileRef = B6E025A51A30F8C8002DD633 /* SmartExpense.help */; };
 		B6E91E4019265A09007BF100 /* SMMergeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E91E3F19265A09007BF100 /* SMMergeListController.m */; };
 		B6E91E431926CE7E007BF100 /* SMItemsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E91E421926CE7E007BF100 /* SMItemsArrayController.m */; };
 		B6EB513919295A4E007EB84E /* SMTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB513819295A4E007EB84E /* SMTuple.m */; };
@@ -162,6 +163,7 @@
 		B6E025731A2E3FB3002DD633 /* CustomizedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomizedTableView.m; path = SmartExpense/CustomizedTableView.m; sourceTree = "<group>"; };
 		B6E025751A2E3FBE002DD633 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.png; path = Images/check.png; sourceTree = "<group>"; };
 		B6E025761A2E3FBE002DD633 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = Images/delete.png; sourceTree = "<group>"; };
+		B6E025A51A30F8C8002DD633 /* SmartExpense.help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SmartExpense.help; path = Resource/SmartExpense.help; sourceTree = "<group>"; };
 		B6E91E3E19265A09007BF100 /* SMMergeListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMMergeListController.h; path = SmartExpense/SMMergeListController.h; sourceTree = "<group>"; };
 		B6E91E3F19265A09007BF100 /* SMMergeListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMMergeListController.m; path = SmartExpense/SMMergeListController.m; sourceTree = "<group>"; };
 		B6E91E411926CE7E007BF100 /* SMItemsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMItemsArrayController.h; path = SmartExpense/SMItemsArrayController.h; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		B68A44CE18E6035D00804DFC = {
 			isa = PBXGroup;
 			children = (
+				B6E025A51A30F8C8002DD633 /* SmartExpense.help */,
 				B6E0256E1A2E3F37002DD633 /* Image */,
 				B6BBBAA1193F5A1F007B0DD4 /* Custom */,
 				B6CFE7C3193BE78000C94D0D /* Value Transformer */,
@@ -449,6 +452,7 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = B68A44CE18E6035D00804DFC;
 			productRefGroup = B68A44D818E6035D00804DFC /* Products */;
@@ -467,6 +471,7 @@
 			files = (
 				B6E025781A2E3FBE002DD633 /* delete.png in Resources */,
 				B68A44E518E6035D00804DFC /* InfoPlist.strings in Resources */,
+				B6E025A61A30F8C8002DD633 /* SmartExpense.help in Resources */,
 				B6E025771A2E3FBE002DD633 /* check.png in Resources */,
 				B68A44F618E6035D00804DFC /* Images.xcassets in Resources */,
 				B68A44EB18E6035D00804DFC /* Credits.rtf in Resources */,
