@@ -41,5 +41,22 @@
     
 }
 
+-(void)drawEmptyDataSet:(CGRect)frame {
+    
+    NSFont* referenceFontTitle = [NSFont boldSystemFontOfSize:15.0];
+    NSDictionary* fontAttrsTitle = @{NSForegroundColorAttributeName: [NSColor blackColor],
+                                     NSFontAttributeName: referenceFontTitle};
+    
+    NSString *title = @"NO DATA TO DRAW";
+    NSSize referenceTitle = [title sizeWithAttributes:fontAttrsTitle];
+    
+    int x = frame.size.width / 2 - referenceTitle.width / 2;
+    int y = frame.size.height / 2 - referenceTitle.height / 2;
+    
+    
+    [title drawAtPoint:NSMakePoint(x, y) withAttributes:fontAttrsTitle];
+    
+}
+
 
 @end

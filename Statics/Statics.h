@@ -24,7 +24,7 @@
 -(Statics*)initChartWithDictionary:(NSDictionary*)data;
 
 -(void)drawChartInRect:(CGRect)frame withTitle:(NSString*)title;
-
+-(void)drawEmptyDataSet:(CGRect)frame;
 
 
 

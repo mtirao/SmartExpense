@@ -272,6 +272,17 @@
 - (IBAction)saveAction:(id)sender
 {
     
+    NSString *question = @"";
+    NSString *info = @"The information is saved automatically every time you quit the application, so this action is not necessary to do. However, you can choose save whenever you want.";
+    NSString *okButton = @"Continue Saving";
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:question];
+    [alert setInformativeText:info];
+    [alert addButtonWithTitle:okButton];
+    
+    [alert runModal];
+
+    
     NSError *error = nil;
     
     if (![[self managedObjectContext] commitEditing]) {

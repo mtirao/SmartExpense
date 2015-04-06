@@ -82,7 +82,7 @@
             init = weekday - 1;
             isFirstRow = NO;
         }
-        for(NSInteger j=init; j < 7; j++ ) {
+        for(NSInteger j=0; j < 7; j++ ) {
             [comp setDay:day];
             NSDate *date1 = [currentCalendar dateFromComponents:comp];
             NSInteger month1 = [currentCalendar component:NSCalendarUnitMonth fromDate:date1];
@@ -90,9 +90,14 @@
             if (month1 == month) {
                 NSMutableArray *week = [calendar objectAtIndex:i];
                 SMTile *d = [week objectAtIndex:j];
-                d.text = [NSString stringWithFormat:@"%ld", day];
-                d.isCurrent = [self isCurrentDateForMonth:month forDay:day forYear:year];
-                [d drawTile];
+                if (j >= init) {
+                    d.text = [NSString stringWithFormat:@"%ld", day];
+                    d.isCurrent = [self isCurrentDateForMonth:month forDay:day forYear:year];
+                    [d drawTile];
+                }else {
+                    d.text = nil;
+                    [d drawTile];
+                }
             }
             
             day++;
@@ -125,7 +130,7 @@
         NSMutableArray *week = [calendar objectAtIndex:i];
         for(NSInteger j=0; j < 7; j++ ) {
             SMTile* day = [week objectAtIndex:j];
-            if(NSPointInRect(point, day.frame)) {
+            if(NSPointInRect(point, day.frame) && day.text != nil) {
                 [self unselectAll];
                 day.isSelected = YES;
                 NSCalendar *currentCalendar = [NSCalendar currentCalendar];

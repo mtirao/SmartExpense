@@ -69,54 +69,62 @@
     [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
     
     
-    for( NSString *category in self.staticsData.allKeys) {
+    if (self.staticsData != nil && self.staticsData.count > 0) {
+   
+        for( NSString *category in self.staticsData.allKeys) {
         
-        NSNumber * value = [self.staticsData objectForKey:category];
+            NSNumber * value = [self.staticsData objectForKey:category];
         
-        float coef = value.floatValue / total;
+            float coef = value.floatValue / total;
         
-        NSColor* arcColor = [self.colors objectAtIndex:colorIndex];
-        [arcColor set];
-        CGPoint categoryPoint = CGPointMake(referenceX, referenceY);
+            NSColor* arcColor = [self.colors objectAtIndex:colorIndex];
+            [arcColor set];
+            CGPoint categoryPoint = CGPointMake(referenceX, referenceY);
         
-        NSString * percentage = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:coef]];
-        NSString * reference = [NSString stringWithFormat:@"%@: %@",
+            NSString * percentage = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:coef]];
+            NSString * reference = [NSString stringWithFormat:@"%@: %@",
                                 category, percentage ];
         
         
-        fontAttrs = @{NSForegroundColorAttributeName: arcColor,
+            fontAttrs = @{NSForegroundColorAttributeName: arcColor,
                                     NSFontAttributeName: referenceFont};
         
-        [reference drawAtPoint:categoryPoint withAttributes:fontAttrs];
+            [reference drawAtPoint:categoryPoint withAttributes:fontAttrs];
         
-        referenceY += 15;
+            referenceY += 15;
         
         
-        CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+            CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
         
-        CGContextSetFillColorWithColor(context, arcColor.CGColor);
+            CGContextSetFillColorWithColor(context, arcColor.CGColor);
         
-        // Draw them with a 2.0 stroke width so they are a bit more visible.
-        CGContextSetLineWidth(context, 2.0);
+            // Draw them with a 2.0 stroke width so they are a bit more visible.
+            CGContextSetLineWidth(context, 2.0);
         
-        CGContextMoveToPoint(context, xcenter, ycenter); //start at this point
+            CGContextMoveToPoint(context, xcenter, ycenter); //start at this point
         
-        CGContextAddLineToPoint(context, endAnglePoint.x , endAnglePoint.y); //draw to this point
+            CGContextAddLineToPoint(context, endAnglePoint.x , endAnglePoint.y); //draw to this point
         
-        endAngle = 2*M_PI * coef + startAngle;
+            endAngle = 2*M_PI * coef + startAngle;
         
-        CGContextAddArc(context, xcenter, ycenter, radius, startAngle, endAngle, 0);
+            CGContextAddArc(context, xcenter, ycenter, radius, startAngle, endAngle, 0);
         
-        endAnglePoint = CGContextGetPathCurrentPoint(context);
+            endAnglePoint = CGContextGetPathCurrentPoint(context);
         
-        CGContextAddLineToPoint(context, xcenter, ycenter);
+            CGContextAddLineToPoint(context, xcenter, ycenter);
         
-        startAngle = endAngle;
+            startAngle = endAngle;
         
-        CGContextFillPath(context);
+            CGContextFillPath(context);
         
-        count += 10;
-        colorIndex++;
+            count += 10;
+            colorIndex++;
+        }
+    }else {
+        NSLog(@"No data provided");
+        
+        [self drawEmptyDataSet:frame];
+        
     }
     
 }

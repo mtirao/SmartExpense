@@ -25,7 +25,7 @@
 -(void)drawTile {
     
     if(self.text != nil) {
-        NSFont* referenceFont = [NSFont boldSystemFontOfSize:9.0];
+        NSFont* referenceFont = [NSFont boldSystemFontOfSize:12.0];
     
         NSDictionary* fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
                                [NSColor blackColor], NSForegroundColorAttributeName,
@@ -64,6 +64,17 @@
     
         NSPoint textPos = NSMakePoint(self.frame.origin.x + (self.frame.size.width - reference.width), self.frame.origin.y + (self.frame.size.height - reference.height));
         [self.text drawAtPoint:textPos withAttributes:fontAttrs];
+    }else {
+        NSColor *foreground = [Utils controlColor];
+        NSColor *background = [NSColor whiteColor];
+        
+        [background setFill];
+        [foreground setStroke];
+        
+        NSBezierPath *tile = [NSBezierPath bezierPathWithRect:self.frame];
+        tile.lineWidth = 1.5;
+        [tile fill];
+        [tile stroke];
     }
     
     if(self.header != nil) {
