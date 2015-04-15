@@ -18,7 +18,6 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize dataByDate;
-@synthesize infoTable;
 @synthesize currentAccount;
 
 @synthesize mainWindow;
@@ -29,9 +28,7 @@
     [mainWindow setAcceptsMouseMovedEvents:YES];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{    
-    [self loadInfoTable:[NSDate date]];
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 }
 
 
@@ -265,37 +262,6 @@
     return NSTerminateNow;
 }
 
-#pragma mark ***** Application Action Method *****
-
-// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-//Also performs the save action for the others application.
-- (IBAction)saveAction:(id)sender
-{
-    
-    NSString *question = @"";
-    NSString *info = @"The information is saved automatically every time you quit the application, so this action is not necessary to do. However, you can choose save whenever you want.";
-    NSString *okButton = @"Continue Saving";
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:question];
-    [alert setInformativeText:info];
-    [alert addButtonWithTitle:okButton];
-    
-    [alert runModal];
-
-    
-    NSError *error = nil;
-    
-    if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
-    }
-    
-    if (![[self managedObjectContext] save:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-    }
-    
-}
-
-
 #pragma mark ***** Table View DataSoruce Protocol Methods *****
 
 - (void)tableView:(NSTableView *)aTableView willDisplayCell:(id)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
@@ -316,66 +282,39 @@
     }
 }
 
+#pragma mark ***** Application Action Method *****
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
+//Also performs the save action for the others application.
+- (IBAction)saveAction:(id)sender
+{
     
-    if( dataByDate != nil ) {
-        
-        if (dataByDate.count == 0 ) {
-            return 1;
-        }else {
-            return dataByDate.count;
-        }
-        
+    NSString *question = @"";
+    NSString *info = @"The information is saved automatically every time you quit the application, so this action is not necessary to do. However, you can choose save whenever you want.";
+    NSString *okButton = @"Continue Saving";
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:question];
+    [alert setInformativeText:info];
+    [alert addButtonWithTitle:okButton];
+    
+    [alert runModal];
+    
+    NSError *error = nil;
+    
+    if (![[self managedObjectContext] commitEditing]) {
+        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
     }
     
-    return 1;
-
+    if (![[self managedObjectContext] save:&error]) {
+        [[NSApplication sharedApplication] presentError:error];
+    }
+    
 }
 
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
-    
-    NSString *header = [aTableColumn.headerCell stringValue];
-    
-    if (dataByDate == nil) {
-        if([header isEqualToString:@"Description"])
-            return @"No expense for the selected date";
-        else
-            return @"";
-    }else if(dataByDate.count == 0) {
-        if([header isEqualToString:@"Description"])
-            return @"No expense for the selected date";
-        else
-            return @"";
-    }
-    
-    
-    NSManagedObject *obj = [dataByDate objectAtIndex:rowIndex];
-    
-    NSString *ret = nil;
-    
-    
-    if ([header isEqualToString:@"Description"]) {
-        if ([obj isKindOfClass:Expenses.class]) {
-            Expenses *exp = (Expenses*)obj;
-            ret = [NSString stringWithFormat:@"%@ - %@", exp.type, exp.storename];
-        }else if ([obj isKindOfClass:List.class]) {
-            List *lst = (List*)obj;
-            ret = [NSString stringWithFormat:@"%@ - %@", lst.name, lst.store.name];
-        }
-    }else {
-        if ([obj isKindOfClass:Expenses.class]) {
-            Expenses *exp = (Expenses*)obj;
-            SMCurrencyValueTransformer *formatter = [[SMCurrencyValueTransformer alloc]init];
-            ret = [formatter transformedValue:exp.total];
-        }else if ([obj isKindOfClass:List.class]) {
-            List *lst = (List*)obj;
-            SMCurrencyValueTransformer *formatter = [[SMCurrencyValueTransformer alloc]init];
-            ret = [formatter transformedValue:lst.total];
-        }
-    }
+#pragma mark ***** Window Delegate Protocol Methods *****
 
-    return ret;
+- (void)windowDidBecomeKey:(NSNotification *)notification {
+    [mainWindow.contentView setNeedsDisplay:YES];
 }
 
 
@@ -396,9 +335,6 @@
     
     NSDateFormatter *f = [[NSDateFormatter alloc]init];
     [f setDateStyle:NSDateFormatterFullStyle];
-    NSLog(@"%@", [f stringFromDate:from]);
-    NSLog(@"%@", [f stringFromDate:to]);
-    
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     
@@ -428,8 +364,20 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(purchased >= %@)", date ];
+    NSDateComponents *comp = [currentCalendar components:(kCFCalendarUnitWeekday | kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute) fromDate:date];
+   
+    [comp setHour:0];
+    [comp setMinute:0];
+    NSDate* from = [currentCalendar dateFromComponents:comp];
+    
+    [comp setHour:23];
+    [comp setMinute:59];
+    NSDate* to = [currentCalendar dateFromComponents:comp];
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(purchased >= %@) AND (purchased <= %@)", from, to ];
     [fetchRequest setPredicate:predicate];
     
     NSError* error;
@@ -440,33 +388,6 @@
     }
     
     return d;
-}
-
--(void)loadInfoTable:(NSDate*)date {
-    
-    NSArray* expenses = [self expensesByDate:date];
-    NSArray* lists = [self listsByDate:date];
-    
-    NSDateFormatter *f = [[NSDateFormatter alloc]init];
-    [f setDateStyle:NSDateFormatterLongStyle];
-    
-    NSLog(@"%@", [f stringFromDate:date]);
-    
-    
-    NSMutableArray *aux = [[NSMutableArray alloc]init];
-    
-    for (Expenses * e in expenses) {
-        [aux addObject:e];
-    }
-    
-    for (List * l in lists) {
-        [aux addObject:l];
-    }
-    
-    dataByDate = [NSArray arrayWithArray:aux];
-    
-    [infoTable reloadData];
-    
 }
 
 @end

@@ -36,7 +36,7 @@
             [alert setInformativeText:@"You should first add a bank Account"];
             [alert addButtonWithTitle:@"Ok"];
             void(^returnCode)(NSModalResponse) = ^(NSModalResponse code){};
-           [alert beginSheetModalForWindow:appDelegate.accountWindow completionHandler:returnCode];
+            [alert beginSheetModalForWindow:appDelegate.accountWindow completionHandler:returnCode];
         }
     }
     

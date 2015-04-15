@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SMTile.h"
+#import "SMAppDelegate.h"
 
 @interface SMCalendarController : NSObject {
 @private
@@ -20,12 +21,20 @@
 @property (readonly) NSRect frame;
 @property (copy, nonatomic) NSDate* date;
 
+@property (nonatomic, weak) SMAppDelegate *appDelegate;
+@property (nonatomic, weak) NSTextFieldCell* yearLabel;
+@property (nonatomic, weak) NSTextFieldCell* monthLabel;
+
+
+
 -(SMCalendarController*) initWithRect:(NSRect)r;
 -(void)drawCalendar;
 -(void)unselectAll;
 -(NSDate*)dateFromPoint:(NSPoint)point;
+-(SMTile*)tileFromPoint:(NSPoint)point;
 
 -(void)nextMonth;
 -(void)prevMonth;
+-(void)today;
 
 @end

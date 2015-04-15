@@ -61,7 +61,7 @@
             amount += f.amount.floatValue;
             money += f.price.floatValue * f.amount.floatValue;
             if (previous != nil) {
-                distance += abs(f.odometer.floatValue - previous.odometer.floatValue);
+                distance += ABS(f.odometer.floatValue - previous.odometer.floatValue);
             }
             previous = f;
         }

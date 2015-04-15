@@ -8,9 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface SMAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, NSTableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet NSTableView * infoTable;
 @property (weak, nonatomic) IBOutlet NSArrayController* currentAccount;
 @property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
 
@@ -24,6 +23,8 @@
 
 - (IBAction)saveAction:(id)sender;
 
--(void)loadInfoTable:(NSDate*)date;
+
+-(NSArray*) expensesByDate:(NSDate*)date;
+-(NSArray*) listsByDate:(NSDate*)date;
 
 @end

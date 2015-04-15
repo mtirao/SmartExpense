@@ -398,7 +398,7 @@ enum{ITEM_VARIATION_BUTTON, TOTAL_ITEM_BUTTON, TOTAL_EXPENSE_BUTTON, FUTURE_TOTA
                 isFirstData = NO;
             }else {
                 NSNumber *value = [data objectForKey:fuel.date];
-                float consumption = abs(fuel.odometer.floatValue - odometer) / fuel.amount.floatValue;
+                float consumption = ABS(fuel.odometer.floatValue - odometer) / fuel.amount.floatValue;
                 odometer = fuel.odometer.floatValue;
                 
                 if (value != nil) {
