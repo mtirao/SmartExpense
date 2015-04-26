@@ -42,9 +42,11 @@
     NSPoint p = [theEvent locationInWindow];
     p = [self convertPoint:p fromView:nil];
     
-    NSDate* selectedDate = [calendar dateFromPoint:p];
+    SMTile* currentTile = [calendar tileFromPoint:p];
     
-    if(selectedDate != nil) {
+    NSDate* selectedDate = currentTile.date;
+    
+    if(currentTile.isCurrentMonth) {
         
         NSRect tileFrame = [calendar tileFromPoint:p].frame;
         
@@ -66,6 +68,9 @@
         [popover showRelativeToRect:tileFrame ofView:self preferredEdge: NSMaxXEdge];
     }else {
         [popover performClose:self];
+        
+        [calendar gotoDateFromTile:currentTile];
+        [self setNeedsDisplay:YES];
     }
     
 }

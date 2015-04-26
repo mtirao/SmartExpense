@@ -12,12 +12,11 @@
 @implementation SMTile
 
 
-@synthesize frame, data, text, header, isSelected, isCurrent;
+@synthesize frame, data, text, header, isCurrent, isCurrentMonth, isWeekendDay;
 
 -(SMTile*)initWithRect:(NSRect)r {
     
     frame = r;
-    isSelected = NO;
     
     return self;
 }
@@ -41,7 +40,15 @@
         NSColor *foreground = [Utils controlColor];
         NSColor *background = [NSColor whiteColor];
         
-        [background setFill];
+        NSColor *background1 = [NSColor colorWithCalibratedRed:0.7 green:0.7 blue:0.7 alpha:0.3];
+        NSColor *textColor1 = [NSColor colorWithCalibratedRed:0.5 green:0.5 blue:0.5 alpha:1];
+        
+        if (isWeekendDay) {
+            [background1 setFill];
+        }else {
+            [background setFill];
+        }
+        
         [foreground setStroke];
         
         NSBezierPath *tile = [NSBezierPath bezierPathWithRect:self.frame];
@@ -70,18 +77,19 @@
                                        referenceFont, NSFontAttributeName, nil];
             [self.text drawAtPoint:textPos withAttributes:fontAttrs];
             
-        }else {
-            if(isSelected) {
-                [[Utils foregroundColor2:0.5]set];
-                [currentMark fill];
-
-            }
+        }else if(isCurrentMonth) {
+        
             
             fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
                          [NSColor blackColor], NSForegroundColorAttributeName,
                          referenceFont, NSFontAttributeName, nil];
             [self.text drawAtPoint:textPos withAttributes:fontAttrs];
 
+        }else {
+            fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
+                         textColor1, NSForegroundColorAttributeName,
+                         referenceFont, NSFontAttributeName, nil];
+            [self.text drawAtPoint:textPos withAttributes:fontAttrs];
         }
         
         if(data != nil) {

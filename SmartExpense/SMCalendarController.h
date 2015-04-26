@@ -16,6 +16,8 @@
     NSArray *nameOfMonth;
     NSInteger month;
     NSInteger year;
+    
+    double secondsPerDay;
 }
 
 @property (readonly) NSRect frame;
@@ -26,12 +28,10 @@
 @property (nonatomic, weak) NSTextFieldCell* monthLabel;
 
 
-
 -(SMCalendarController*) initWithRect:(NSRect)r;
 -(void)drawCalendar;
--(void)unselectAll;
--(NSDate*)dateFromPoint:(NSPoint)point;
 -(SMTile*)tileFromPoint:(NSPoint)point;
+-(void)gotoDateFromTile:(SMTile*)tile;
 
 -(void)nextMonth;
 -(void)prevMonth;

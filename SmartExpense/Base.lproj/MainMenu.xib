@@ -63,15 +63,32 @@
                         <items>
                             <menuItem title="New" keyEquivalent="n" id="82">
                                 <connections>
-                                    <action selector="newDocument:" target="-1" id="373"/>
+                                    <action selector="newAction:" target="494" id="bCz-eq-bg8"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Close" id="73">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="closeAction:" target="494" id="EcJ-Q6-XQA"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="79">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Close" keyEquivalent="w" id="73">
+                            <menuItem title="Export To XML..." keyEquivalent="s" id="bYI-yr-q99">
                                 <connections>
-                                    <action selector="performClose:" target="-1" id="193"/>
+                                    <action selector="saveAction:" target="494" id="JXS-yY-BWs"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="p59-XF-Yb1"/>
+                            <menuItem title="Page Setup..." keyEquivalent="P" id="iva-es-A6U">
+                                <connections>
+                                    <action selector="runPageLayout:" target="-1" id="1eW-Mc-vUq"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Print..." keyEquivalent="p" id="rt1-bg-cUB">
+                                <connections>
+                                    <action selector="printAction:" target="494" id="SXA-9k-bhe"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -486,7 +503,7 @@
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="rfI-RO-mmP">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" patternImage="3E5158C1-2DC3-46B1-A7D4-D45016901402" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="792C72E1-7B7C-4D77-A31B-A232D00EAA7F" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
@@ -502,7 +519,7 @@
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="LDK-YK-5cr">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" patternImage="57B0D309-7067-4618-89E2-8AEE6B335C95" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="5E607968-BB20-4A77-ADA5-A0F7869E19B1" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -678,7 +695,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="dni-6e-Ej7">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" patternImage="44A11946-9839-4BDD-B21E-938B0B5C5A8D" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="5E70A68F-76C6-40E5-887E-53C6F18D0FC1" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
@@ -1859,11 +1876,13 @@ Gw
         </customView>
         <customObject id="494" customClass="SMAppDelegate">
             <connections>
+                <outlet property="banks" destination="WH9-oU-eeu" id="Ple-mh-Owt"/>
                 <outlet property="currentAccount" destination="3Q4-hT-nyk" id="rnC-DM-Pxk"/>
                 <outlet property="mainWindow" destination="MYl-2w-Z8s" id="d3W-Oh-4SW"/>
                 <outlet property="smartFuelDelegate" destination="WFG-jV-Ytf" id="4dL-vc-Xu3"/>
                 <outlet property="smartListDelegate" destination="Vwq-sE-MPW" id="ALh-s9-j2X"/>
                 <outlet property="smartMoneyDelegate" destination="eZF-Wy-IeZ" id="cUN-Pa-9am"/>
+                <outlet property="stores" destination="2fT-42-4OU" id="qUF-Ib-aZG"/>
             </connections>
         </customObject>
         <menuItem title="Open Drawer" tag="1" keyEquivalent="o" id="H0x-wn-djW">
@@ -1975,7 +1994,7 @@ Gw
             <connections>
                 <outlet property="delegate" destination="494" id="2gE-vB-BWs"/>
             </connections>
-            <point key="canvasLocation" x="-1489.5" y="-2218"/>
+            <point key="canvasLocation" x="-1504.5" y="-2389"/>
         </window>
         <window title="Bank" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="akB-vs-bdo">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
@@ -2819,7 +2838,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="SYk-ZH-uGa">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="2B1A4DAA-97B1-44FF-ABB0-ADB973FD7AEC" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="8024AE8B-CF70-4E6F-B519-4FDF21A3C67A" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -3085,7 +3104,7 @@ Gw
                                 <timeZone key="timeZone" name="US/Pacific"/>
                             </calendarDate>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            <color key="textColor" patternImage="C0F590C9-DCD6-4AB3-AF2D-CC9A61EA4A59" colorSpace="pattern"/>
+                            <color key="textColor" patternImage="833F27D0-0951-454F-B9EC-D3E8480638FC" colorSpace="pattern"/>
                         </datePickerCell>
                         <connections>
                             <binding destination="yeb-3S-978" name="value" keyPath="selection.checkdate" id="ECo-Ti-wl8"/>
@@ -3184,7 +3203,7 @@ Gw
             <point key="canvasLocation" x="82" y="-160"/>
         </window>
         <window title="Shopping Store" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="3PJ-PB-g5p">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="192" width="633" height="432"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
@@ -3451,7 +3470,7 @@ Gw
             <point key="canvasLocation" x="148.5" y="-165"/>
         </window>
         <window title="Shopping List" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Cgy-d2-WIe">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="192" width="719" height="424"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
@@ -3903,7 +3922,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="right" title="Text Cell" id="uEB-kw-haP">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="70D60E23-B2E2-4B06-B861-8B2679327046" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="9029A60B-01F0-4647-B2A8-75370D77C4F3" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -3924,7 +3943,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="right" title="Text Cell" id="2fc-Sj-5Mz">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="27A81E33-18BA-404E-98D4-0CE1127657B1" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="CD314113-11F5-4574-8912-551B3A5766D6" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -4221,7 +4240,7 @@ Gw
             </view>
         </window>
         <window title="Car Model" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="dVu-uY-Aui">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="192" width="581" height="301"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
@@ -4463,7 +4482,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="KVl-Oo-oXL">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="BD819A20-F167-4CC4-9133-D338635FFD62" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="A02FDC31-F644-4D2E-A312-0FB09F1BF522" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -4777,7 +4796,7 @@ Gw
             <point key="canvasLocation" x="382" y="-748"/>
         </window>
         <window title="Financial Status" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="QGG-pH-7dn">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="192" width="595" height="396"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
@@ -5088,7 +5107,7 @@ Gw
         </customView>
     </objects>
     <resources>
-        <image name="27A81E33-18BA-404E-98D4-0CE1127657B1" width="256" height="256">
+        <image name="5E607968-BB20-4A77-ADA5-A0F7869E19B1" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -9530,7 +9549,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="2B1A4DAA-97B1-44FF-ABB0-ADB973FD7AEC" width="256" height="256">
+        <image name="5E70A68F-76C6-40E5-887E-53C6F18D0FC1" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -13972,7 +13991,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="3E5158C1-2DC3-46B1-A7D4-D45016901402" width="256" height="256">
+        <image name="792C72E1-7B7C-4D77-A31B-A232D00EAA7F" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -18414,7 +18433,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="44A11946-9839-4BDD-B21E-938B0B5C5A8D" width="256" height="256">
+        <image name="8024AE8B-CF70-4E6F-B519-4FDF21A3C67A" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -22856,7 +22875,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="57B0D309-7067-4618-89E2-8AEE6B335C95" width="256" height="256">
+        <image name="833F27D0-0951-454F-B9EC-D3E8480638FC" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -27298,7 +27317,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="70D60E23-B2E2-4B06-B861-8B2679327046" width="256" height="256">
+        <image name="9029A60B-01F0-4647-B2A8-75370D77C4F3" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -31740,7 +31759,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="BD819A20-F167-4CC4-9133-D338635FFD62" width="256" height="256">
+        <image name="A02FDC31-F644-4D2E-A312-0FB09F1BF522" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -36182,7 +36201,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="C0F590C9-DCD6-4AB3-AF2D-CC9A61EA4A59" width="256" height="256">
+        <image name="CD314113-11F5-4574-8912-551B3A5766D6" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

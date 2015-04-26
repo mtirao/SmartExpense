@@ -11,6 +11,9 @@
 #import "List.h"
 #import "Store.h"
 #import "SMCurrencyValueTransformer.h"
+#import "Banks.h"
+#import "Accounts.h"
+#import "Items.h"
 
 @implementation SMAppDelegate
 
@@ -19,6 +22,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize dataByDate;
 @synthesize currentAccount;
+@synthesize banks, stores;
 
 @synthesize mainWindow;
 
@@ -288,17 +292,6 @@
 //Also performs the save action for the others application.
 - (IBAction)saveAction:(id)sender
 {
-    
-    NSString *question = @"";
-    NSString *info = @"The information is saved automatically every time you quit the application, so this action is not necessary to do. However, you can choose save whenever you want.";
-    NSString *okButton = @"Continue Saving";
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:question];
-    [alert setInformativeText:info];
-    [alert addButtonWithTitle:okButton];
-    
-    [alert runModal];
-    
     NSError *error = nil;
     
     if (![[self managedObjectContext] commitEditing]) {
@@ -309,7 +302,102 @@
         [[NSApplication sharedApplication] presentError:error];
     }
     
+    
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    
+    NSString *fileName = [NSString stringWithFormat:@"Expenses - %@",
+                          [formatter stringFromDate:[NSDate date]]];
+    
+    [savePanel setNameFieldStringValue:fileName];
+    
+    [savePanel setAllowedFileTypes:@[@"xml"]];
+    [savePanel setExtensionHidden:YES];
+    
+    [savePanel beginWithCompletionHandler:^(NSInteger result){
+        if (result == NSFileHandlingPanelOKButton) {
+            NSURL*  theDoc = [savePanel URL];
+            
+            NSData *xmlData = [self exportToXML];
+            
+            NSError *error;
+            
+            [xmlData writeToURL: theDoc options: 0 error: &error];
+            
+        }
+        
+    }];
+    
+
+    
+    
 }
+
+- (IBAction)closeAction:(id)sender {
+    [[[NSApplication sharedApplication] keyWindow]orderOut:sender];
+}
+
+- (IBAction)newAction:(id)sender {
+    [mainWindow makeKeyAndOrderFront:sender];
+}
+
+-(IBAction)printAction:(id)sender {
+    
+    NSPrintInfo *printInfo = [NSPrintInfo sharedPrintInfo];
+    NSRect frame = NSMakeRect(0, 0, [printInfo paperSize].width, [printInfo paperSize].height);
+    
+    NSPrintInfo *pInfo = [[NSPrintInfo alloc] init];
+    [pInfo setBottomMargin:50];
+    [pInfo setTopMargin:50];
+    [pInfo setVerticallyCentered:false];
+    
+    NSArray *type = @[@"SA", @"CA", @"LA", @"CCA",@"IA"];
+    
+    NSTextView *textView = [[NSTextView alloc]initWithFrame:frame];
+    
+    for (Banks *bank in banks.arrangedObjects) {
+        NSString *msg = [NSString stringWithFormat:@"Bank: %@, %@ - %@\n", bank.name, bank.city, bank.address];
+        [[[textView textStorage] mutableString] appendString:msg];
+        
+        for(Accounts *account in bank.accounts) {
+            NSString *msg1 = [NSString stringWithFormat:@"        Account: %@ %@\n", [type objectAtIndex:account.type.intValue], account.number];
+            [[[textView textStorage] mutableString] appendString:msg1];
+            
+            for(Expenses *expense in account.expenses) {
+                NSString *msg2 = [NSString stringWithFormat:@"                Expense: %@ %@\n",
+                                  expense.type, expense.total.stringValue];
+                [[[textView textStorage] mutableString] appendString:msg2];
+            }
+        }
+    }
+    
+    [[NSPrintOperation printOperationWithView:textView printInfo:pInfo] runOperation];
+    
+    
+}
+
+-(BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    
+    if([menuItem.title isEqualToString:@"Close"]) {
+        if([[NSApplication sharedApplication] keyWindow] == nil) {
+            return NO;
+        }else {
+            return YES;
+        }
+    }else if([menuItem.title isEqualToString:@"New"]) {
+        if([mainWindow isKeyWindow]) {
+            return NO;
+        }else {
+            return YES;
+        }
+    }
+    
+    return YES;
+}
+
+
 
 #pragma mark ***** Window Delegate Protocol Methods *****
 
@@ -389,5 +477,188 @@
     
     return d;
 }
+
+
+-(NSData*)exportToXML {
+    
+    NSXMLElement *rootExpenses = (NSXMLElement *)[NSXMLNode elementWithName:@"expenses"];
+    
+    NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] initWithRootElement:rootExpenses];
+    
+    [xmlDoc setVersion:@"1.0"];
+    [xmlDoc setCharacterEncoding:@"UTF-8"];
+
+    
+    NSArray *objects = banks.arrangedObjects;
+    
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc]init];
+    currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    
+    if(objects != nil && objects.count > 0) {
+        [self exportExpenseToXML:rootExpenses];
+        [self exportListToXML:rootExpenses];
+    }
+    
+    return xmlDoc.XMLData;
+}
+
+#pragma mark Export aux methods
+
+-(void) exportExpenseToXML:(NSXMLElement *)expenses {
+    
+    for (Banks *bank in banks.arrangedObjects) {
+        NSXMLElement *banksExpenses = (NSXMLElement *)[NSXMLNode elementWithName:@"banks"];
+        
+        NSXMLNode *address = [NSXMLNode attributeWithName:@"address" stringValue:bank.address];
+        NSXMLNode *city = [NSXMLNode attributeWithName:@"city" stringValue:bank.city];
+        NSXMLNode *country = [NSXMLNode attributeWithName:@"country" stringValue:bank.country];
+        NSXMLNode *name = [NSXMLNode attributeWithName:@"name" stringValue:bank.name];
+        NSXMLNode *state = [NSXMLNode attributeWithName:@"state" stringValue:bank.state];
+        [banksExpenses addAttribute:address];
+        [banksExpenses addAttribute:city];
+        [banksExpenses addAttribute:name];
+        [banksExpenses addAttribute:state];
+        [banksExpenses addAttribute:country];
+        
+        for(Accounts *account in bank.accounts) {
+            NSXMLElement *accountsExpenses = (NSXMLElement *)[NSXMLNode elementWithName:@"accounts"];
+            
+            if(account.balance.floatValue > 0 ) {
+                NSXMLNode * balance = [NSXMLNode attributeWithName:@"balance" stringValue:
+                                account.balance.stringValue];
+                [accountsExpenses addAttribute:balance];
+            }
+            
+            NSXMLNode *currencyname = [NSXMLNode attributeWithName:@"currencyname" stringValue:
+                                       account.currencyname];
+            NSXMLNode *currencysymbol = [NSXMLNode attributeWithName:@"currencysymbol" stringValue:
+                                         account.currencysymbol];
+            NSXMLNode *number = [NSXMLNode attributeWithName:@"number" stringValue:account.number];
+            NSXMLNode *routing = [NSXMLNode attributeWithName:@"routing" stringValue:
+                                  account.routing];
+            NSXMLNode *type = [NSXMLNode attributeWithName:@"type" stringValue:account.type.stringValue];
+            NSXMLNode *exchangeratio = [NSXMLNode attributeWithName:@"exchangeratio" stringValue:account.exchangeratio.stringValue];
+            
+            
+            [accountsExpenses addAttribute:currencyname];
+            [accountsExpenses addAttribute:currencysymbol];
+            [accountsExpenses addAttribute:number];
+            [accountsExpenses addAttribute:routing];
+            [accountsExpenses addAttribute:exchangeratio];
+            [accountsExpenses addAttribute:type];
+            
+            [banksExpenses addChild:accountsExpenses];
+            
+            for(Expenses *expense in account.expenses) {
+                
+                NSXMLElement *expenseExpenses = (NSXMLElement *)[NSXMLNode elementWithName:@"expense"];
+                
+                NSXMLNode * total = [NSXMLNode attributeWithName:@"total" stringValue:
+                                     expense.total.stringValue];
+                
+                NSXMLNode *storename = [NSXMLNode attributeWithName:@"storename" stringValue:expense.storename];
+                NSXMLNode *type = [NSXMLNode attributeWithName:@"type" stringValue:expense.type];
+                
+                [expenseExpenses addAttribute:total];
+                [expenseExpenses addAttribute:storename];
+                [expenseExpenses addAttribute:type];
+                
+                [accountsExpenses addChild:expenseExpenses];
+                
+            }
+        }
+        
+        [expenses addChild:banksExpenses];
+    }
+    
+}
+
+-(void) exportListToXML:(NSXMLElement *)expenses {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    
+    for (Store *store in stores.arrangedObjects) {
+        NSXMLElement *storeExpenses = (NSXMLElement *)[NSXMLNode elementWithName:@"stores"];
+        
+        NSXMLNode *address = [NSXMLNode attributeWithName:@"address" stringValue:store.address];
+        NSXMLNode *city = [NSXMLNode attributeWithName:@"city" stringValue:store.city];
+        NSXMLNode *country = [NSXMLNode attributeWithName:@"country" stringValue:store.country];
+        NSXMLNode *name = [NSXMLNode attributeWithName:@"name" stringValue:store.name];
+        NSXMLNode *state = [NSXMLNode attributeWithName:@"state" stringValue:store.state];
+        [storeExpenses addAttribute:address];
+        [storeExpenses addAttribute:city];
+        [storeExpenses addAttribute:name];
+        [storeExpenses addAttribute:state];
+        [storeExpenses addAttribute:country];
+        
+        for(List *list in store.lists) {
+            NSXMLElement *listExpenses = (NSXMLElement *)[NSXMLNode elementWithName:@"lists"];
+            
+            NSXMLNode * created = [NSXMLNode attributeWithName:@"created" stringValue:
+                                   [dateFormatter stringFromDate:list.created]];
+            
+            NSXMLNode * estimated = [NSXMLNode attributeWithName:@"estimated" stringValue:
+                                   [dateFormatter stringFromDate:list.estimated]];
+            
+            NSXMLNode * isdefault = [NSXMLNode attributeWithName:@"isdefault" stringValue:
+                                     list.isdefault.stringValue];
+        
+            NSXMLNode * name = [NSXMLNode attributeWithName:@"name" stringValue:
+                                     list.name];
+            
+            NSXMLNode * purchased = [NSXMLNode attributeWithName:@"purchased" stringValue:
+                                     [dateFormatter stringFromDate:list.purchased]];
+            
+            
+            NSXMLNode * total = [NSXMLNode attributeWithName:@"total" stringValue:
+                                 list.total.stringValue];
+            
+            [listExpenses addAttribute:created];
+            [listExpenses addAttribute:estimated];
+            [listExpenses addAttribute:isdefault];
+            [listExpenses addAttribute:name];
+            [listExpenses addAttribute:purchased];
+            [listExpenses addAttribute:total];
+            
+            [storeExpenses addChild:listExpenses];
+            
+            for(Items *item in list.items) {
+                
+                NSXMLElement *itemExpenses = (NSXMLElement *)[NSXMLNode elementWithName:@"item"];
+                
+                
+                NSXMLNode *category = [NSXMLNode attributeWithName:@"category" stringValue:
+                                       item.category];
+                
+                NSXMLNode *name = [NSXMLNode attributeWithName:@"name" stringValue:item.name];
+                
+                
+                NSXMLNode *price = [NSXMLNode attributeWithName:@"price" stringValue:
+                                    item.price.stringValue];
+                
+                NSXMLNode *quantity = [NSXMLNode attributeWithName:@"quantity" stringValue:
+                                    item.quantity.stringValue];
+                NSXMLNode *weight = [NSXMLNode attributeWithName:@"weight" stringValue:
+                                       item.weight.stringValue];
+
+                
+                [itemExpenses addAttribute:category];
+                [itemExpenses addAttribute:name];
+                [itemExpenses addAttribute:price];
+                [itemExpenses addAttribute:quantity];
+                [itemExpenses addAttribute:weight];
+
+
+                [listExpenses addChild:itemExpenses];
+                
+            }
+        }
+        
+        [expenses addChild:storeExpenses];
+    }
+    
+}
+
 
 @end

@@ -11,6 +11,8 @@
 @interface SMAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, NSTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet NSArrayController* currentAccount;
+@property (weak, nonatomic) IBOutlet NSArrayController* banks;
+@property (weak, nonatomic) IBOutlet NSArrayController* stores;
 @property (weak, nonatomic) IBOutlet NSWindow* mainWindow;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -22,7 +24,9 @@
 @property NSArray* dataByDate;
 
 - (IBAction)saveAction:(id)sender;
-
+- (IBAction)closeAction:(id)sender;
+- (IBAction)newAction:(id)sender;
+- (IBAction)printAction:(id)sender;
 
 -(NSArray*) expensesByDate:(NSDate*)date;
 -(NSArray*) listsByDate:(NSDate*)date;

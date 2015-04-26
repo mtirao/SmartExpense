@@ -14,8 +14,11 @@
 @property (copy, nonatomic) NSArray* data;
 @property (copy, nonatomic) NSString* text;
 @property (copy, nonatomic) NSString* header;
-@property  BOOL isSelected;
+@property (copy, nonatomic) NSDate* date;
+
 @property BOOL isCurrent;
+@property BOOL isCurrentMonth;
+@property BOOL isWeekendDay;
 
 -(SMTile*)initWithRect:(NSRect)r;
 -(void)drawTile;

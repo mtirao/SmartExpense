@@ -19,6 +19,8 @@
 
 -(SMCalendarController*) initWithRect:(NSRect)r {
     
+    secondsPerDay = 60 * 60 * 24;
+    
     frame = r;
     
     calendar = [[NSMutableArray alloc]initWithCapacity:6];
@@ -56,7 +58,10 @@
     
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *comp = [currentCalendar components:(kCFCalendarUnitWeekday | kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute) fromDate:[self firstDateOfCurrentMonth]];
+    
+    NSDate *firstDateOfCurrentMonth = [self firstDateOfCurrentMonth];
+    
+    NSDateComponents *comp = [currentCalendar components:(kCFCalendarUnitWeekday | kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute) fromDate:firstDateOfCurrentMonth];
     
     month = [comp month];
     year = [comp year];
@@ -69,10 +74,45 @@
     NSString *monthName = [nameOfMonth objectAtIndex:month - 1];
     self.monthLabel.stringValue = monthName;
     
-    BOOL isFirstRow = YES;
-    NSInteger day = 1;
+    
+    NSDate *date1 = [NSDate dateWithTimeInterval: -secondsPerDay*(weekday-1) sinceDate: firstDateOfCurrentMonth];
+    
     
     for (NSInteger i=0;  i< 6; i++) {
+        NSMutableArray *week = [calendar objectAtIndex:i];
+        for(NSInteger j=0; j < 7; j++ ){
+            
+            NSInteger month1 = [currentCalendar component:NSCalendarUnitMonth fromDate:date1];
+            NSInteger day1 = [currentCalendar component: NSCalendarUnitDay fromDate:date1];
+            
+            
+            SMTile *d = [week objectAtIndex:j];
+            
+            d.text = [NSString stringWithFormat:@"%ld", day1];
+            d.date = [NSDate dateWithTimeInterval:0 sinceDate:date1];
+            
+            if(j == 0 || j==6) {
+                d.isWeekendDay = YES;
+            }else {
+                d.isWeekendDay = NO;
+            }
+            
+            if(month1 == month) {
+                d.isCurrent = [self isCurrentDateForMonth:month1 forDay:day1 forYear:year];
+                d.data = [self dataForDate:date1];
+                d.isCurrentMonth = YES;
+                
+                [d drawTile];
+            }else {
+                d.isCurrentMonth = NO;
+                [d drawTile];
+            }
+            
+            date1 = [NSDate dateWithTimeInterval: secondsPerDay sinceDate: date1];
+        }
+    }
+    
+    /*for (NSInteger i=0;  i< 6; i++) {
         NSInteger init = 0;
         if(isFirstRow) {
             init = weekday - 1;
@@ -103,7 +143,7 @@
             }
             
         }
-    }
+    }*/
     
 }
 
@@ -125,31 +165,6 @@
     return [currentCalendar dateFromComponents:comp];
 }
 
--(NSDate*)dateFromPoint:(NSPoint)point {
-    
-    for (NSInteger i=0;  i< 6; i++) {
-        NSMutableArray *week = [calendar objectAtIndex:i];
-        for(NSInteger j=0; j < 7; j++ ) {
-            SMTile* day = [week objectAtIndex:j];
-            if(NSPointInRect(point, day.frame) && day.text != nil) {
-                [self unselectAll];
-                NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-                NSDateComponents *comp = [[NSDateComponents alloc] init];
-                
-                NSInteger dayOfMonth = day.text.integerValue;
-                
-                [comp setDay:dayOfMonth];
-                [comp setMonth:self->month];
-                [comp setYear:self ->year];
-                
-                return [currentCalendar dateFromComponents:comp];
-            }
-        }
-    }
-    
-    return nil;
-}
-
 -(SMTile*)tileFromPoint:(NSPoint)point {
     
     for (NSInteger i=0;  i< 6; i++) {
@@ -166,14 +181,8 @@
     
 }
 
--(void)unselectAll {
-    for (NSInteger i=0;  i< 6; i++) {
-        NSMutableArray *week = [calendar objectAtIndex:i];
-        for(NSInteger j=0; j < 7; j++ ) {
-             SMTile* day = [week objectAtIndex:j];
-            day.isSelected = NO;
-        }
-    }
+-(void)gotoDateFromTile:(SMTile*)tile {
+    self.date = [NSDate dateWithTimeInterval:0 sinceDate:tile.date];
 }
 
 -(void)nextMonth {
@@ -211,20 +220,57 @@
     
     NSMutableArray* mergeData = [[NSMutableArray alloc]init];
 
-    NSNumberFormatter *amount = [[NSNumberFormatter alloc]init];
-    amount.numberStyle = NSNumberFormatterCurrencyStyle;
+    NSNumberFormatter *amountFormatter = [[NSNumberFormatter alloc]init];
+    amountFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
     
     for(Expenses *expense in expenses) {
         
         if(expense.account != nil) {
-            amount.currencySymbol = expense.account.currencysymbol;
+            amountFormatter.currencySymbol = expense.account.currencysymbol;
         
             NSString *text;
-        
+            
             if (expense.total.doubleValue < 0) {
-                text = [NSString stringWithFormat:@"%@ - (%@)", expense.type, [amount stringFromNumber:expense.total]];
+                
+                NSString *amount = [amountFormatter stringFromNumber:expense.total];
+
+                NSUInteger length = amount.length + expense.type.length + 5;
+                
+                if(length > 26) {
+                    
+                    NSString *type;
+                    
+                    if(expense.type.length > (amount.length+5)) {
+                        type = [expense.type substringToIndex:expense.type.length - amount.length];
+                    }else {
+                        type = expense.type;
+                    }
+                    
+                    text = [NSString stringWithFormat:@"%@ - (%@)", type, amount];
+                }else {
+                    text = [NSString stringWithFormat:@"%@ - (%@)", expense.type, amount];
+                }
+                
             }else {
-                text = [NSString stringWithFormat:@"%@ - %@", expense.type, [amount stringFromNumber:expense.total]];
+                
+                NSString *amount = [amountFormatter stringFromNumber:expense.total];
+                
+                NSUInteger length = amount.length + expense.type.length + 3;
+                
+                if(length > 26) {
+                    
+                    NSString *type;
+                    
+                    if(expense.type.length > (amount.length+3)) {
+                        type = [expense.type substringToIndex:expense.type.length - amount.length];
+                    }else {
+                        type = expense.type;
+                    }
+                    
+                    text = [NSString stringWithFormat:@"%@ - %@", type, amount];
+                }else {
+                    text = [NSString stringWithFormat:@"%@ - %@", expense.type, amount];
+                }
             }
         
         
