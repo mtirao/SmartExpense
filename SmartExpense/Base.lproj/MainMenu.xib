@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7531" systemVersion="14E11f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7531"/>
     </dependencies>
@@ -503,7 +503,7 @@
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="rfI-RO-mmP">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" patternImage="792C72E1-7B7C-4D77-A31B-A232D00EAA7F" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="2640123E-40A2-4DF2-8A66-57EE492F44D1" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
@@ -519,7 +519,7 @@
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="LDK-YK-5cr">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" patternImage="5E607968-BB20-4A77-ADA5-A0F7869E19B1" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="0A1FE645-9479-4702-94EB-C382339C12DA" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -695,7 +695,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="dni-6e-Ej7">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" patternImage="5E70A68F-76C6-40E5-887E-53C6F18D0FC1" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="BEB79B3C-F821-41DA-BB8E-1750FBFE3645" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
@@ -1891,7 +1891,7 @@ Gw
             </connections>
         </menuItem>
         <window title="Smart Expense" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="MYl-2w-Z8s">
-            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="192" width="951" height="680"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
@@ -1994,7 +1994,7 @@ Gw
             <connections>
                 <outlet property="delegate" destination="494" id="2gE-vB-BWs"/>
             </connections>
-            <point key="canvasLocation" x="-1504.5" y="-2389"/>
+            <point key="canvasLocation" x="-1544.5" y="-2388"/>
         </window>
         <window title="Bank" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="akB-vs-bdo">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
@@ -2838,7 +2838,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="SYk-ZH-uGa">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="8024AE8B-CF70-4E6F-B519-4FDF21A3C67A" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="9CD41232-9BFD-42EF-903D-5CC495C86F08" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -3104,7 +3104,7 @@ Gw
                                 <timeZone key="timeZone" name="US/Pacific"/>
                             </calendarDate>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            <color key="textColor" patternImage="833F27D0-0951-454F-B9EC-D3E8480638FC" colorSpace="pattern"/>
+                            <color key="textColor" patternImage="421B3105-9EC0-4ADA-ACA9-F47AA78A38CD" colorSpace="pattern"/>
                         </datePickerCell>
                         <connections>
                             <binding destination="yeb-3S-978" name="value" keyPath="selection.checkdate" id="ECo-Ti-wl8"/>
@@ -3922,7 +3922,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="right" title="Text Cell" id="uEB-kw-haP">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="9029A60B-01F0-4647-B2A8-75370D77C4F3" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="1ADA32C2-2E40-49DC-8EF1-96ED74B26326" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -3943,7 +3943,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="right" title="Text Cell" id="2fc-Sj-5Mz">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="CD314113-11F5-4574-8912-551B3A5766D6" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="C8E9A3CA-9A77-4699-AE1F-79807BC3FA72" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -4482,7 +4482,7 @@ Gw
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="KVl-Oo-oXL">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" patternImage="A02FDC31-F644-4D2E-A312-0FB09F1BF522" colorSpace="pattern"/>
+                                                <color key="textColor" patternImage="A915C657-6644-47E0-BE94-0455323B5E47" colorSpace="pattern"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
@@ -5009,9 +5009,9 @@ Gw
                     </popUpButtonCell>
                 </popUpButton>
                 <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="YMc-1h-aCz">
-                    <rect key="frame" x="190" y="5" width="4" height="1"/>
+                    <rect key="frame" x="190" y="5" width="4" height="5"/>
                     <constraints>
-                        <constraint firstAttribute="width" id="vzz-Qf-J55"/>
+                        <constraint firstAttribute="width" constant="4" id="vzz-Qf-J55"/>
                     </constraints>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5063,9 +5063,9 @@ Gw
                 <constraint firstItem="ASv-ZR-UxR" firstAttribute="centerX" secondItem="ApH-5u-Ocn" secondAttribute="centerX" id="5io-aT-LQ6"/>
                 <constraint firstItem="xUT-GB-Ggv" firstAttribute="leading" secondItem="1ew-3u-3X2" secondAttribute="leading" constant="57" id="60Y-Z6-zAd"/>
                 <constraint firstItem="SXh-Z8-Ity" firstAttribute="top" secondItem="ApH-5u-Ocn" secondAttribute="bottom" constant="8" symbolic="YES" id="7Yi-de-LMt"/>
-                <constraint firstAttribute="bottom" secondItem="YMc-1h-aCz" secondAttribute="bottom" constant="5" id="7xm-qn-AEF"/>
+                <constraint firstAttribute="bottom" secondItem="YMc-1h-aCz" secondAttribute="bottom" constant="7" id="7xm-qn-AEF"/>
                 <constraint firstItem="Igz-oB-9hJ" firstAttribute="top" secondItem="2JU-xC-Lyg" secondAttribute="top" id="7y5-xr-Cjw"/>
-                <constraint firstItem="YMc-1h-aCz" firstAttribute="top" secondItem="1ew-3u-3X2" secondAttribute="top" constant="208" id="8pl-Ae-Aul"/>
+                <constraint firstItem="YMc-1h-aCz" firstAttribute="top" secondItem="1ew-3u-3X2" secondAttribute="top" constant="206" id="8pl-Ae-Aul"/>
                 <constraint firstAttribute="trailing" secondItem="JDS-Dv-wtV" secondAttribute="trailing" constant="46" id="ACf-gE-Zfw"/>
                 <constraint firstItem="ASv-ZR-UxR" firstAttribute="centerY" secondItem="SXh-Z8-Ity" secondAttribute="centerY" id="HNa-Qm-X2a"/>
                 <constraint firstItem="SXh-Z8-Ity" firstAttribute="leading" secondItem="ASv-ZR-UxR" secondAttribute="trailing" constant="5" id="Ht6-aY-uLH"/>
@@ -5093,7 +5093,7 @@ Gw
                 <constraint firstItem="nk3-GK-X1r" firstAttribute="centerX" secondItem="SXh-Z8-Ity" secondAttribute="centerX" id="k9A-pk-P4B"/>
                 <constraint firstItem="Hkz-bS-1sy" firstAttribute="trailing" secondItem="S0P-4n-USW" secondAttribute="trailing" id="kJv-oj-PrX"/>
                 <constraint firstItem="drN-0V-a6M" firstAttribute="trailing" secondItem="zym-s6-GXw" secondAttribute="trailing" id="kgX-XO-JfO"/>
-                <constraint firstAttribute="trailing" secondItem="YMc-1h-aCz" secondAttribute="trailing" constant="32" id="nAy-Ro-DMl"/>
+                <constraint firstAttribute="trailing" secondItem="YMc-1h-aCz" secondAttribute="trailing" constant="30" id="nAy-Ro-DMl"/>
                 <constraint firstItem="xUT-GB-Ggv" firstAttribute="top" secondItem="Hkz-bS-1sy" secondAttribute="bottom" constant="8" symbolic="YES" id="o3I-Je-S7a"/>
                 <constraint firstItem="ErQ-AN-m49" firstAttribute="top" secondItem="nk3-GK-X1r" secondAttribute="bottom" constant="1" id="oNA-cz-Nua"/>
                 <constraint firstItem="ErQ-AN-m49" firstAttribute="centerY" secondItem="xUT-GB-Ggv" secondAttribute="centerY" id="qL0-zn-xgI"/>
@@ -5107,7 +5107,7 @@ Gw
         </customView>
     </objects>
     <resources>
-        <image name="5E607968-BB20-4A77-ADA5-A0F7869E19B1" width="256" height="256">
+        <image name="0A1FE645-9479-4702-94EB-C382339C12DA" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -9549,7 +9549,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="5E70A68F-76C6-40E5-887E-53C6F18D0FC1" width="256" height="256">
+        <image name="1ADA32C2-2E40-49DC-8EF1-96ED74B26326" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -13991,7 +13991,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="792C72E1-7B7C-4D77-A31B-A232D00EAA7F" width="256" height="256">
+        <image name="2640123E-40A2-4DF2-8A66-57EE492F44D1" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -18433,7 +18433,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="8024AE8B-CF70-4E6F-B519-4FDF21A3C67A" width="256" height="256">
+        <image name="421B3105-9EC0-4ADA-ACA9-F47AA78A38CD" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -22875,7 +22875,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="833F27D0-0951-454F-B9EC-D3E8480638FC" width="256" height="256">
+        <image name="9CD41232-9BFD-42EF-903D-5CC495C86F08" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -27317,7 +27317,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="9029A60B-01F0-4647-B2A8-75370D77C4F3" width="256" height="256">
+        <image name="A915C657-6644-47E0-BE94-0455323B5E47" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -31759,7 +31759,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="A02FDC31-F644-4D2E-A312-0FB09F1BF522" width="256" height="256">
+        <image name="BEB79B3C-F821-41DA-BB8E-1750FBFE3645" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -36201,7 +36201,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="CD314113-11F5-4574-8912-551B3A5766D6" width="256" height="256">
+        <image name="C8E9A3CA-9A77-4699-AE1F-79807BC3FA72" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
